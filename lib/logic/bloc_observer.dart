@@ -1,0 +1,42 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+//Observer for debugging all bloc functionality
+class SimpleBlocObserver extends BlocObserver {
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    super.onChange(bloc, change);
+    print(
+        'onChange: ${bloc.runtimeType}, ${bloc.state} \nCurrent state: ${change.currentState}\nNext state: ${change.nextState}');
+  }
+
+  @override
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    print('onError(${bloc.runtimeType}, ${bloc.state}, $error, $stackTrace)');
+    super.onError(bloc, error, stackTrace);
+  }
+
+  @override
+  void onEvent(Bloc bloc, Object? event) {
+    print('onEvent(${bloc.state}, ${bloc.runtimeType}, $event)');
+    super.onEvent(bloc, event);
+  }
+
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    print(
+        'onTransition(${bloc.state}, ${bloc.runtimeType}, ${transition.currentState}, ${transition.nextState})');
+    super.onTransition(bloc, transition);
+  }
+
+  @override
+  void onCreate(BlocBase bloc) {
+    print('onCreate(${bloc.state}, ${bloc.runtimeType})');
+    super.onCreate(bloc);
+  }
+
+  @override
+  void onClose(BlocBase bloc) {
+    print('onTransition(${bloc.state}, ${bloc.runtimeType})');
+    super.onClose(bloc);
+  }
+}
