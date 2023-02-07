@@ -3,13 +3,14 @@ import 'package:pikapika_admin_panel/presentation/config/theme.dart';
 
 class Constants {
   static const Color backgroundColor = Color(0xffF6F6F6);
+  static const Color secondBackgroundColor = Colors.white;
   static const Color primaryColor = Color(0xFFEB573F);
   static const Color secondPrimaryColor = Color(0xFFFC7F72);
   static const Color darkPrimaryColor = Color.fromARGB(255, 162, 35, 15);
 
   static const Color darkGrayColor = Color(0xFF383838);
-  static const Color middleGrayColor = Color(0xFF959595);
   static const Color lightGrayColor = Color(0xFFEAEAEA);
+  static const Color middleGrayColor = Color(0xFF6C7383);
 
   static const Color whiteColor = Color(0xffFFFFFF);
   static const Color dividerColor = Color(0xFFEAEAEA);

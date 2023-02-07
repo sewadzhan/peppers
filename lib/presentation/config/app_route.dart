@@ -7,6 +7,7 @@ import 'package:pikapika_admin_panel/data/providers/firestore_provider.dart';
 import 'package:pikapika_admin_panel/data/repositories/auth_repository.dart';
 import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
+import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/screens/login_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/main_screen.dart';
 
@@ -18,7 +19,11 @@ class AppRouter {
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case "/":
-        return MaterialPageRoute(builder: (context) => const MainScreen());
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => NavigationCubit(),
+                  child: const MainScreen(),
+                ));
       case "/login":
         return MaterialPageRoute(
             builder: (context) => BlocProvider(

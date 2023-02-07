@@ -64,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: Constants.defaultPadding),
                     Text(
                         "Введите электронную почту и пароль для входа в аккаунт",
-                        style: Theme.of(context).textTheme.bodyText1),
+                        style: Constants.textTheme.bodyText1),
                     Padding(
                       padding: const EdgeInsets.only(
                         top: Constants.defaultPadding * 2,
