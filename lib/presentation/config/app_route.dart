@@ -6,6 +6,7 @@ import 'package:pikapika_admin_panel/data/providers/auth_firebase_provider.dart'
 import 'package:pikapika_admin_panel/data/providers/firestore_provider.dart';
 import 'package:pikapika_admin_panel/data/repositories/auth_repository.dart';
 import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
+import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
 import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/screens/login_screen.dart';
@@ -20,8 +21,16 @@ class AppRouter {
     switch (settings.name) {
       case "/":
         return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                  create: (context) => NavigationCubit(),
+            builder: (context) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => NavigationCubit(),
+                    ),
+                    BlocProvider(
+                      create: (context) => ContactBloc(firestoreRepository)
+                        ..add(LoadContactData()),
+                    ),
+                  ],
                   child: const MainScreen(),
                 ));
       case "/login":

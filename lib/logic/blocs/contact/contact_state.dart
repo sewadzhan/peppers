@@ -11,6 +11,10 @@ class ContactInitial extends ContactState {}
 
 class ContactLoading extends ContactState {}
 
+class ContactSaving extends ContactState {}
+
+class ContactSuccessSaved extends ContactState {}
+
 class ContactLoaded extends ContactState {
   final ContactsModel contactsModel;
 
@@ -20,10 +24,10 @@ class ContactLoaded extends ContactState {
   List<Object> get props => [contactsModel];
 }
 
-class ContactsErrorState extends ContactState {
+class ContactsError extends ContactState {
   final String message;
 
-  const ContactsErrorState(this.message);
+  const ContactsError(this.message);
 
   @override
   List<Object> get props => [message];

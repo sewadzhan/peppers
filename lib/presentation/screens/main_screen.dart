@@ -16,6 +16,7 @@ class MainScreen extends StatelessWidget {
     final screens = [const ContactsScreen(), const PromotionScreen()];
 
     return Scaffold(
+      extendBodyBehindAppBar: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 60,
@@ -64,7 +65,7 @@ class MainScreen extends StatelessWidget {
                     value: "signOut",
                     child: Text(
                       "Выйти из аккаунта",
-                      style: Constants.textTheme.bodyText1,
+                      style: Constants.textTheme.bodyLarge,
                     ),
                   )
                 ];
@@ -79,6 +80,7 @@ class MainScreen extends StatelessWidget {
             children: [
               Expanded(
                   child: Drawer(
+                elevation: 0,
                 backgroundColor: Constants.secondBackgroundColor,
                 child: SingleChildScrollView(
                   child: Padding(

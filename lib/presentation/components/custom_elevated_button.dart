@@ -9,7 +9,9 @@ class CustomElevatedButton extends StatelessWidget {
       this.fullWidth = true,
       this.isEnabled = true,
       this.isLoading = false,
-      this.width})
+      this.width,
+      this.height = 48,
+      this.fontSize})
       : super(key: key);
 
   final String text;
@@ -19,12 +21,14 @@ class CustomElevatedButton extends StatelessWidget {
   final bool fullWidth;
   final bool isEnabled;
   final double? width;
+  final double? height;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? MediaQuery.of(context).size.width,
-      height: 48,
+      height: height,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
               elevation: 0,
@@ -47,8 +51,8 @@ class CustomElevatedButton extends StatelessWidget {
                 )
               : Text(
                   text,
-                  style: Constants.textTheme.headline4!
-                      .copyWith(color: Constants.buttonTextColor),
+                  style: Constants.textTheme.headlineMedium!.copyWith(
+                      color: Constants.buttonTextColor, fontSize: fontSize),
                 )),
     );
   }

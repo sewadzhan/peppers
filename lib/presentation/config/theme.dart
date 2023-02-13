@@ -4,42 +4,42 @@ import 'package:pikapika_admin_panel/presentation/config/constants.dart';
 
 class CustomTheme {
   static TextTheme usualTextTheme = const TextTheme(
-    headline1: TextStyle(
+    displayLarge: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 32,
     ),
-    headline2: TextStyle(
+    displayMedium: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 22,
     ),
-    headline3: TextStyle(
+    displaySmall: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 18,
     ),
-    headline4: TextStyle(
+    headlineMedium: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 16,
     ),
-    headline5: TextStyle(
+    headlineSmall: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 14,
     ),
-    headline6: TextStyle(
+    titleLarge: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 12,
     ),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.normal,
       fontSize: 14,
     ),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.normal,
       fontSize: 12,
@@ -47,42 +47,42 @@ class CustomTheme {
   );
 
   static TextTheme smallTextTheme = const TextTheme(
-    headline1: TextStyle(
+    displayLarge: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 26,
     ),
-    headline2: TextStyle(
+    displayMedium: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 20,
     ),
-    headline3: TextStyle(
+    displaySmall: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 16,
     ),
-    headline4: TextStyle(
+    headlineMedium: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 14.5,
     ),
-    headline5: TextStyle(
+    headlineSmall: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 12.5,
     ),
-    headline6: TextStyle(
+    titleLarge: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.bold,
       fontSize: 11,
     ),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.normal,
       fontSize: 12.5,
     ),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.normal,
       fontSize: 11,

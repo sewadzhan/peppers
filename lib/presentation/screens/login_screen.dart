@@ -60,11 +60,11 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     const Spacer(),
                     Text("Добро пожаловать 👋 ",
-                        style: Constants.textTheme.headline1),
+                        style: Constants.textTheme.displayLarge),
                     const SizedBox(height: Constants.defaultPadding),
                     Text(
                         "Введите электронную почту и пароль для входа в аккаунт",
-                        style: Constants.textTheme.bodyText1),
+                        style: Constants.textTheme.bodyLarge),
                     Padding(
                       padding: const EdgeInsets.only(
                         top: Constants.defaultPadding * 2,
@@ -77,6 +77,7 @@ class LoginScreen extends StatelessWidget {
                           },
                           titleText: "Email",
                           hintText: "Введите электронную почту",
+                          showBorder: false,
                           controller: emailController),
                     ),
                     Padding(
@@ -92,6 +93,7 @@ class LoginScreen extends StatelessWidget {
                           },
                           titleText: "Пароль",
                           hintText: "Введите пароль",
+                          showBorder: false,
                           controller: passwordController),
                     ),
                     BlocBuilder<LoginBloc, LoginState>(

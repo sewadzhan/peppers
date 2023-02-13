@@ -37,7 +37,7 @@ class DrawerListTile extends StatelessWidget {
         horizontalTitleGap: 0,
         title: Text(
           title,
-          style: Constants.textTheme.bodyText1!.copyWith(
+          style: Constants.textTheme.bodyLarge!.copyWith(
               fontWeight: FontWeight.bold,
               color: isActive
                   ? Constants.buttonTextColor

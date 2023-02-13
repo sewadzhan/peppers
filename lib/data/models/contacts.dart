@@ -73,7 +73,7 @@ class ContactsModel {
       'phone': phone,
       'webSite': webSite,
       'whatsappUrl': whatsappUrl,
-      'closeHour': openHour,
+      'workingHours': {"open": openHour, "close": closeHour},
       'minOrderSum': minOrderSum,
       'pickupPoints': pickupPoints,
       'playMarketUrl': playMarketUrl,
@@ -81,5 +81,35 @@ class ContactsModel {
       'paymentMethods': paymentMethods,
       'ranges': ranges,
     };
+  }
+
+  ContactsModel copyWith({
+    String? email,
+    String? instagramUrl,
+    String? phone,
+    String? webSite,
+    String? whatsappUrl,
+    String? closeHour,
+    String? openHour,
+    List<DeliveryPoint>? pickupPoints,
+    int? minOrderSum,
+    String? playMarketUrl,
+    String? appStoreUrl,
+    Map<String, bool>? paymentMethods,
+    List<String>? ranges,
+  }) {
+    return ContactsModel(
+        email: email ?? this.email,
+        instagramUrl: instagramUrl ?? this.instagramUrl,
+        phone: phone ?? this.phone,
+        webSite: webSite ?? this.webSite,
+        whatsappUrl: whatsappUrl ?? this.whatsappUrl,
+        closeHour: closeHour ?? this.closeHour,
+        openHour: openHour ?? this.openHour,
+        minOrderSum: minOrderSum ?? this.minOrderSum,
+        playMarketUrl: playMarketUrl ?? this.playMarketUrl,
+        appStoreUrl: appStoreUrl ?? this.appStoreUrl,
+        paymentMethods: paymentMethods ?? this.paymentMethods,
+        ranges: ranges ?? this.ranges);
   }
 }
