@@ -27,7 +27,7 @@ class FirestoreRepository {
     var promotionsDocs = await firestoreProvider.getPromotions();
 
     return promotionsDocs
-        .map((snapshot) => Promotion.fromMap(snapshot.data()))
+        .map((snapshot) => Promotion.fromMap(snapshot.data(), snapshot.id))
         .toList();
   }
 
@@ -160,7 +160,12 @@ class FirestoreRepository {
   }
 
   //Add new promotion
-  Future<void> addPromotion(Promotion promotion) async {
-    await firestoreProvider.addPromocode(promotion.toMap());
+  Future<String> addPromotion(Promotion promotion) async {
+    return await firestoreProvider.addPromotion(promotion.toMap());
+  }
+
+  //Delete promotion
+  Future<void> deletePromotionData(String promotionID) async {
+    await firestoreProvider.deletePromotionData(promotionID);
   }
 }

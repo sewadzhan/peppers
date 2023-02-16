@@ -8,6 +8,7 @@ import 'package:pikapika_admin_panel/data/repositories/auth_repository.dart';
 import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
 import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
+import 'package:pikapika_admin_panel/logic/blocs/promotion/promotion_bloc.dart';
 import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/screens/login_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/main_screen.dart';
@@ -29,6 +30,10 @@ class AppRouter {
                     BlocProvider(
                       create: (context) => ContactBloc(firestoreRepository)
                         ..add(LoadContactData()),
+                    ),
+                    BlocProvider(
+                      create: (context) => PromotionBloc(firestoreRepository)
+                        ..add(LoadPromotionData()),
                     ),
                   ],
                   child: const MainScreen(),

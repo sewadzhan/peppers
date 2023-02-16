@@ -11,21 +11,52 @@ abstract class PromotionEvent extends Equatable {
 class LoadPromotionData extends PromotionEvent {}
 
 //Update the data in Cloud Firestore
-class UpdatePromotionData extends PromotionEvent {
-  final Promotion promotion;
+class UpdatePromotion extends PromotionEvent {
+  final String imageUrl;
+  final String title;
+  final String description;
+  final String promocode;
+  final String order;
+  final String id;
 
-  const UpdatePromotionData(this.promotion);
+  const UpdatePromotion(
+      {required this.imageUrl,
+      required this.title,
+      required this.description,
+      required this.promocode,
+      required this.order,
+      required this.id});
 
   @override
-  List<Object> get props => [promotion];
+  List<Object> get props =>
+      [imageUrl, title, description, promocode, order, id];
 }
 
 //Add a new promotion in Cloud Firestore
 class AddPromotion extends PromotionEvent {
-  final Promotion promotion;
+  final String imageUrl;
+  final String title;
+  final String description;
+  final String promocode;
+  final String order;
 
-  const AddPromotion(this.promotion);
+  const AddPromotion(
+      {required this.imageUrl,
+      required this.title,
+      required this.description,
+      required this.promocode,
+      required this.order});
 
   @override
-  List<Object> get props => [promotion];
+  List<Object> get props => [imageUrl, title, description, promocode, order];
+}
+
+//Delete certain promotion from Cloud Firestore
+class DeletePromotion extends PromotionEvent {
+  final String id;
+
+  const DeletePromotion({required this.id});
+
+  @override
+  List<Object> get props => [id];
 }

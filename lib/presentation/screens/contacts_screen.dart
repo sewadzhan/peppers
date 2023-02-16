@@ -61,6 +61,7 @@ class ContactsScreen extends StatelessWidget {
         }
 
         return SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,

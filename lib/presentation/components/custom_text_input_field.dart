@@ -13,20 +13,21 @@ extension TimeOfDayConverter on TimeOfDay {
 }
 
 class CustomTextInputField extends StatelessWidget {
-  const CustomTextInputField({
-    Key? key,
-    required this.titleText,
-    required this.hintText,
-    required this.controller,
-    this.keyboardType = TextInputType.text,
-    this.pickerType = Picker.none,
-    this.onlyRead = false,
-    this.maxLines = 1,
-    this.onTap,
-    this.onChanged,
-    this.isObscure = false,
-    this.showBorder = true,
-  }) : super(key: key);
+  const CustomTextInputField(
+      {Key? key,
+      required this.titleText,
+      required this.hintText,
+      required this.controller,
+      this.keyboardType = TextInputType.text,
+      this.pickerType = Picker.none,
+      this.onlyRead = false,
+      this.maxLines = 1,
+      this.onTap,
+      this.onChanged,
+      this.isObscure = false,
+      this.showBorder = true,
+      this.width})
+      : super(key: key);
 
   final String titleText;
   final String? hintText;
@@ -39,6 +40,7 @@ class CustomTextInputField extends StatelessWidget {
   final Function(String)? onChanged;
   final bool isObscure;
   final bool showBorder;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,8 @@ class CustomTextInputField extends StatelessWidget {
           titleText,
           style: Constants.textTheme.headlineSmall,
         ),
-        Padding(
+        Container(
+          width: width,
           padding: const EdgeInsets.only(top: 10),
           child: TextFormField(
             onChanged: onChanged,

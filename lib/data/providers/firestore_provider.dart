@@ -178,8 +178,18 @@ class FirestoreProvider {
   }
 
   //Add new promotion
-  Future<void> addPromotion(Map<String, dynamic> map) async {
-    await firebaseFirestore.collection('promotions').add(map).then((value) =>
-        print("Promotion \"${map['title']}\" was added successfully"));
+  Future<String> addPromotion(Map<String, dynamic> map) async {
+    var promotionID = "";
+    await firebaseFirestore.collection('promotions').add(map).then((value) {
+      promotionID = value.id;
+      print("Promotion \"${map['title']}\" was added successfully");
+    });
+
+    return promotionID;
+  }
+
+  //Delete the promotion
+  Future<void> deletePromotionData(String docId) async {
+    await firebaseFirestore.collection('promotions').doc(docId).delete();
   }
 }
