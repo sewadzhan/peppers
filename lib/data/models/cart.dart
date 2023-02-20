@@ -28,7 +28,9 @@ class Cart extends Equatable {
       switch (activePromocode!.type) {
         case PromocodeType.percent:
           return (subtotal / 100.0 * activePromocode!.value).toInt();
-        case PromocodeType.value:
+        case PromocodeType.flexible:
+          return activePromocode!.value.toInt();
+        case PromocodeType.fixed:
           return activePromocode!.value.toInt();
       }
     }

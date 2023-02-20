@@ -6,6 +6,7 @@ import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.da
 import 'package:pikapika_admin_panel/presentation/components/drawer_list_tile.dart';
 import 'package:pikapika_admin_panel/presentation/config/constants.dart';
 import 'package:pikapika_admin_panel/presentation/screens/contacts_screen.dart';
+import 'package:pikapika_admin_panel/presentation/screens/discount_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/promotions_screen.dart';
 
 class MainScreen extends StatelessWidget {
@@ -13,7 +14,11 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screens = [const ContactsScreen(), const PromotionScreen()];
+    final screens = [
+      const ContactsScreen(),
+      const PromotionScreen(),
+      const DiscountScreen()
+    ];
 
     return Scaffold(
       extendBodyBehindAppBar: false,
@@ -102,6 +107,14 @@ class MainScreen extends StatelessWidget {
                           title: "Акции и предложения",
                           onTap: () {
                             context.read<NavigationCubit>().setIndex(1);
+                          },
+                        ),
+                        DrawerListTile(
+                          isActive: state == 2,
+                          iconPath: "assets/icons/discount.svg",
+                          title: "Промокоды и скидки",
+                          onTap: () {
+                            context.read<NavigationCubit>().setIndex(2);
                           },
                         ),
                       ],

@@ -44,6 +44,11 @@ class CustomTheme {
       fontWeight: FontWeight.normal,
       fontSize: 12,
     ),
+    bodySmall: TextStyle(
+      color: Constants.darkGrayColor,
+      fontWeight: FontWeight.normal,
+      fontSize: 10,
+    ),
   );
 
   static TextTheme smallTextTheme = const TextTheme(
@@ -86,6 +91,11 @@ class CustomTheme {
       color: Constants.darkGrayColor,
       fontWeight: FontWeight.normal,
       fontSize: 11,
+    ),
+    bodySmall: TextStyle(
+      color: Constants.darkGrayColor,
+      fontWeight: FontWeight.normal,
+      fontSize: 9,
     ),
   );
 

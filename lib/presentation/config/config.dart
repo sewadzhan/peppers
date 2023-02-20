@@ -2,6 +2,7 @@ import 'package:flutter_paybox/paybox.dart' as paybox;
 import 'package:pikapika_admin_panel/data/models/checkout.dart';
 import 'package:pikapika_admin_panel/data/models/order.dart';
 import 'package:pikapika_admin_panel/data/models/product.dart';
+import 'package:pikapika_admin_panel/data/models/promocode.dart';
 import 'package:pikapika_admin_panel/presentation/config/pikapika_exception.dart';
 
 class Config {
@@ -228,6 +229,17 @@ class Config {
         return "Подарок №3";
       default:
         return "Подарок";
+    }
+  }
+
+  static String promocodeTypeToString(PromocodeType type) {
+    switch (type) {
+      case PromocodeType.percent:
+        return "Процентная скидка";
+      case PromocodeType.fixed:
+        return "Фиксированная скидка";
+      case PromocodeType.flexible:
+        return "Гибкая скидка";
     }
   }
 }

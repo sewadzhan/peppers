@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:pikapika_admin_panel/data/models/promotion.dart';
@@ -101,8 +99,6 @@ class PromotionBloc extends Bloc<PromotionEvent, PromotionState> {
 
         var promotionID =
             await firestoreRepository.addPromotion(addedPromotion);
-
-        log(promotionID);
 
         List<Promotion> finalList = List.from(previousState.promotions)
           ..add(addedPromotion.copyWith(id: promotionID));

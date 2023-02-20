@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pikapika_admin_panel/data/providers/auth_firebase_provider.dart';
 import 'package:pikapika_admin_panel/data/providers/firestore_provider.dart';
+import 'package:pikapika_admin_panel/data/providers/iiko_provider.dart';
 import 'package:pikapika_admin_panel/data/repositories/auth_repository.dart';
 import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
+import 'package:pikapika_admin_panel/data/repositories/iiko_repository.dart';
 import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
+import 'package:pikapika_admin_panel/logic/blocs/promocode/promocode_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promotion/promotion_bloc.dart';
 import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/screens/login_screen.dart';
@@ -18,6 +21,7 @@ class AppRouter {
       AuthRepository(AuthFirebaseProvider(FirebaseAuth.instance));
   final FirestoreRepository firestoreRepository =
       FirestoreRepository(FirestoreProvider(FirebaseFirestore.instance));
+  final IikoRepository iikoRepository = IikoRepository(IikoProvider());
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case "/":
@@ -34,6 +38,11 @@ class AppRouter {
                     BlocProvider(
                       create: (context) => PromotionBloc(firestoreRepository)
                         ..add(LoadPromotionData()),
+                    ),
+                    BlocProvider(
+                      create: (context) =>
+                          PromocodeBloc(firestoreRepository, iikoRepository)
+                            ..add(LoadPromocodeData()),
                     ),
                   ],
                   child: const MainScreen(),

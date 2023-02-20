@@ -166,9 +166,18 @@ class FirestoreProvider {
   }
 
   //Add new promocode
-  Future<void> addPromocode(Map<String, dynamic> map) async {
-    await firebaseFirestore.collection('promocodes').add(map).then(
-        (value) => print("Promocode ${map['code']} was added successfully"));
+  Future<String> addPromocode(Map<String, dynamic> map) async {
+    var promocodeID = "";
+    await firebaseFirestore.collection('promocodes').add(map).then((value) {
+      print("Promocode ${map['code']} was added successfully");
+      promocodeID = value.id;
+    });
+    return promocodeID;
+  }
+
+  //Delete the promocode
+  Future<void> deletePromocode(String docId) async {
+    await firebaseFirestore.collection('promocodes').doc(docId).delete();
   }
 
   //Update the certain data of promotion

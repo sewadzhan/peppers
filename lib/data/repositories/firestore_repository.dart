@@ -86,8 +86,10 @@ class FirestoreRepository {
   Future<List<Promocode>> getPromocodes() async {
     var promocodeDocs = await firestoreProvider.getPromocodes();
 
+    print(promocodeDocs.map((snapshot) => snapshot.id).toList());
+
     return promocodeDocs
-        .map((snapshot) => Promocode.fromMap(snapshot.data()))
+        .map((snapshot) => Promocode.fromMap(snapshot.data(), snapshot.id))
         .toList();
   }
 
@@ -144,13 +146,18 @@ class FirestoreRepository {
 
   //Update the certain data of promocode
   Future<void> updatePromocodeData(Promocode promocode) async {
-    await firestoreProvider.updatePromotionData(
+    await firestoreProvider.updatePromocodeData(
         promocode.id, promocode.toMap());
   }
 
   //Add new promocode
-  Future<void> addPromocode(Promocode promocode) async {
-    await firestoreProvider.addPromocode(promocode.toMap());
+  Future<String> addPromocode(Promocode promocode) async {
+    return await firestoreProvider.addPromocode(promocode.toMap());
+  }
+
+  //Delete promocode
+  Future<void> deletePromocode(String promocodeID) async {
+    await firestoreProvider.deletePromocode(promocodeID);
   }
 
   //Update the certain data of promotion

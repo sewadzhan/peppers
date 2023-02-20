@@ -12,20 +12,78 @@ class LoadPromocodeData extends PromocodeEvent {}
 
 //Update the data in Cloud Firestore
 class UpdatePromocodeData extends PromocodeEvent {
-  final Promocode promocode;
+  final PromocodeType? type;
+  final String code;
+  final String discountID;
+  final String value;
+  final bool isActive;
+  final bool canBeUsedOnlyOnce;
+  final String startTimeLimit;
+  final String finishTimeLimit;
+  final String id;
 
-  const UpdatePromocodeData(this.promocode);
+  const UpdatePromocodeData(
+      {required this.type,
+      required this.code,
+      required this.discountID,
+      required this.value,
+      required this.isActive,
+      required this.canBeUsedOnlyOnce,
+      required this.startTimeLimit,
+      required this.finishTimeLimit,
+      required this.id});
 
   @override
-  List<Object> get props => [promocode];
+  List<Object> get props => [
+        code,
+        value,
+        isActive,
+        canBeUsedOnlyOnce,
+        startTimeLimit,
+        finishTimeLimit,
+        id
+      ];
 }
 
 //Add a new promocode in Cloud Firestore
 class AddPromocode extends PromocodeEvent {
-  final Promocode promocode;
+  final PromocodeType? type;
+  final String code;
+  final String discountID;
+  final String value;
+  final bool isActive;
+  final bool canBeUsedOnlyOnce;
+  final String startTimeLimit;
+  final String finishTimeLimit;
 
-  const AddPromocode(this.promocode);
+  const AddPromocode({
+    required this.type,
+    required this.code,
+    required this.discountID,
+    required this.value,
+    required this.isActive,
+    required this.canBeUsedOnlyOnce,
+    required this.startTimeLimit,
+    required this.finishTimeLimit,
+  });
 
   @override
-  List<Object> get props => [promocode];
+  List<Object> get props => [
+        code,
+        value,
+        isActive,
+        canBeUsedOnlyOnce,
+        startTimeLimit,
+        finishTimeLimit,
+      ];
+}
+
+//Delete certain promocode from Cloud Firestore
+class DeletePromocode extends PromocodeEvent {
+  final String id;
+
+  const DeletePromocode({required this.id});
+
+  @override
+  List<Object> get props => [id];
 }

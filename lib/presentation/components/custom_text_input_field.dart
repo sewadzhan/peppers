@@ -71,9 +71,11 @@ class CustomTextInputField extends StatelessWidget {
                 );
                 controller.text = DateFormat('dd.MM.yyyy').format(date!);
               } else if (pickerType == Picker.time) {
-                TimeOfDay startTime = TimeOfDay(
-                    hour: int.parse(controller.text.split(":")[0]),
-                    minute: int.parse(controller.text.split(":")[1]));
+                TimeOfDay startTime = controller.text.isNotEmpty
+                    ? TimeOfDay(
+                        hour: int.parse(controller.text.split(":")[0]),
+                        minute: int.parse(controller.text.split(":")[1]))
+                    : TimeOfDay.now();
                 final TimeOfDay? timeOfDay = await showTimePicker(
                     context: context,
                     initialTime: startTime,

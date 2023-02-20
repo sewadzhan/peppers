@@ -32,7 +32,7 @@ class Constants {
       duration: duration,
       content: Text(
         text,
-        style: Constants.textTheme.headline5!.copyWith(color: Colors.white),
+        style: Constants.textTheme.headlineSmall!.copyWith(color: Colors.white),
       ),
     );
   }
@@ -45,7 +45,7 @@ class Constants {
       duration: duration,
       content: Text(
         text,
-        style: Constants.textTheme.headline5!.copyWith(color: Colors.white),
+        style: Constants.textTheme.headlineSmall!.copyWith(color: Colors.white),
       ),
     );
   }

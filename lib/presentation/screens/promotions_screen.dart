@@ -159,7 +159,7 @@ class PromotionScreen extends StatelessWidget {
                             physics: const BouncingScrollPhysics(),
                             child: DataTable(
                                 showCheckboxColumn: false,
-                                horizontalMargin: 0,
+                                horizontalMargin: 10,
                                 dataRowHeight: 90,
                                 columnSpacing: 35,
                                 columns: getColumns(columns),
