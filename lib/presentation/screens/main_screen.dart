@@ -8,6 +8,7 @@ import 'package:pikapika_admin_panel/presentation/config/constants.dart';
 import 'package:pikapika_admin_panel/presentation/screens/contacts_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/discount_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/promotions_screen.dart';
+import 'package:pikapika_admin_panel/presentation/screens/settings_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -17,7 +18,8 @@ class MainScreen extends StatelessWidget {
     final screens = [
       const ContactsScreen(),
       const PromotionScreen(),
-      const DiscountScreen()
+      const DiscountScreen(),
+      const SettingsScreen()
     ];
 
     return Scaffold(
@@ -115,6 +117,14 @@ class MainScreen extends StatelessWidget {
                           title: "Промокоды и скидки",
                           onTap: () {
                             context.read<NavigationCubit>().setIndex(2);
+                          },
+                        ),
+                        DrawerListTile(
+                          isActive: state == 3,
+                          iconPath: "assets/icons/settings.svg",
+                          title: "Настройки",
+                          onTap: () {
+                            context.read<NavigationCubit>().setIndex(3);
                           },
                         ),
                       ],

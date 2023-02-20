@@ -11,6 +11,8 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
   ContactBloc(this.firestoreRepository) : super(ContactInitial()) {
     on<LoadContactData>(loadContactDataToState);
     on<UpdateContactData>(updateContactDataToState);
+    on<ContactStateChanged>(contactStateChangedToState);
+    on<ContactPaymentMethodChanged>(contactPaymentMethodChangedToState);
   }
 
   //Loading actual contact information from Cloud Firestore
@@ -52,6 +54,24 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
         emit(ContactsError(e.toString()));
       }
       emit(ContactLoaded(event.contactsModel));
+    }
+  }
+
+  //Change the state without validation
+  contactStateChangedToState(
+      ContactStateChanged event, Emitter<ContactState> emit) {
+    emit(ContactLoaded(event.contactsModel));
+  }
+
+  //Change the payment method value
+  contactPaymentMethodChangedToState(
+      ContactPaymentMethodChanged event, Emitter<ContactState> emit) {
+    if (state is ContactLoaded) {
+      var tmp = (state as ContactLoaded).contactsModel.paymentMethods;
+      tmp[event.paymentMethod] = event.value;
+      emit(ContactLoaded((state as ContactLoaded)
+          .contactsModel
+          .copyWith(paymentMethods: tmp)));
     }
   }
 }

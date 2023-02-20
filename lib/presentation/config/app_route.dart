@@ -8,20 +8,27 @@ import 'package:pikapika_admin_panel/data/providers/iiko_provider.dart';
 import 'package:pikapika_admin_panel/data/repositories/auth_repository.dart';
 import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
 import 'package:pikapika_admin_panel/data/repositories/iiko_repository.dart';
+import 'package:pikapika_admin_panel/logic/blocs/cashback/cashback_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promocode/promocode_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promotion/promotion_bloc.dart';
 import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
+import 'package:pikapika_admin_panel/logic/cubits/settings/settings_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/screens/login_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/main_screen.dart';
 
 class AppRouter {
   final AuthRepository authRepository =
       AuthRepository(AuthFirebaseProvider(FirebaseAuth.instance));
-  final FirestoreRepository firestoreRepository =
+  static final FirestoreRepository firestoreRepository =
       FirestoreRepository(FirestoreProvider(FirebaseFirestore.instance));
   final IikoRepository iikoRepository = IikoRepository(IikoProvider());
+
+  ContactBloc contactBloc = ContactBloc(firestoreRepository)
+    ..add(LoadContactData());
+  CashbackBloc cashbackBloc = CashbackBloc(firestoreRepository)
+    ..add(LoadCashbackData());
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case "/":
@@ -32,10 +39,6 @@ class AppRouter {
                       create: (context) => NavigationCubit(),
                     ),
                     BlocProvider(
-                      create: (context) => ContactBloc(firestoreRepository)
-                        ..add(LoadContactData()),
-                    ),
-                    BlocProvider(
                       create: (context) => PromotionBloc(firestoreRepository)
                         ..add(LoadPromotionData()),
                     ),
@@ -44,6 +47,11 @@ class AppRouter {
                           PromocodeBloc(firestoreRepository, iikoRepository)
                             ..add(LoadPromocodeData()),
                     ),
+                    BlocProvider.value(value: cashbackBloc),
+                    BlocProvider.value(value: contactBloc),
+                    BlocProvider(
+                        create: (context) => SettingsCubit(
+                            firestoreRepository, contactBloc, cashbackBloc)),
                   ],
                   child: const MainScreen(),
                 ));

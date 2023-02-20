@@ -74,7 +74,7 @@ class ContactsModel {
       'webSite': webSite,
       'whatsappUrl': whatsappUrl,
       'workingHours': {"open": openHour, "close": closeHour},
-      'minOrderSum': minOrderSum,
+      'minimumOrderSum': minOrderSum,
       'pickupPoints': pickupPoints,
       'playMarketUrl': playMarketUrl,
       'appStoreUrl': appStoreUrl,

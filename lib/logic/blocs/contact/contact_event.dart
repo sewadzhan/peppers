@@ -19,3 +19,24 @@ class UpdateContactData extends ContactEvent {
   @override
   List<Object> get props => [contactsModel];
 }
+
+//Update the state without validation
+class ContactStateChanged extends ContactEvent {
+  final ContactsModel contactsModel;
+
+  const ContactStateChanged(this.contactsModel);
+
+  @override
+  List<Object> get props => [contactsModel];
+}
+
+//Update the data in Cloud Firestore
+class ContactPaymentMethodChanged extends ContactEvent {
+  final String paymentMethod;
+  final bool value;
+
+  const ContactPaymentMethodChanged(this.paymentMethod, this.value);
+
+  @override
+  List<Object> get props => [paymentMethod, value];
+}

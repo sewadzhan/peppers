@@ -1,13 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pikapika_admin_panel/data/models/iiko_discount.dart';
 import 'package:pikapika_admin_panel/data/models/promocode.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promocode/promocode_bloc.dart';
 import 'package:pikapika_admin_panel/presentation/components/custom_elevated_button.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_text_input_field.dart';
 import 'package:pikapika_admin_panel/presentation/components/dialogs/discount_dialog.dart';
 import 'package:pikapika_admin_panel/presentation/config/config.dart';
 import 'package:pikapika_admin_panel/presentation/config/constants.dart';
@@ -116,11 +112,13 @@ class DiscountScreen extends StatelessWidget {
     return BlocConsumer<PromocodeBloc, PromocodeState>(
       listener: (context, state) {
         if (state is PromocodeSuccessSaved) {
+          Navigator.pop(context);
           var successSnackBar = Constants.successSnackBar(
               context, "Данные успешно сохранены",
               duration: const Duration(milliseconds: 1600));
           ScaffoldMessenger.of(context).showSnackBar(successSnackBar);
         } else if (state is PromocodeSuccessDeleted) {
+          Navigator.pop(context);
           var successSnackBar = Constants.successSnackBar(
               context, "Промокод успешно удален",
               duration: const Duration(milliseconds: 1600));

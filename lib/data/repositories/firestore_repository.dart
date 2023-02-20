@@ -122,6 +122,12 @@ class FirestoreRepository {
     return CashbackData.fromMap(cashbackDoc.data()!);
   }
 
+  //Update cashback system data (percent value, is enabled or not)
+  Future<void> updateCashbackData(bool isEnabled, int percent) async {
+    await firestoreProvider
+        .updateCashbackData({'isEnabled': isEnabled, 'percent': percent});
+  }
+
   //Edit user cashback
   Future<void> editUserCashback(String phoneNumber, int newCashback) async {
     await firestoreProvider.editUserCashback(phoneNumber, newCashback);

@@ -341,22 +341,6 @@ class _DiscountDialogState extends State<DiscountDialog> {
                                         const Duration(milliseconds: 1000));
                                 ScaffoldMessenger.of(dialogContext)
                                     .showSnackBar(errorSnackBar);
-                              } else if (state is PromocodeSuccessSaved) {
-                                var successSnackBar = Constants.successSnackBar(
-                                    context, "Данные успешно сохранены",
-                                    duration:
-                                        const Duration(milliseconds: 1600));
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(successSnackBar);
-                                Navigator.of(context).pop();
-                              } else if (state is PromocodeSuccessDeleted) {
-                                var successSnackBar = Constants.successSnackBar(
-                                    context, "Промокод успешно удален",
-                                    duration:
-                                        const Duration(milliseconds: 1600));
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(successSnackBar);
-                                Navigator.of(context).pop();
                               }
                             },
                             builder: (context3, state) {

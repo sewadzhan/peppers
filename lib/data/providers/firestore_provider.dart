@@ -134,6 +134,14 @@ class FirestoreProvider {
         .get();
   }
 
+  //Update cashback system data (percent value, is enabled or not)
+  Future<void> updateCashbackData(Map<String, dynamic> data) async {
+    await firebaseFirestore
+        .collection('config')
+        .doc('cashback_system')
+        .update(data);
+  }
+
   //Edit user cashback
   Future<void> editUserCashback(String phoneNumber, int newCashback) async {
     await firebaseFirestore
