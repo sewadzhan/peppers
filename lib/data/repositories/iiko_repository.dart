@@ -4,6 +4,7 @@ import 'package:pikapika_admin_panel/data/models/cart.dart';
 import 'package:pikapika_admin_panel/data/models/category.dart';
 import 'package:pikapika_admin_panel/data/models/checkout.dart';
 import 'package:pikapika_admin_panel/data/models/iiko_discount.dart';
+import 'package:pikapika_admin_panel/data/models/iiko_organization.dart';
 import 'package:pikapika_admin_panel/data/models/pikapika_user.dart';
 import 'package:pikapika_admin_panel/data/providers/iiko_provider.dart';
 import 'package:http/http.dart';
@@ -31,6 +32,20 @@ class IikoRepository {
       Map<String, dynamic> body = jsonDecode(response.body);
 
       return body['organizations'][0]['id'];
+    }
+    throw PikapikaException("Unable to retrieve organization ID");
+  }
+
+  Future<List<IikoOrganization>> getAllOrganizations(String token) async {
+    Response response = await iikoProvider.getOrganization(token);
+
+    if (response.statusCode == 200) {
+      Map<String, dynamic> body = jsonDecode(response.body);
+
+      print(response.body);
+
+      List<dynamic> organizations = body['organizations'];
+      return organizations.map((e) => IikoOrganization.fromMap(e)).toList();
     }
     throw PikapikaException("Unable to retrieve organization ID");
   }

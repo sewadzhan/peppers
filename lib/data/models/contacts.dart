@@ -38,14 +38,18 @@ class ContactsModel {
   factory ContactsModel.fromMap(Map<String, dynamic> data) {
     Map<String, Map<String, dynamic>> pointsMap =
         Map<String, Map<String, dynamic>>.from(data['points']);
+    List<DeliveryPoint> points = [];
 
-    List<DeliveryPoint> points = pointsMap.values.map((point) {
-      GeoPoint pos = point['geopoint'];
-      return DeliveryPoint(
-          address: point['address'],
-          latLng: LatLng(pos.latitude, pos.longitude),
-          organizationID: point['organizationID']);
-    }).toList();
+    pointsMap.forEach(
+      (key, value) {
+        GeoPoint pos = value['geopoint'];
+        points.add(DeliveryPoint(
+            id: key,
+            address: value['address'] ?? "",
+            latLng: LatLng(pos.latitude, pos.longitude),
+            organizationID: value['organizationID'] ?? ""));
+      },
+    );
 
     return ContactsModel(
         email: data["email"],
@@ -110,6 +114,7 @@ class ContactsModel {
         playMarketUrl: playMarketUrl ?? this.playMarketUrl,
         appStoreUrl: appStoreUrl ?? this.appStoreUrl,
         paymentMethods: paymentMethods ?? this.paymentMethods,
-        ranges: ranges ?? this.ranges);
+        ranges: ranges ?? this.ranges,
+        pickupPoints: pickupPoints ?? this.pickupPoints);
   }
 }

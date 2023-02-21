@@ -209,4 +209,21 @@ class FirestoreProvider {
   Future<void> deletePromotionData(String docId) async {
     await firebaseFirestore.collection('promotions').doc(docId).delete();
   }
+
+  //Update the pickup point
+  Future<void> updatePickupPointData(
+      Map<String, dynamic> data, String id) async {
+    await firebaseFirestore
+        .collection('config')
+        .doc('contacts')
+        .update({'points.$id': data});
+  }
+
+  //Delete the certain pickup point
+  Future<void> deletePickupPointData(String id) async {
+    await firebaseFirestore
+        .collection('config')
+        .doc('contacts')
+        .update({'points.$id': FieldValue.delete()});
+  }
 }

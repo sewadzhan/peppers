@@ -40,3 +40,13 @@ class ContactPaymentMethodChanged extends ContactEvent {
   @override
   List<Object> get props => [paymentMethod, value];
 }
+
+//Update the data in Cloud Firestore
+class ContactPickupPointsChanged extends ContactEvent {
+  final List<DeliveryPoint> pickupPoints;
+
+  const ContactPickupPointsChanged(this.pickupPoints);
+
+  @override
+  List<Object> get props => [pickupPoints];
+}

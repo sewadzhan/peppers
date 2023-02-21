@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:pikapika_admin_panel/data/models/contacts.dart';
+import 'package:pikapika_admin_panel/data/models/delivery_point.dart';
 import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
 
 part 'contact_event.dart';
@@ -13,19 +14,20 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
     on<UpdateContactData>(updateContactDataToState);
     on<ContactStateChanged>(contactStateChangedToState);
     on<ContactPaymentMethodChanged>(contactPaymentMethodChangedToState);
+    on<ContactPickupPointsChanged>(contactPickupPointsChangedToState);
   }
 
   //Loading actual contact information from Cloud Firestore
   Future<void> loadContactDataToState(
       LoadContactData event, Emitter<ContactState> emit) async {
     emit(ContactLoading());
-    try {
-      final ContactsModel contactsModel =
-          await firestoreRepository.getContactsData();
-      emit(ContactLoaded(contactsModel));
-    } catch (e) {
-      emit(ContactsError(e.toString()));
-    }
+    // try {
+    final ContactsModel contactsModel =
+        await firestoreRepository.getContactsData();
+    emit(ContactLoaded(contactsModel));
+    // } catch (e) {
+    //   emit(ContactsError(e.toString()));
+    // }
   }
 
   //Editing the contact information in Cloud Firestore
@@ -72,6 +74,16 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
       emit(ContactLoaded((state as ContactLoaded)
           .contactsModel
           .copyWith(paymentMethods: tmp)));
+    }
+  }
+
+//Change the pickup points field
+  contactPickupPointsChangedToState(
+      ContactPickupPointsChanged event, Emitter<ContactState> emit) {
+    if (state is ContactLoaded) {
+      emit(ContactLoaded((state as ContactLoaded)
+          .contactsModel
+          .copyWith(pickupPoints: event.pickupPoints)));
     }
   }
 }

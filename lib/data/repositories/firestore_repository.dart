@@ -1,6 +1,7 @@
 import 'package:pikapika_admin_panel/data/models/address.dart';
 import 'package:pikapika_admin_panel/data/models/cashback_data.dart';
 import 'package:pikapika_admin_panel/data/models/contacts.dart';
+import 'package:pikapika_admin_panel/data/models/delivery_point.dart';
 import 'package:pikapika_admin_panel/data/models/delivery_zone.dart';
 import 'package:pikapika_admin_panel/data/models/gift_progress_bar.dart';
 import 'package:pikapika_admin_panel/data/models/order.dart';
@@ -180,5 +181,15 @@ class FirestoreRepository {
   //Delete promotion
   Future<void> deletePromotionData(String promotionID) async {
     await firestoreProvider.deletePromotionData(promotionID);
+  }
+
+  //Update the pickup point
+  Future<void> updatePickupPointData(DeliveryPoint point) async {
+    await firestoreProvider.updatePickupPointData(point.toMap(), point.id);
+  }
+
+  //Delete the certain pickup point
+  Future<void> deletePickupPointData(String id) async {
+    await firestoreProvider.deletePickupPointData(id);
   }
 }

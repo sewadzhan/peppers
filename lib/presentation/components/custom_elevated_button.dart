@@ -12,7 +12,8 @@ class CustomElevatedButton extends StatelessWidget {
       this.width,
       this.height = 48,
       this.fontSize,
-      this.alternativeStyle = false})
+      this.alternativeStyle = false,
+      this.backgroundColor = Constants.primaryColor})
       : super(key: key);
 
   final String text;
@@ -25,6 +26,7 @@ class CustomElevatedButton extends StatelessWidget {
   final double? height;
   final double? fontSize;
   final bool alternativeStyle;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +37,17 @@ class CustomElevatedButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               backgroundColor: alternativeStyle
                   ? Constants.secondBackgroundColor
-                  : Constants.primaryColor,
+                  : backgroundColor,
               side: alternativeStyle
-                  ? const BorderSide(
+                  ? BorderSide(
                       width: 1.5,
-                      color: Constants.primaryColor,
+                      color: backgroundColor,
                     )
                   : null,
               elevation: 0,
               disabledBackgroundColor: alternativeStyle
                   ? Constants.secondBackgroundColor
-                  : Constants.primaryColor,
+                  : backgroundColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0))),
           onPressed: isEnabled
