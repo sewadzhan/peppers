@@ -7,6 +7,7 @@ import 'package:pikapika_admin_panel/presentation/components/drawer_list_tile.da
 import 'package:pikapika_admin_panel/presentation/config/constants.dart';
 import 'package:pikapika_admin_panel/presentation/screens/contacts_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/discount_screen.dart';
+import 'package:pikapika_admin_panel/presentation/screens/orders_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/pickup_points_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/promotions_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/settings_screen.dart';
@@ -21,7 +22,8 @@ class MainScreen extends StatelessWidget {
       const PromotionScreen(),
       const DiscountScreen(),
       const SettingsScreen(),
-      const PickupPointsScreen()
+      const PickupPointsScreen(),
+      const OrdersScreen()
     ];
 
     return Scaffold(
@@ -135,6 +137,14 @@ class MainScreen extends StatelessWidget {
                           title: "Точки самовывоза",
                           onTap: () {
                             context.read<NavigationCubit>().setIndex(4);
+                          },
+                        ),
+                        DrawerListTile(
+                          isActive: state == 5,
+                          iconPath: "assets/icons/orders.svg",
+                          title: "Заказы",
+                          onTap: () {
+                            context.read<NavigationCubit>().setIndex(5);
                           },
                         ),
                       ],

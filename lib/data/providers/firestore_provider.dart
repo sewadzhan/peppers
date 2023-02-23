@@ -126,6 +126,16 @@ class FirestoreProvider {
         .then((value) => value.docs);
   }
 
+  //Get order all orders
+  Future<List<QueryDocumentSnapshot<Map<String, dynamic>>>>
+      getAllOrders() async {
+    return await firebaseFirestore
+        .collection('orders')
+        .orderBy('dateTime', descending: true)
+        .get()
+        .then((value) => value.docs);
+  }
+
   //Get cashback system data (percent value, is enabled or not)
   Future<DocumentSnapshot<Map<String, dynamic>>> getCashbackData() async {
     return await firebaseFirestore

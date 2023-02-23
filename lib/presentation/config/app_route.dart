@@ -12,6 +12,7 @@ import 'package:pikapika_admin_panel/data/repositories/iiko_repository.dart';
 import 'package:pikapika_admin_panel/logic/blocs/cashback/cashback_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
+import 'package:pikapika_admin_panel/logic/blocs/order/order_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/pickup_points/pickup_point_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promocode/promocode_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promotion/promotion_bloc.dart';
@@ -38,8 +39,6 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => MultiBlocProvider(
                   providers: [
-                    BlocProvider.value(value: cashbackBloc),
-                    BlocProvider.value(value: contactBloc),
                     BlocProvider(
                       create: (context) => NavigationCubit(),
                     ),
@@ -60,6 +59,12 @@ class AppRouter {
                           firestoreRepository, iikoRepository, contactBloc)
                         ..add(LoadPickupPointData()),
                     ),
+                    BlocProvider(
+                      create: (context) =>
+                          OrderBloc(firestoreRepository)..add(LoadOrders()),
+                    ),
+                    BlocProvider.value(value: cashbackBloc),
+                    BlocProvider.value(value: contactBloc),
                   ],
                   child: const MainScreen(),
                 ));

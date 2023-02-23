@@ -117,6 +117,15 @@ class FirestoreRepository {
         .toList();
   }
 
+  //Get order all orders
+  Future<List<Order>> getAllOrders() async {
+    var ordersDocs = await firestoreProvider.getAllOrders();
+
+    return ordersDocs
+        .map((snapshot) => Order.fromMap(snapshot.data()))
+        .toList();
+  }
+
   //Get cashback system data (percent value, is enabled or not)
   Future<CashbackData> getCashbackData() async {
     var cashbackDoc = await firestoreProvider.getCashbackData();
