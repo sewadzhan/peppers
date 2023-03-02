@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:pikapika_admin_panel/data/models/cart.dart';
 import 'package:pikapika_admin_panel/data/models/category.dart';
 import 'package:pikapika_admin_panel/data/models/checkout.dart';
+import 'package:pikapika_admin_panel/data/models/iiko_category.dart';
 import 'package:pikapika_admin_panel/data/models/iiko_discount.dart';
 import 'package:pikapika_admin_panel/data/models/iiko_organization.dart';
 import 'package:pikapika_admin_panel/data/models/pikapika_user.dart';
@@ -41,8 +42,6 @@ class IikoRepository {
 
     if (response.statusCode == 200) {
       Map<String, dynamic> body = jsonDecode(response.body);
-
-      print(response.body);
 
       List<dynamic> organizations = body['organizations'];
       return organizations.map((e) => IikoOrganization.fromMap(e)).toList();
@@ -116,6 +115,24 @@ class IikoRepository {
             .toList();
       }
       return [];
+    }
+    throw PikapikaException("Unable to retrieve organization ID");
+  }
+
+  Future<List<IikoCategory>> getCategories(
+      String token, String organizationID) async {
+    Response response = await iikoProvider.getMenu(token, organizationID);
+
+    if (response.statusCode == 200) {
+      Map<String, dynamic> body = jsonDecode(response.body);
+      List<dynamic> groups = body['groups'];
+
+      return groups
+          .where((element) =>
+              element['parentGroup'] ==
+              "5dc35460-b455-4afe-a1e6-f6ec81b40bc7") //Get groups from folder "Mobile app"
+          .map((e) => IikoCategory.fromMap(e))
+          .toList();
     }
     throw PikapikaException("Unable to retrieve organization ID");
   }

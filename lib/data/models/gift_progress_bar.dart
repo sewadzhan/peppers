@@ -50,4 +50,33 @@ class GiftProgressBarModel extends Equatable {
       circullarValue: circullarValue ?? this.circullarValue,
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'gift1': {
+        'categoryID': gift1.categoryID,
+        'description': gift1.description,
+        'goal': gift1.goal,
+        'icon': gift1.icon,
+        'isEnabled': gift1.isEnabled,
+        'isSingleGift': gift1.isSingleGift
+      },
+      'gift2': {
+        'categoryID': gift2.categoryID,
+        'description': gift2.description,
+        'goal': gift2.goal,
+        'icon': gift2.icon,
+        'isEnabled': gift2.isEnabled,
+        'isSingleGift': gift2.isSingleGift
+      },
+      'gift3': {
+        'categoryID': gift3.categoryID,
+        'description': gift3.description,
+        'goal': gift3.goal,
+        'icon': gift3.icon,
+        'isEnabled': gift3.isEnabled,
+        'isSingleGift': gift3.isSingleGift
+      }
+    };
+  }
 }

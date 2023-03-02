@@ -88,6 +88,14 @@ class FirestoreProvider {
     return await firebaseFirestore.collection('config').doc('gift_goals').get();
   }
 
+  //Update gift goals
+  Future<void> updateGiftGoals(Map<String, dynamic> map) async {
+    return await firebaseFirestore
+        .collection('config')
+        .doc('gift_goals')
+        .update(map);
+  }
+
   //Retrieve all promocodes
   Future<List<QueryDocumentSnapshot<Map<String, dynamic>>>>
       getPromocodes() async {

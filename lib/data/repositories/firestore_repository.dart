@@ -83,6 +83,12 @@ class FirestoreRepository {
     return GiftProgressBarModel.fromMap(data!);
   }
 
+  //Update the gift goals
+  Future<void> updateGiftProgressBarModel(
+      GiftProgressBarModel giftProgressBarModel) async {
+    await firestoreProvider.updateGiftGoals(giftProgressBarModel.toMap());
+  }
+
   //Retrieve all promocodes
   Future<List<Promocode>> getPromocodes() async {
     var promocodeDocs = await firestoreProvider.getPromocodes();

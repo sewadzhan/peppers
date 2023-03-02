@@ -43,44 +43,44 @@ class PromocodeBloc extends Bloc<PromocodeEvent, PromocodeState> {
   //Update a certain promocode in Cloud Firestore
   Future<void> updatePromocodeDataToState(
       UpdatePromocodeData event, Emitter<PromocodeState> emit) async {
-    // try {
-    if (state is PromocodeLoadedState) {
-      PromocodeLoadedState previousState = state as PromocodeLoadedState;
-      emit(PromocodeSavingState());
+    try {
+      if (state is PromocodeLoadedState) {
+        PromocodeLoadedState previousState = state as PromocodeLoadedState;
+        emit(PromocodeSavingState());
 
-      //Fields validation
-      if (fieldsValidation(event.code, event.startTimeLimit,
-          event.finishTimeLimit, event.value, event.type)) {
-        emit(const PromocodeErrorState(
-            "Введите все необходимые поля корректно"));
-        emit(previousState);
-        return;
+        //Fields validation
+        if (fieldsValidation(event.code, event.startTimeLimit,
+            event.finishTimeLimit, event.value, event.type)) {
+          emit(const PromocodeErrorState(
+              "Введите все необходимые поля корректно"));
+          emit(previousState);
+          return;
+        }
+
+        var updatedPromocode = Promocode(
+            id: event.id,
+            code: event.code,
+            discountID: event.discountID,
+            value: double.parse(event.value),
+            type: event.type!,
+            isActive: event.isActive,
+            canBeUsedOnlyOnce: event.canBeUsedOnlyOnce,
+            startTimeLimit: event.startTimeLimit,
+            finishTimeLimit: event.finishTimeLimit);
+
+        await firestoreRepository.updatePromocodeData(updatedPromocode);
+
+        //Replacing the updated element of list
+        var finalList = previousState.promocodes;
+        finalList[finalList.indexWhere(
+            (element) => element.id == updatedPromocode.id)] = updatedPromocode;
+
+        emit(PromocodeSuccessSaved());
+        emit(PromocodeLoadedState(finalList, previousState.iikoDiscounts));
       }
-
-      var updatedPromocode = Promocode(
-          id: event.id,
-          code: event.code,
-          discountID: event.discountID,
-          value: double.parse(event.value),
-          type: event.type!,
-          isActive: event.isActive,
-          canBeUsedOnlyOnce: event.canBeUsedOnlyOnce,
-          startTimeLimit: event.startTimeLimit,
-          finishTimeLimit: event.finishTimeLimit);
-
-      await firestoreRepository.updatePromocodeData(updatedPromocode);
-
-      //Replacing the updated element of list
-      var finalList = previousState.promocodes;
-      finalList[finalList.indexWhere(
-          (element) => element.id == updatedPromocode.id)] = updatedPromocode;
-
-      emit(PromocodeSuccessSaved());
-      emit(PromocodeLoadedState(finalList, previousState.iikoDiscounts));
+    } catch (e) {
+      emit(PromocodeErrorState(e.toString()));
     }
-    // } catch (e) {
-    //   emit(PromocodeErrorState(e.toString()));
-    // }
   }
 
   //Add new promocode to Firestore

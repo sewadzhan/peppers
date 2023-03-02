@@ -34,27 +34,27 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
   Future<void> updateContactDataToState(
       UpdateContactData event, Emitter<ContactState> emit) async {
     if (state is ContactLoaded) {
-      try {
-        emit(ContactSaving());
-        if (event.contactsModel.email.trim().isEmpty ||
-            event.contactsModel.phone.trim().isEmpty ||
-            event.contactsModel.webSite.trim().isEmpty ||
-            event.contactsModel.whatsappUrl.trim().isEmpty ||
-            event.contactsModel.instagramUrl.trim().isEmpty ||
-            event.contactsModel.openHour.trim().isEmpty ||
-            event.contactsModel.closeHour.trim().isEmpty) {
-          emit(const ContactsError(
-              "Введите все необходимые данные для сохранения"));
-          emit(ContactLoaded(event.contactsModel));
-          return;
-        }
-
-        await firestoreRepository.updateContactsData(event.contactsModel);
-        emit(ContactSuccessSaved());
-      } catch (e) {
-        print(e);
-        emit(ContactsError(e.toString()));
+      // try {
+      emit(ContactSaving());
+      if (event.contactsModel.email.trim().isEmpty ||
+          event.contactsModel.phone.trim().isEmpty ||
+          event.contactsModel.webSite.trim().isEmpty ||
+          event.contactsModel.whatsappUrl.trim().isEmpty ||
+          event.contactsModel.instagramUrl.trim().isEmpty ||
+          event.contactsModel.openHour.trim().isEmpty ||
+          event.contactsModel.closeHour.trim().isEmpty) {
+        emit(const ContactsError(
+            "Введите все необходимые данные для сохранения"));
+        emit(ContactLoaded(event.contactsModel));
+        return;
       }
+
+      await firestoreRepository.updateContactsData(event.contactsModel);
+      emit(ContactSuccessSaved());
+      // } catch (e) {
+      //   print(e);
+      //   emit(ContactsError(e.toString()));
+      // }
       emit(ContactLoaded(event.contactsModel));
     }
   }

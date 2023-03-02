@@ -11,6 +11,7 @@ import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart
 import 'package:pikapika_admin_panel/data/repositories/iiko_repository.dart';
 import 'package:pikapika_admin_panel/logic/blocs/cashback/cashback_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
+import 'package:pikapika_admin_panel/logic/blocs/gift/gift_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/order/order_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/pickup_points/pickup_point_bloc.dart';
@@ -62,6 +63,11 @@ class AppRouter {
                     BlocProvider(
                       create: (context) =>
                           OrderBloc(firestoreRepository)..add(LoadOrders()),
+                    ),
+                    BlocProvider(
+                      create: (context) =>
+                          GiftBloc(firestoreRepository, iikoRepository)
+                            ..add(LoadGiftData()),
                     ),
                     BlocProvider.value(value: cashbackBloc),
                     BlocProvider.value(value: contactBloc),

@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:pikapika_admin_panel/presentation/config/config.dart';
 
 //Model for gift goal in progress bar
 class GiftGoal extends Equatable {
@@ -32,7 +31,7 @@ class GiftGoal extends Equatable {
       categoryID: map['categoryID'],
       goal: map['goal'],
       description: map['description'] ?? '',
-      icon: Config.getGiftGoalIconPath(map['icon'] ?? ''),
+      icon: map['icon'],
       isSingleGift: map['isSingleGift'] ?? false,
       isActive: false,
       isEnabled: map['isEnabled'] ?? true,

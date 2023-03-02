@@ -79,7 +79,6 @@ class ContactsModel {
       'whatsappUrl': whatsappUrl,
       'workingHours': {"open": openHour, "close": closeHour},
       'minimumOrderSum': minOrderSum,
-      'pickupPoints': pickupPoints,
       'playMarketUrl': playMarketUrl,
       'appStoreUrl': appStoreUrl,
       'paymentMethods': paymentMethods,
