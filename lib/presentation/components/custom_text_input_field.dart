@@ -109,12 +109,22 @@ class CustomTextInputField extends StatelessWidget {
                     ? Constants.textTheme.bodyLarge
                     : Constants.textTheme.bodyLarge!
                         .copyWith(color: Constants.textFieldGrayColor),
-                focusedBorder: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    borderSide: BorderSide(
-                      width: 3,
-                      color: Constants.secondPrimaryColor,
-                    )),
+                focusedBorder: !onlyRead
+                    ? const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(
+                          width: 3,
+                          color: Constants.secondPrimaryColor,
+                        ))
+                    : OutlineInputBorder(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(
+                          width: 1,
+                          color: showBorder
+                              ? Constants.textFieldGrayColor
+                              : Constants.whiteColor,
+                        )),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                     borderSide: BorderSide(

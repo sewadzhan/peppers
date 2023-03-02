@@ -13,7 +13,8 @@ class CustomElevatedButton extends StatelessWidget {
       this.height = 48,
       this.fontSize,
       this.alternativeStyle = false,
-      this.backgroundColor = Constants.primaryColor})
+      this.backgroundColor = Constants.primaryColor,
+      this.autoFocus = false})
       : super(key: key);
 
   final String text;
@@ -27,6 +28,7 @@ class CustomElevatedButton extends StatelessWidget {
   final double? fontSize;
   final bool alternativeStyle;
   final Color backgroundColor;
+  final bool autoFocus;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class CustomElevatedButton extends StatelessWidget {
       width: width ?? MediaQuery.of(context).size.width,
       height: height,
       child: ElevatedButton(
+          autofocus: autoFocus,
           style: ElevatedButton.styleFrom(
               backgroundColor: alternativeStyle
                   ? Constants.secondBackgroundColor

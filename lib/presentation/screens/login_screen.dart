@@ -99,6 +99,7 @@ class LoginScreen extends StatelessWidget {
                     BlocBuilder<LoginBloc, LoginState>(
                       builder: (context, state) {
                         return CustomElevatedButton(
+                            autoFocus: true,
                             isLoading: state.formStatus is FormSubmittingStatus,
                             text: "Вход",
                             width: 150,

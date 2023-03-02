@@ -12,6 +12,7 @@ import 'package:pikapika_admin_panel/presentation/screens/orders_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/pickup_points_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/promotions_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/settings_screen.dart';
+import 'package:pikapika_admin_panel/presentation/screens/users_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -25,7 +26,8 @@ class MainScreen extends StatelessWidget {
       const SettingsScreen(),
       const PickupPointsScreen(),
       const OrdersScreen(),
-      const GiftScreen()
+      const GiftScreen(),
+      const UsersScreen()
     ];
 
     return Scaffold(
@@ -155,6 +157,14 @@ class MainScreen extends StatelessWidget {
                           title: "Подарки",
                           onTap: () {
                             context.read<NavigationCubit>().setIndex(6);
+                          },
+                        ),
+                        DrawerListTile(
+                          isActive: state == 7,
+                          iconPath: "assets/icons/user.svg",
+                          title: "Пользователи",
+                          onTap: () {
+                            context.read<NavigationCubit>().setIndex(7);
                           },
                         ),
                       ],

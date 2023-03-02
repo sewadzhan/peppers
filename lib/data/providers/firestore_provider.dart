@@ -38,6 +38,15 @@ class FirestoreProvider {
     return snapshot.data();
   }
 
+  //Get list of users
+  Future<List<QueryDocumentSnapshot<Map<String, dynamic>>>>
+      getAllUsers() async {
+    return await firebaseFirestore
+        .collection('users')
+        .get()
+        .then((value) => value.docs);
+  }
+
   //Edit personal data of current user via phone number
   Future<void> editUser(String phoneNumber, Map<String, dynamic> map) async {
     await firebaseFirestore

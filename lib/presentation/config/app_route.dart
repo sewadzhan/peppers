@@ -14,14 +14,17 @@ import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/gift/gift_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/order/order_bloc.dart';
+import 'package:pikapika_admin_panel/logic/blocs/order_history/order_history_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/pickup_points/pickup_point_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promocode/promocode_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promotion/promotion_bloc.dart';
+import 'package:pikapika_admin_panel/logic/blocs/user/user_bloc.dart';
 import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
 import 'package:pikapika_admin_panel/logic/cubits/settings/settings_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/screens/geopoint_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/login_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/main_screen.dart';
+import 'package:pikapika_admin_panel/presentation/screens/orders_history_screen.dart';
 
 class AppRouter {
   final AuthRepository authRepository =
@@ -69,6 +72,10 @@ class AppRouter {
                           GiftBloc(firestoreRepository, iikoRepository)
                             ..add(LoadGiftData()),
                     ),
+                    BlocProvider(
+                      create: (context) =>
+                          UserBloc(firestoreRepository)..add(LoadUsers()),
+                    ),
                     BlocProvider.value(value: cashbackBloc),
                     BlocProvider.value(value: contactBloc),
                   ],
@@ -84,6 +91,14 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => GeopointScreen(
                 deliveryPoint: settings.arguments as DeliveryPoint?));
+
+      case "/orderHistory":
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => OrderHistoryBloc(firestoreRepository),
+                  child: OrdersHistoryScreen(
+                      phoneNumber: settings.arguments as String),
+                ));
 
       default:
         return _errorRoute();

@@ -56,6 +56,15 @@ class FirestoreRepository {
     return PikapikaUser.fromMap(data);
   }
 
+  //Get list of users
+  Future<List<PikapikaUser>> getAllUsers() async {
+    var usersDocs = await firestoreProvider.getAllUsers();
+
+    return usersDocs
+        .map((snapshot) => PikapikaUser.fromMap(snapshot.data()))
+        .toList();
+  }
+
   //Get all saved addresses of certain user
   Future<List<Address>> getAddressesOfUser(String phoneNumber) async {
     var addressesDocs = await firestoreProvider.getAddressesOfUser(phoneNumber);
