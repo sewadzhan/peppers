@@ -27,25 +27,28 @@ class OrdersHistoryScreen extends StatelessWidget {
           builder: (context, state) {
             if (state is OrderHistoryLoaded) {
               if (state.orders.isEmpty) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                        width: 225,
-                        padding: const EdgeInsets.only(
-                            bottom: Constants.defaultPadding * 1.5),
-                        child: Image.asset(
-                          'assets/decorations/cart_empty.png',
-                        )),
-                    Text(
-                      "У данного аккаунта отсутствуют заказы",
-                      textAlign: TextAlign.center,
-                      style: Constants.textTheme.bodyLarge!.copyWith(
-                        color: Constants.middleGrayColor,
+                return SizedBox(
+                  width: double.infinity,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                          width: 225,
+                          padding: const EdgeInsets.only(
+                              bottom: Constants.defaultPadding * 1.5),
+                          child: Image.asset(
+                            'assets/decorations/cart_empty.png',
+                          )),
+                      Text(
+                        "У данного аккаунта отсутствуют заказы",
+                        textAlign: TextAlign.center,
+                        style: Constants.textTheme.bodyLarge!.copyWith(
+                          color: Constants.middleGrayColor,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 );
               }
               return ListView.builder(

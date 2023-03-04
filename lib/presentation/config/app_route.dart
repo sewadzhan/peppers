@@ -19,6 +19,7 @@ import 'package:pikapika_admin_panel/logic/blocs/pickup_points/pickup_point_bloc
 import 'package:pikapika_admin_panel/logic/blocs/promocode/promocode_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promotion/promotion_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/user/user_bloc.dart';
+import 'package:pikapika_admin_panel/logic/cubits/individual_percent/individual_percent_cubit.dart';
 import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
 import 'package:pikapika_admin_panel/logic/cubits/settings/settings_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/screens/geopoint_screen.dart';
@@ -37,6 +38,7 @@ class AppRouter {
     ..add(LoadContactData());
   CashbackBloc cashbackBloc = CashbackBloc(firestoreRepository)
     ..add(LoadCashbackData());
+  UserBloc userBloc = UserBloc(firestoreRepository);
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case "/":
@@ -64,8 +66,7 @@ class AppRouter {
                         ..add(LoadPickupPointData()),
                     ),
                     BlocProvider(
-                      create: (context) =>
-                          OrderBloc(firestoreRepository)..add(LoadOrders()),
+                      create: (context) => OrderBloc(firestoreRepository),
                     ),
                     BlocProvider(
                       create: (context) =>
@@ -74,10 +75,11 @@ class AppRouter {
                     ),
                     BlocProvider(
                       create: (context) =>
-                          UserBloc(firestoreRepository)..add(LoadUsers()),
+                          IndividualPercentCubit(firestoreRepository, userBloc),
                     ),
                     BlocProvider.value(value: cashbackBloc),
                     BlocProvider.value(value: contactBloc),
+                    BlocProvider.value(value: userBloc),
                   ],
                   child: const MainScreen(),
                 ));

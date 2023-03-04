@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pikapika_admin_panel/logic/blocs/order/order_bloc.dart';
+import 'package:pikapika_admin_panel/logic/blocs/user/user_bloc.dart';
 import 'package:pikapika_admin_panel/logic/cubits/auth/logout_cubit.dart';
 import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/components/drawer_list_tile.dart';
@@ -29,6 +31,9 @@ class MainScreen extends StatelessWidget {
       const GiftScreen(),
       const UsersScreen()
     ];
+
+    context.read<OrderBloc>().add(LoadOrders());
+    context.read<UserBloc>().add(LoadUsers());
 
     return Scaffold(
       extendBodyBehindAppBar: false,

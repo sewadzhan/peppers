@@ -52,7 +52,7 @@ class FirestoreProvider {
     await firebaseFirestore
         .collection('users')
         .doc(phoneNumber)
-        .set(map)
+        .update(map)
         .then((value) => print("User $phoneNumber was edited"));
   }
 

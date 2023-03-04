@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pikapika_admin_panel/data/models/pikapika_user.dart';
 import 'package:pikapika_admin_panel/logic/blocs/user/user_bloc.dart';
+import 'package:pikapika_admin_panel/logic/cubits/individual_percent/individual_percent_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/components/dialogs/user_dialog.dart';
 import 'package:pikapika_admin_panel/presentation/config/constants.dart';
 
@@ -31,80 +32,91 @@ class UsersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
-      builder: (context1, state) {
-        if (state is UserInitialState || state is UserLoadingState) {
-          return const Center(
-            child: SizedBox(
-              width: 40,
-              height: 40,
-              child: CircularProgressIndicator(
-                strokeWidth: 3.5,
-                color: Constants.primaryColor,
-              ),
-            ),
-          );
+    return BlocListener<IndividualPercentCubit, IndividualPercentState>(
+      listener: (context, percentState) {
+        if (percentState is IndividualPercentSuccessSaved) {
+          Navigator.pop(context);
+          var successSnackBar = Constants.successSnackBar(
+              context, "Данные успешно сохранены",
+              duration: const Duration(milliseconds: 1600));
+          ScaffoldMessenger.of(context).showSnackBar(successSnackBar);
         }
-        if (state is UserLoadedState) {
-          return SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(
-                      Constants.defaultPadding * 2,
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: Constants.defaultPadding,
-                        vertical: Constants.defaultPadding * 1.5),
-                    decoration: const BoxDecoration(
-                        color: Constants.secondBackgroundColor,
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              bottom: Constants.defaultPadding * 0.5),
-                          child: Text(
-                            "Пользователи",
-                            style: Constants.textTheme.headlineMedium,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              bottom: Constants.defaultPadding * 1.5),
-                          child: Text(
-                            "Все пользователи мобильного приложения ресторана",
-                            style: Constants.textTheme.bodyLarge!
-                                .copyWith(color: Constants.middleGrayColor),
-                          ),
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: PaginatedDataTable(
-                            rowsPerPage: 15,
-                            source: UserData(
-                                state.users, context, context.read<UserBloc>()),
-                            showCheckboxColumn: false,
-                            horizontalMargin: 10,
-                            dataRowHeight: 60,
-                            columnSpacing: 35,
-                            columns: getColumns(),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        }
-        return const SizedBox.shrink();
       },
+      child: BlocBuilder<UserBloc, UserState>(
+        builder: (context1, state) {
+          if (state is UserInitialState || state is UserLoadingState) {
+            return const Center(
+              child: SizedBox(
+                width: 40,
+                height: 40,
+                child: CircularProgressIndicator(
+                  strokeWidth: 3.5,
+                  color: Constants.primaryColor,
+                ),
+              ),
+            );
+          }
+          if (state is UserLoadedState) {
+            return SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(
+                        Constants.defaultPadding * 2,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: Constants.defaultPadding,
+                          vertical: Constants.defaultPadding * 1.5),
+                      decoration: const BoxDecoration(
+                          color: Constants.secondBackgroundColor,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: Constants.defaultPadding * 0.5),
+                            child: Text(
+                              "Пользователи",
+                              style: Constants.textTheme.headlineMedium,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: Constants.defaultPadding * 1.5),
+                            child: Text(
+                              "Все пользователи мобильного приложения ресторана",
+                              style: Constants.textTheme.bodyLarge!
+                                  .copyWith(color: Constants.middleGrayColor),
+                            ),
+                          ),
+                          SizedBox(
+                            width: double.infinity,
+                            child: PaginatedDataTable(
+                              rowsPerPage: 15,
+                              source: UserData(state.users, context,
+                                  context.read<IndividualPercentCubit>()),
+                              showCheckboxColumn: false,
+                              horizontalMargin: 10,
+                              dataRowHeight: 60,
+                              columnSpacing: 35,
+                              columns: getColumns(),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+          return const SizedBox.shrink();
+        },
+      ),
     );
   }
 }
@@ -112,18 +124,18 @@ class UsersScreen extends StatelessWidget {
 class UserData extends DataTableSource {
   final List<PikapikaUser> users;
   final BuildContext context;
-  final UserBloc userBloc;
+  final IndividualPercentCubit individualPercentCubit;
 
-  UserData(this.users, this.context, this.userBloc);
+  UserData(this.users, this.context, this.individualPercentCubit);
 
   //Show special dialog window for editing or adding a new one
-  void showUserDialog(
-      BuildContext context, PikapikaUser user, UserBloc userBloc) {
+  void showUserDialog(BuildContext context, PikapikaUser user,
+      IndividualPercentCubit individualPercentCubit) {
     showDialog(
         context: context,
         builder: (context2) {
           return BlocProvider.value(
-            value: userBloc,
+            value: individualPercentCubit,
             child: UserDialog(
               user: user,
             ),
@@ -135,7 +147,7 @@ class UserData extends DataTableSource {
   DataRow? getRow(int index) {
     return DataRow(
         onSelectChanged: (value) {
-          showUserDialog(context, users[index], userBloc);
+          showUserDialog(context, users[index], individualPercentCubit);
         },
         cells: [
           DataCell(Container(
