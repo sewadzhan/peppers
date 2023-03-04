@@ -72,7 +72,7 @@ class _GeopointScreenState extends State<GeopointScreen> {
           ),
           markers.isNotEmpty
               ? Padding(
-                  padding: const EdgeInsets.all(Constants.defaultPadding * 1.5),
+                  padding: EdgeInsets.all(Constants.defaultPadding * 1.5),
                   child: CustomElevatedButton(
                       text: "Подтвердить",
                       width: 150,

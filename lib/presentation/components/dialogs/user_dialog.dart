@@ -23,12 +23,12 @@ class UserDialog extends StatelessWidget {
         return Scaffold(
           backgroundColor: Colors.transparent,
           body: Dialog(
-            insetPadding: const EdgeInsets.all(Constants.defaultPadding * 0.5),
+            insetPadding: EdgeInsets.all(Constants.defaultPadding * 0.5),
             backgroundColor: Colors.transparent,
             child: SingleChildScrollView(
               child: Container(
                 width: 600,
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                     horizontal: Constants.defaultPadding,
                     vertical: Constants.defaultPadding * 1.75),
                 decoration: const BoxDecoration(
@@ -38,7 +38,7 @@ class UserDialog extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 1.5),
                       child: SizedBox(
                         child: Row(
@@ -70,7 +70,7 @@ class UserDialog extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -81,7 +81,7 @@ class UserDialog extends StatelessWidget {
                           controller: TextEditingController(text: user.name)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -92,7 +92,7 @@ class UserDialog extends StatelessWidget {
                           controller: TextEditingController(text: user.email)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -104,7 +104,7 @@ class UserDialog extends StatelessWidget {
                               TextEditingController(text: user.birthday)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: Row(
@@ -121,7 +121,7 @@ class UserDialog extends StatelessWidget {
                                   text: user.cashback.toString())),
                           const SizedBox(width: 5),
                           Padding(
-                            padding: const EdgeInsets.only(top: 15),
+                            padding: EdgeInsets.only(top: 15),
                             child: SvgPicture.asset(
                               "assets/icons/pikapika.svg",
                               width: 25,
@@ -132,7 +132,7 @@ class UserDialog extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -176,7 +176,7 @@ class UserDialog extends StatelessWidget {
                                 });
                           },
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: Constants.defaultPadding * 0.5,
                         ),
                         CustomElevatedButton(

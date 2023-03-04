@@ -47,7 +47,7 @@ class DiscountScreen extends StatelessWidget {
           },
           cells: [
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(
                 e.code,
@@ -55,23 +55,23 @@ class DiscountScreen extends StatelessWidget {
               ),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(Config.promocodeTypeToString(e.type)),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(
                 e.value.toString(),
               ),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Container(
                 height: 30,
-                padding: const EdgeInsets.symmetric(horizontal: 7),
+                padding: EdgeInsets.symmetric(horizontal: 7),
                 decoration: BoxDecoration(
                     color: e.isActive
                         ? Constants.successColor
@@ -89,14 +89,14 @@ class DiscountScreen extends StatelessWidget {
               ),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(e.canBeUsedOnlyOnce
                   ? "Однократное использование"
                   : "Нет ограничений"),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(hourlyLimit),
             )),
@@ -150,9 +150,9 @@ class DiscountScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
+                  padding: EdgeInsets.only(
                       top: Constants.defaultPadding * 0.5,
-                      right: Constants.defaultPadding * 2,
+                      right: Constants.defaultPadding * 1.5,
                       bottom: Constants.defaultPadding * 0.5),
                   child: CustomElevatedButton(
                       text: "Добавить промокод",
@@ -168,12 +168,12 @@ class DiscountScreen extends StatelessWidget {
                       }),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(
-                    left: Constants.defaultPadding * 2,
-                    right: Constants.defaultPadding * 2,
-                    bottom: Constants.defaultPadding * 2,
+                  margin: EdgeInsets.only(
+                    left: Constants.defaultPadding * 1.5,
+                    right: Constants.defaultPadding * 1.5,
+                    bottom: Constants.defaultPadding * 1.5,
                   ),
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                       horizontal: Constants.defaultPadding,
                       vertical: Constants.defaultPadding * 1.5),
                   decoration: const BoxDecoration(
@@ -183,7 +183,7 @@ class DiscountScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 0.5),
                         child: Text(
                           "Промокоды",
@@ -191,7 +191,7 @@ class DiscountScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 1.5),
                         child: Text(
                           "Все активные и неактивные промокоды и скидки ресторана",

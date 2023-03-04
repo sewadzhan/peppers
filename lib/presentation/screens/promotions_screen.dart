@@ -33,7 +33,7 @@ class PromotionScreen extends StatelessWidget {
           },
           cells: [
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               width: 200,
               child: ClipRRect(
@@ -45,23 +45,23 @@ class PromotionScreen extends StatelessWidget {
               ),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(e.title),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(e.order.toString()),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(e.promocode),
             )),
             DataCell(Container(
               width: 200,
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(description),
             )),
@@ -106,9 +106,9 @@ class PromotionScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
+                  padding: EdgeInsets.only(
                       top: Constants.defaultPadding * 0.5,
-                      right: Constants.defaultPadding * 2,
+                      right: Constants.defaultPadding * 1.5,
                       bottom: Constants.defaultPadding * 0.5),
                   child: CustomElevatedButton(
                       text: "Добавить акцию",
@@ -121,12 +121,12 @@ class PromotionScreen extends StatelessWidget {
                       }),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(
-                    left: Constants.defaultPadding * 2,
-                    right: Constants.defaultPadding * 2,
-                    bottom: Constants.defaultPadding * 2,
+                  margin: EdgeInsets.only(
+                    left: Constants.defaultPadding * 1.5,
+                    right: Constants.defaultPadding * 1.5,
+                    bottom: Constants.defaultPadding * 1.5,
                   ),
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                       horizontal: Constants.defaultPadding,
                       vertical: Constants.defaultPadding * 1.5),
                   decoration: const BoxDecoration(
@@ -136,7 +136,7 @@ class PromotionScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 0.5),
                         child: Text(
                           "Акции и предложения",
@@ -144,7 +144,7 @@ class PromotionScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 1.5),
                         child: Text(
                           "Акционные предложения ресторана",
@@ -202,15 +202,14 @@ class PromotionScreen extends StatelessWidget {
               return Scaffold(
                 backgroundColor: Colors.transparent,
                 body: Dialog(
-                  insetPadding:
-                      const EdgeInsets.all(Constants.defaultPadding * 0.5),
+                  insetPadding: EdgeInsets.all(Constants.defaultPadding * 0.5),
                   backgroundColor: Colors.transparent,
                   child: BlocProvider.value(
                     value: promotionBloc,
                     child: SingleChildScrollView(
                       child: Container(
                         width: 600,
-                        padding: const EdgeInsets.symmetric(
+                        padding: EdgeInsets.symmetric(
                             horizontal: Constants.defaultPadding,
                             vertical: Constants.defaultPadding * 1.75),
                         decoration: const BoxDecoration(
@@ -221,7 +220,7 @@ class PromotionScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                     bottom: Constants.defaultPadding * 0.5),
                                 child: SizedBox(
                                   child: Row(
@@ -241,8 +240,7 @@ class PromotionScreen extends StatelessWidget {
                                                 if (state
                                                     is PromotionDeletingState) {
                                                   return Container(
-                                                    margin: const EdgeInsets
-                                                            .only(
+                                                    margin: EdgeInsets.only(
                                                         right: Constants
                                                                 .defaultPadding *
                                                             0.5),
@@ -280,7 +278,7 @@ class PromotionScreen extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                     bottom: Constants.defaultPadding * 1.5),
                                 child: Text(
                                   promotion == null
@@ -292,7 +290,7 @@ class PromotionScreen extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding,
                                 ),
                                 child: CustomTextInputField(
@@ -302,7 +300,7 @@ class PromotionScreen extends StatelessWidget {
                                     controller: titleController),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding,
                                 ),
                                 child: CustomTextInputField(
@@ -313,7 +311,7 @@ class PromotionScreen extends StatelessWidget {
                                     controller: orderController),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding,
                                 ),
                                 child: CustomTextInputField(
@@ -324,7 +322,7 @@ class PromotionScreen extends StatelessWidget {
                                     controller: promocodeController),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding,
                                 ),
                                 child: CustomTextInputField(
@@ -334,7 +332,7 @@ class PromotionScreen extends StatelessWidget {
                                     controller: imageUrlController),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding,
                                 ),
                                 child: CustomTextInputField(
@@ -423,7 +421,7 @@ class PromotionScreen extends StatelessWidget {
                                           });
                                     },
                                   ),
-                                  const SizedBox(
+                                  SizedBox(
                                     width: Constants.defaultPadding * 0.5,
                                   ),
                                   CustomElevatedButton(

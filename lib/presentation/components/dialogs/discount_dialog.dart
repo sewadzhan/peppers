@@ -73,12 +73,12 @@ class _DiscountDialogState extends State<DiscountDialog> {
         return Scaffold(
           backgroundColor: Colors.transparent,
           body: Dialog(
-            insetPadding: const EdgeInsets.all(Constants.defaultPadding * 0.5),
+            insetPadding: EdgeInsets.all(Constants.defaultPadding * 0.5),
             backgroundColor: Colors.transparent,
             child: SingleChildScrollView(
               child: Container(
                 width: 600,
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                     horizontal: Constants.defaultPadding,
                     vertical: Constants.defaultPadding * 1.75),
                 decoration: const BoxDecoration(
@@ -88,7 +88,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 0.5),
                         child: SizedBox(
                           child: Row(
@@ -105,7 +105,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                                       builder: (context, state) {
                                         if (state is PromocodeDeletingState) {
                                           return Container(
-                                            margin: const EdgeInsets.only(
+                                            margin: EdgeInsets.only(
                                                 right:
                                                     Constants.defaultPadding *
                                                         0.5),
@@ -142,7 +142,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 1.5),
                         child: Text(
                           widget.promocode == null
@@ -153,7 +153,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding,
                         ),
                         child: CustomTextInputField(
@@ -167,7 +167,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                         style: Constants.textTheme.headlineSmall,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           top: Constants.defaultPadding * 0.5,
                           bottom: Constants.defaultPadding,
                         ),
@@ -219,7 +219,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                       ),
                       typeController == PromocodeType.flexible
                           ? Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding,
                               ),
                               child: CustomTextInputField(
@@ -230,7 +230,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                             )
                           : const SizedBox.shrink(),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 0.5,
                         ),
                         child: Row(
@@ -256,7 +256,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding,
                         ),
                         child: Row(
@@ -282,7 +282,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 1.5,
                         ),
                         child: Row(
@@ -297,7 +297,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                                   hintText: "Время старта активации",
                                   controller: startTimeLimitController),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               width: Constants.defaultPadding,
                             ),
                             Expanded(
@@ -390,7 +390,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                                   });
                             },
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: Constants.defaultPadding * 0.5,
                           ),
                           CustomElevatedButton(

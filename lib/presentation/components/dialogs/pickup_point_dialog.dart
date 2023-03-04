@@ -58,12 +58,12 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
         return Scaffold(
           backgroundColor: Colors.transparent,
           body: Dialog(
-            insetPadding: const EdgeInsets.all(Constants.defaultPadding * 0.5),
+            insetPadding: EdgeInsets.all(Constants.defaultPadding * 0.5),
             backgroundColor: Colors.transparent,
             child: SingleChildScrollView(
               child: Container(
                 width: 600,
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                     horizontal: Constants.defaultPadding,
                     vertical: Constants.defaultPadding * 1.75),
                 decoration: const BoxDecoration(
@@ -73,7 +73,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 0.5),
                         child: SizedBox(
                           child: Row(
@@ -91,7 +91,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                                       builder: (context, state) {
                                         if (state is PickupPointDeletingState) {
                                           return Container(
-                                            margin: const EdgeInsets.only(
+                                            margin: EdgeInsets.only(
                                                 right:
                                                     Constants.defaultPadding *
                                                         0.5),
@@ -129,7 +129,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 1.5),
                         child: Text(
                           widget.pickupPoint == null
@@ -140,7 +140,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding,
                         ),
                         child: CustomTextInputField(
@@ -154,7 +154,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                         style: Constants.textTheme.headlineSmall,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           top: Constants.defaultPadding * 0.5,
                           bottom: Constants.defaultPadding,
                         ),
@@ -198,7 +198,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 1.5,
                         ),
                         child: Row(
@@ -214,7 +214,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                                       "Выберите на карте точку самовывоза",
                                   controller: geopointController),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               width: Constants.defaultPadding,
                             ),
                             Padding(
@@ -289,7 +289,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                                   });
                             },
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: Constants.defaultPadding * 0.5,
                           ),
                           CustomElevatedButton(

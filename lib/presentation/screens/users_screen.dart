@@ -64,10 +64,10 @@ class UsersScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Container(
-                      margin: const EdgeInsets.all(
-                        Constants.defaultPadding * 2,
+                      margin: EdgeInsets.all(
+                        Constants.defaultPadding * 1.5,
                       ),
-                      padding: const EdgeInsets.symmetric(
+                      padding: EdgeInsets.symmetric(
                           horizontal: Constants.defaultPadding,
                           vertical: Constants.defaultPadding * 1.5),
                       decoration: const BoxDecoration(
@@ -77,7 +77,7 @@ class UsersScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
+                            padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding * 0.5),
                             child: Text(
                               "Пользователи",
@@ -85,7 +85,7 @@ class UsersScreen extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
+                            padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding * 1.5),
                             child: Text(
                               "Все пользователи мобильного приложения ресторана",
@@ -151,37 +151,37 @@ class UserData extends DataTableSource {
         },
         cells: [
           DataCell(Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: Constants.defaultPadding * 0.5),
+            padding:
+                EdgeInsets.symmetric(vertical: Constants.defaultPadding * 0.5),
             child: Text(
               users[index].phoneNumber,
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           )),
           DataCell(Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: Constants.defaultPadding * 0.5),
+            padding:
+                EdgeInsets.symmetric(vertical: Constants.defaultPadding * 0.5),
             child: Text(
               users[index].name,
             ),
           )),
           DataCell(Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: Constants.defaultPadding * 0.5),
+            padding:
+                EdgeInsets.symmetric(vertical: Constants.defaultPadding * 0.5),
             child: Text(
               users[index].email,
             ),
           )),
           DataCell(Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: Constants.defaultPadding * 0.5),
+            padding:
+                EdgeInsets.symmetric(vertical: Constants.defaultPadding * 0.5),
             child: Text(
               users[index].birthday,
             ),
           )),
           DataCell(Container(
               width: 350,
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Row(
                 children: [

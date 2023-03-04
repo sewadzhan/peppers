@@ -20,7 +20,7 @@ class Constants {
   static const Color successColor = Color(0xFF00C288);
   static const Color errorColor = Color(0xFFFF5E50);
 
-  static const double defaultPadding = 20;
+  static double defaultPadding = 20;
 
   static TextTheme textTheme = CustomTheme.usualTextTheme;
 
@@ -48,5 +48,13 @@ class Constants {
         style: Constants.textTheme.headlineSmall!.copyWith(color: Colors.white),
       ),
     );
+  }
+
+  // //Check for changing theme for small devices
+  static void checkThemeForSmallDevices(double width) {
+    if (width <= 450) {
+      textTheme = CustomTheme.smallTextTheme;
+      defaultPadding = 16;
+    }
   }
 }

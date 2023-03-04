@@ -199,9 +199,9 @@ class GiftScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
-                  padding: const EdgeInsets.only(
+                  padding: EdgeInsets.only(
                       top: Constants.defaultPadding * 0.5,
-                      right: Constants.defaultPadding * 2,
+                      right: Constants.defaultPadding * 1.5,
                       bottom: Constants.defaultPadding * 0.5),
                   child: CustomElevatedButton(
                       text: "Сохранить",
@@ -227,12 +227,12 @@ class GiftScreen extends StatelessWidget {
                             ));
                       })),
               Container(
-                margin: const EdgeInsets.only(
-                  left: Constants.defaultPadding * 2,
-                  right: Constants.defaultPadding * 2,
-                  bottom: Constants.defaultPadding * 2,
+                margin: EdgeInsets.only(
+                  left: Constants.defaultPadding * 1.5,
+                  right: Constants.defaultPadding * 1.5,
+                  bottom: Constants.defaultPadding * 1.5,
                 ),
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                     horizontal: Constants.defaultPadding,
                     vertical: Constants.defaultPadding * 1.5),
                 decoration: const BoxDecoration(
@@ -242,7 +242,7 @@ class GiftScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 0.5),
                       child: Text(
                         "Подарок #1",
@@ -250,7 +250,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 1.5),
                       child: Text(
                         "В данном блоке вы можете настроить подарок #1 в приложении",
@@ -263,7 +263,7 @@ class GiftScreen extends StatelessWidget {
                       style: Constants.textTheme.headlineSmall,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         top: Constants.defaultPadding * 0.5,
                         bottom: Constants.defaultPadding,
                       ),
@@ -305,7 +305,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -315,7 +315,7 @@ class GiftScreen extends StatelessWidget {
                           controller: gift1DescriptionController),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -330,7 +330,7 @@ class GiftScreen extends StatelessWidget {
                       style: Constants.textTheme.headlineSmall,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         top: Constants.defaultPadding * 0.5,
                         bottom: Constants.defaultPadding,
                       ),
@@ -364,7 +364,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: Row(
@@ -386,7 +386,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: Row(
@@ -411,12 +411,12 @@ class GiftScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(
-                  left: Constants.defaultPadding * 2,
-                  right: Constants.defaultPadding * 2,
-                  bottom: Constants.defaultPadding * 2,
+                margin: EdgeInsets.only(
+                  left: Constants.defaultPadding * 1.5,
+                  right: Constants.defaultPadding * 1.5,
+                  bottom: Constants.defaultPadding * 1.5,
                 ),
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                     horizontal: Constants.defaultPadding,
                     vertical: Constants.defaultPadding * 1.5),
                 decoration: const BoxDecoration(
@@ -426,7 +426,7 @@ class GiftScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 0.5),
                       child: Text(
                         "Подарок #2",
@@ -434,7 +434,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 1.5),
                       child: Text(
                         "В данном блоке вы можете настроить подарок #2 в приложении",
@@ -447,7 +447,7 @@ class GiftScreen extends StatelessWidget {
                       style: Constants.textTheme.headlineSmall,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         top: Constants.defaultPadding * 0.5,
                         bottom: Constants.defaultPadding,
                       ),
@@ -489,7 +489,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -499,7 +499,7 @@ class GiftScreen extends StatelessWidget {
                           controller: gift2DescriptionController),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -514,7 +514,7 @@ class GiftScreen extends StatelessWidget {
                       style: Constants.textTheme.headlineSmall,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         top: Constants.defaultPadding * 0.5,
                         bottom: Constants.defaultPadding,
                       ),
@@ -548,7 +548,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: Row(
@@ -570,7 +570,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: Row(
@@ -595,12 +595,12 @@ class GiftScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(
-                  left: Constants.defaultPadding * 2,
-                  right: Constants.defaultPadding * 2,
-                  bottom: Constants.defaultPadding * 2,
+                margin: EdgeInsets.only(
+                  left: Constants.defaultPadding * 1.5,
+                  right: Constants.defaultPadding * 1.5,
+                  bottom: Constants.defaultPadding * 1.5,
                 ),
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                     horizontal: Constants.defaultPadding,
                     vertical: Constants.defaultPadding * 1.5),
                 decoration: const BoxDecoration(
@@ -610,7 +610,7 @@ class GiftScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 0.5),
                       child: Text(
                         "Подарок #3",
@@ -618,7 +618,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 1.5),
                       child: Text(
                         "В данном блоке вы можете настроить подарок #3 в приложении",
@@ -631,7 +631,7 @@ class GiftScreen extends StatelessWidget {
                       style: Constants.textTheme.headlineSmall,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         top: Constants.defaultPadding * 0.5,
                         bottom: Constants.defaultPadding,
                       ),
@@ -673,7 +673,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -683,7 +683,7 @@ class GiftScreen extends StatelessWidget {
                           controller: gift3DescriptionController),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: CustomTextInputField(
@@ -698,7 +698,7 @@ class GiftScreen extends StatelessWidget {
                       style: Constants.textTheme.headlineSmall,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         top: Constants.defaultPadding * 0.5,
                         bottom: Constants.defaultPadding,
                       ),
@@ -732,7 +732,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: Row(
@@ -754,7 +754,7 @@ class GiftScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         bottom: Constants.defaultPadding,
                       ),
                       child: Row(

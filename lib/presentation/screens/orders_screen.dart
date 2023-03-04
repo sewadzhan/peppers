@@ -54,10 +54,10 @@ class OrdersScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Container(
-                    margin: const EdgeInsets.all(
-                      Constants.defaultPadding * 2,
+                    margin: EdgeInsets.all(
+                      Constants.defaultPadding * 1.5,
                     ),
-                    padding: const EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                         horizontal: Constants.defaultPadding,
                         vertical: Constants.defaultPadding * 1.5),
                     decoration: const BoxDecoration(
@@ -67,7 +67,7 @@ class OrdersScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(
+                          padding: EdgeInsets.only(
                               bottom: Constants.defaultPadding * 0.5),
                           child: Text(
                             "Заказы",
@@ -75,7 +75,7 @@ class OrdersScreen extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(
+                          padding: EdgeInsets.only(
                               bottom: Constants.defaultPadding * 1.5),
                           child: Text(
                             "Все заказы с мобильного приложения ресторана",
@@ -134,30 +134,30 @@ class OrderData extends DataTableSource {
         },
         cells: [
           DataCell(Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: Constants.defaultPadding * 0.5),
+            padding:
+                EdgeInsets.symmetric(vertical: Constants.defaultPadding * 0.5),
             child: Text(
               "#${orders[index].id}",
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           )),
           DataCell(Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: Constants.defaultPadding * 0.5),
+            padding:
+                EdgeInsets.symmetric(vertical: Constants.defaultPadding * 0.5),
             child: Text(
               DateFormat('dd.MM.yyyy, kk:mm').format(orders[index].dateTime),
             ),
           )),
           DataCell(Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: Constants.defaultPadding * 0.5),
+            padding:
+                EdgeInsets.symmetric(vertical: Constants.defaultPadding * 0.5),
             child: Text(
               orders[index].phoneNumber,
             ),
           )),
           DataCell(Container(
               width: 350,
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -172,8 +172,8 @@ class OrderData extends DataTableSource {
                 ],
               ))),
           DataCell(Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: Constants.defaultPadding * 0.5),
+            padding:
+                EdgeInsets.symmetric(vertical: Constants.defaultPadding * 0.5),
             child: Text(
               "${orders[index].total}₸",
             ),

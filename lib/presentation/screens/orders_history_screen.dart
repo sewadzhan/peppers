@@ -35,7 +35,7 @@ class OrdersHistoryScreen extends StatelessWidget {
                     children: [
                       Container(
                           width: 225,
-                          padding: const EdgeInsets.only(
+                          padding: EdgeInsets.only(
                               bottom: Constants.defaultPadding * 1.5),
                           child: Image.asset(
                             'assets/decorations/cart_empty.png',
@@ -58,9 +58,9 @@ class OrdersHistoryScreen extends StatelessWidget {
                   itemBuilder: (context, index) =>
                       OrderHistoryListTile(order: state.orders[index]));
             }
-            return const Padding(
+            return Padding(
               padding: EdgeInsets.all(Constants.defaultPadding),
-              child: Center(
+              child: const Center(
                 child: SizedBox(
                     width: 25,
                     height: 25,

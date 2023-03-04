@@ -12,7 +12,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer = SimpleBlocObserver();
+  //Bloc.observer = SimpleBlocObserver();
   await Firebase.initializeApp(
       options: const FirebaseOptions(
           apiKey: "AIzaSyCHphB7II1SmtlqAin9FmO-JnDBK4cfEQo",

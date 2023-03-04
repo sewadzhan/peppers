@@ -19,7 +19,7 @@ class DrawerListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
+      padding: EdgeInsets.only(
           left: Constants.defaultPadding * 0.5,
           right: Constants.defaultPadding * 0.5,
           bottom: Constants.defaultPadding * 0.25),

@@ -13,12 +13,12 @@ class OrderDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      insetPadding: const EdgeInsets.all(Constants.defaultPadding * 0.5),
+      insetPadding: EdgeInsets.all(Constants.defaultPadding * 0.5),
       backgroundColor: Colors.transparent,
       child: SingleChildScrollView(
         child: Container(
           width: 600,
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
               horizontal: Constants.defaultPadding,
               vertical: Constants.defaultPadding * 1.75),
           decoration: const BoxDecoration(
@@ -28,16 +28,16 @@ class OrderDialog extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(
-                    bottom: Constants.defaultPadding * 0.5),
+                padding:
+                    EdgeInsets.only(bottom: Constants.defaultPadding * 0.5),
                 child: Text(
                   "Заказ #${order.id}",
                   style: Constants.textTheme.displayMedium,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    bottom: Constants.defaultPadding * 1.5),
+                padding:
+                    EdgeInsets.only(bottom: Constants.defaultPadding * 1.5),
                 child: Text(
                   DateFormat('dd.MM.yyyy, kk:mm').format(order.dateTime),
                   style: Constants.textTheme.headlineMedium!
@@ -45,8 +45,7 @@ class OrderDialog extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(bottom: Constants.defaultPadding),
+                padding: EdgeInsets.only(bottom: Constants.defaultPadding),
                 child: MediaQuery.removePadding(
                   context: context,
                   removeTop: true,
@@ -77,8 +76,7 @@ class OrderDialog extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 10),
+                                        padding: EdgeInsets.only(bottom: 10),
                                         child: Text(
                                           order.cartItems[index].product.title,
                                           style: Constants.textTheme.titleLarge,
@@ -119,8 +117,8 @@ class OrderDialog extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    bottom: Constants.defaultPadding * 0.75),
+                padding:
+                    EdgeInsets.only(bottom: Constants.defaultPadding * 0.75),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -136,8 +134,8 @@ class OrderDialog extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    bottom: Constants.defaultPadding * 0.75),
+                padding:
+                    EdgeInsets.only(bottom: Constants.defaultPadding * 0.75),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -153,8 +151,8 @@ class OrderDialog extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    bottom: Constants.defaultPadding * 0.75),
+                padding:
+                    EdgeInsets.only(bottom: Constants.defaultPadding * 0.75),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -170,8 +168,8 @@ class OrderDialog extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    bottom: Constants.defaultPadding * 0.75),
+                padding:
+                    EdgeInsets.only(bottom: Constants.defaultPadding * 0.75),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -187,13 +185,13 @@ class OrderDialog extends StatelessWidget {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.only(
-                      bottom: Constants.defaultPadding * 0.75),
+                  padding:
+                      EdgeInsets.only(bottom: Constants.defaultPadding * 0.75),
                   child: Text(order.fullAddress,
                       style: Constants.textTheme.bodyLarge)),
               Padding(
-                padding: const EdgeInsets.only(
-                    bottom: Constants.defaultPadding * 0.75),
+                padding:
+                    EdgeInsets.only(bottom: Constants.defaultPadding * 0.75),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -210,8 +208,8 @@ class OrderDialog extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    bottom: Constants.defaultPadding * 0.75),
+                padding:
+                    EdgeInsets.only(bottom: Constants.defaultPadding * 0.75),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -220,7 +218,7 @@ class OrderDialog extends StatelessWidget {
                       style: Constants.textTheme.headlineMedium,
                     ),
                     Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.symmetric(horizontal: 8),
                         child: Row(
                           children: [
                             Text(

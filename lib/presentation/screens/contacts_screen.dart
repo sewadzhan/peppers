@@ -67,9 +67,9 @@ class ContactsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
+                  padding: EdgeInsets.only(
                       top: Constants.defaultPadding * 0.5,
-                      right: Constants.defaultPadding * 2,
+                      right: Constants.defaultPadding * 1.5,
                       bottom: Constants.defaultPadding * 0.5),
                   child: CustomElevatedButton(
                       text: "Сохранить",
@@ -90,12 +90,12 @@ class ContactsScreen extends StatelessWidget {
                       }),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(
-                    left: Constants.defaultPadding * 2,
-                    right: Constants.defaultPadding * 2,
-                    bottom: Constants.defaultPadding * 2,
+                  margin: EdgeInsets.only(
+                    left: Constants.defaultPadding * 1.5,
+                    right: Constants.defaultPadding * 1.5,
+                    bottom: Constants.defaultPadding * 1.5,
                   ),
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                       horizontal: Constants.defaultPadding,
                       vertical: Constants.defaultPadding * 1.5),
                   decoration: const BoxDecoration(
@@ -105,7 +105,7 @@ class ContactsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 0.5),
                         child: Text(
                           "Контактная информация",
@@ -113,7 +113,7 @@ class ContactsScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 1.5),
                         child: Text(
                           "Базовые контактные данные ресторана для страницы \"Контакты\"",
@@ -122,7 +122,7 @@ class ContactsScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding,
                         ),
                         child: CustomTextInputField(
@@ -132,7 +132,7 @@ class ContactsScreen extends StatelessWidget {
                             controller: emailController),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding,
                         ),
                         child: CustomTextInputField(
@@ -142,7 +142,7 @@ class ContactsScreen extends StatelessWidget {
                             controller: phoneController),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding,
                         ),
                         child: CustomTextInputField(
@@ -152,7 +152,7 @@ class ContactsScreen extends StatelessWidget {
                             controller: websiteController),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding,
                         ),
                         child: CustomTextInputField(
@@ -162,7 +162,7 @@ class ContactsScreen extends StatelessWidget {
                             controller: instaController),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding,
                         ),
                         child: CustomTextInputField(
@@ -175,11 +175,11 @@ class ContactsScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(
-                      left: Constants.defaultPadding * 2,
-                      right: Constants.defaultPadding * 2,
-                      bottom: Constants.defaultPadding * 2),
-                  padding: const EdgeInsets.symmetric(
+                  margin: EdgeInsets.only(
+                      left: Constants.defaultPadding * 1.5,
+                      right: Constants.defaultPadding * 1.5,
+                      bottom: Constants.defaultPadding * 1.5),
+                  padding: EdgeInsets.symmetric(
                       horizontal: Constants.defaultPadding,
                       vertical: Constants.defaultPadding * 1.5),
                   decoration: const BoxDecoration(
@@ -189,7 +189,7 @@ class ContactsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 0.5),
                         child: Text(
                           "График работы ресторана",
@@ -197,7 +197,7 @@ class ContactsScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             bottom: Constants.defaultPadding * 1.5),
                         child: Text(
                           "Введите время открытия и закрытия заведения",
@@ -206,7 +206,7 @@ class ContactsScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding,
                         ),
                         child: Row(
@@ -219,7 +219,7 @@ class ContactsScreen extends StatelessWidget {
                                   hintText: "Введите время открытия ресторана",
                                   controller: workingHourOpenController),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               width: Constants.defaultPadding,
                             ),
                             Expanded(

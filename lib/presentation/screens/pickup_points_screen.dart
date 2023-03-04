@@ -34,12 +34,12 @@ class PickupPointsScreen extends StatelessWidget {
           },
           cells: [
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(e.address),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: Text(iikoOrganizations
                   .where((element) => element.id == e.organizationID)
@@ -47,7 +47,7 @@ class PickupPointsScreen extends StatelessWidget {
                   .name),
             )),
             DataCell(Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                   vertical: Constants.defaultPadding * 0.5),
               child: CustomElevatedButton(
                   text: "Посмотреть",
@@ -126,9 +126,9 @@ class PickupPointsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                           top: Constants.defaultPadding * 0.5,
-                          right: Constants.defaultPadding * 2,
+                          right: Constants.defaultPadding * 1.5,
                           bottom: Constants.defaultPadding * 0.5),
                       child: CustomElevatedButton(
                           text: "Добавить точку",
@@ -144,12 +144,12 @@ class PickupPointsScreen extends StatelessWidget {
                           }),
                     ),
                     Container(
-                      margin: const EdgeInsets.only(
-                        left: Constants.defaultPadding * 2,
-                        right: Constants.defaultPadding * 2,
-                        bottom: Constants.defaultPadding * 2,
+                      margin: EdgeInsets.only(
+                        left: Constants.defaultPadding * 1.5,
+                        right: Constants.defaultPadding * 1.5,
+                        bottom: Constants.defaultPadding * 1.5,
                       ),
-                      padding: const EdgeInsets.symmetric(
+                      padding: EdgeInsets.symmetric(
                           horizontal: Constants.defaultPadding,
                           vertical: Constants.defaultPadding * 1.5),
                       decoration: const BoxDecoration(
@@ -159,7 +159,7 @@ class PickupPointsScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
+                            padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding * 0.5),
                             child: Text(
                               "Точки самовывоза",
@@ -167,7 +167,7 @@ class PickupPointsScreen extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
+                            padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding * 1.5),
                             child: Text(
                               "В данной таблице указаны все точки самовывоза ресторана",

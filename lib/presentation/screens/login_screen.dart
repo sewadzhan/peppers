@@ -3,11 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/form_submission_status.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
-import 'package:pikapika_admin_panel/logic/blocs/order/order_bloc.dart';
-import 'package:pikapika_admin_panel/logic/blocs/user/user_bloc.dart';
 import 'package:pikapika_admin_panel/presentation/components/custom_elevated_button.dart';
 import 'package:pikapika_admin_panel/presentation/components/custom_text_input_field.dart';
 import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:pikapika_admin_panel/presentation/config/responsive.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -16,6 +15,9 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    //Changing theme for small devices
+    Constants.checkThemeForSmallDevices(width);
 
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
@@ -42,20 +44,22 @@ class LoginScreen extends StatelessWidget {
           height: height,
           child: Row(
             children: [
-              Expanded(
-                  child: Container(
-                color: Constants.primaryColor,
-                child: Center(
-                  child: SvgPicture.asset(
-                    "assets/logo/textLogo.svg",
-                    color: Constants.whiteColor,
-                    width: 200,
-                  ),
-                ),
-              )),
+              !Responsive.isMobile(context)
+                  ? Expanded(
+                      child: Container(
+                      color: Constants.primaryColor,
+                      child: Center(
+                        child: SvgPicture.asset(
+                          "assets/logo/textLogo.svg",
+                          color: Constants.whiteColor,
+                          width: 200,
+                        ),
+                      ),
+                    ))
+                  : const SizedBox.shrink(),
               Expanded(
                   child: Padding(
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                     horizontal: Constants.defaultPadding * 2),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,12 +67,12 @@ class LoginScreen extends StatelessWidget {
                     const Spacer(),
                     Text("Добро пожаловать 👋 ",
                         style: Constants.textTheme.displayLarge),
-                    const SizedBox(height: Constants.defaultPadding),
+                    SizedBox(height: Constants.defaultPadding),
                     Text(
                         "Введите электронную почту и пароль для входа в аккаунт",
                         style: Constants.textTheme.bodyLarge),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                         top: Constants.defaultPadding * 2,
                       ),
                       child: CustomTextInputField(
@@ -83,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                           controller: emailController),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
                           top: Constants.defaultPadding,
                           bottom: Constants.defaultPadding),
                       child: CustomTextInputField(

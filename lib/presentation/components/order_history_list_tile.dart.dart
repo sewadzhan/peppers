@@ -28,7 +28,7 @@ class OrderHistoryListTile extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(
+            padding: EdgeInsets.symmetric(
                 vertical: 15, horizontal: Constants.defaultPadding),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

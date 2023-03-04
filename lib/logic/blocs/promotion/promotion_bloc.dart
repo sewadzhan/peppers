@@ -62,6 +62,7 @@ class PromotionBloc extends Bloc<PromotionEvent, PromotionState> {
         var finalList = previousState.promotions;
         finalList[finalList.indexWhere(
             (element) => element.id == updatedPromotion.id)] = updatedPromotion;
+        finalList.sort((a, b) => a.order.compareTo(b.order));
 
         emit(PromotionSuccessSaved());
         emit(PromotionLoadedState(promotions: finalList));
@@ -102,6 +103,7 @@ class PromotionBloc extends Bloc<PromotionEvent, PromotionState> {
 
         List<Promotion> finalList = List.from(previousState.promotions)
           ..add(addedPromotion.copyWith(id: promotionID));
+        finalList.sort((a, b) => a.order.compareTo(b.order));
 
         emit(PromotionSuccessSaved());
         emit(PromotionLoadedState(promotions: finalList));

@@ -62,9 +62,9 @@ class SettingsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                             top: Constants.defaultPadding * 0.5,
-                            right: Constants.defaultPadding * 2,
+                            right: Constants.defaultPadding * 1.5,
                             bottom: Constants.defaultPadding * 0.5),
                         child: BlocBuilder<SettingsCubit, SettingsState>(
                           builder: (context, state) {
@@ -89,12 +89,12 @@ class SettingsScreen extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.only(
-                          left: Constants.defaultPadding * 2,
-                          right: Constants.defaultPadding * 2,
-                          bottom: Constants.defaultPadding * 2,
+                        margin: EdgeInsets.only(
+                          left: Constants.defaultPadding * 1.5,
+                          right: Constants.defaultPadding * 1.5,
+                          bottom: Constants.defaultPadding * 1.5,
                         ),
-                        padding: const EdgeInsets.symmetric(
+                        padding: EdgeInsets.symmetric(
                             horizontal: Constants.defaultPadding,
                             vertical: Constants.defaultPadding * 1.5),
                         decoration: const BoxDecoration(
@@ -105,7 +105,7 @@ class SettingsScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding * 0.5),
                               child: Text(
                                 "Настройки cashback",
@@ -113,7 +113,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding * 1.5),
                               child: Text(
                                 "В данном блоке вы можете настроить cashback систему приложения",
@@ -122,7 +122,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding,
                               ),
                               child: CustomTextInputField(
@@ -133,7 +133,7 @@ class SettingsScreen extends StatelessWidget {
                                   controller: percentController),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding,
                               ),
                               child: Row(
@@ -162,12 +162,12 @@ class SettingsScreen extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.only(
-                          left: Constants.defaultPadding * 2,
-                          right: Constants.defaultPadding * 2,
-                          bottom: Constants.defaultPadding * 2,
+                        margin: EdgeInsets.only(
+                          left: Constants.defaultPadding * 1.5,
+                          right: Constants.defaultPadding * 1.5,
+                          bottom: Constants.defaultPadding * 1.5,
                         ),
-                        padding: const EdgeInsets.symmetric(
+                        padding: EdgeInsets.symmetric(
                             horizontal: Constants.defaultPadding,
                             vertical: Constants.defaultPadding * 1.5),
                         decoration: const BoxDecoration(
@@ -178,7 +178,7 @@ class SettingsScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                     bottom: Constants.defaultPadding * 1.5),
                                 child: Text(
                                   "Дополнительные настройки",
@@ -186,7 +186,7 @@ class SettingsScreen extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding,
                                 ),
                                 child: CustomTextInputField(
@@ -197,7 +197,7 @@ class SettingsScreen extends StatelessWidget {
                                     controller: minOrderController),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding,
                                 ),
                                 child: CustomTextInputField(
@@ -208,7 +208,7 @@ class SettingsScreen extends StatelessWidget {
                                     controller: appStoreURLController),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding,
                                 ),
                                 child: CustomTextInputField(
@@ -221,12 +221,12 @@ class SettingsScreen extends StatelessWidget {
                             ]),
                       ),
                       Container(
-                        margin: const EdgeInsets.only(
-                          left: Constants.defaultPadding * 2,
-                          right: Constants.defaultPadding * 2,
-                          bottom: Constants.defaultPadding * 2,
+                        margin: EdgeInsets.only(
+                          left: Constants.defaultPadding * 1.5,
+                          right: Constants.defaultPadding * 1.5,
+                          bottom: Constants.defaultPadding * 1.5,
                         ),
-                        padding: const EdgeInsets.symmetric(
+                        padding: EdgeInsets.symmetric(
                             horizontal: Constants.defaultPadding,
                             vertical: Constants.defaultPadding * 1.5),
                         decoration: const BoxDecoration(
@@ -237,7 +237,7 @@ class SettingsScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding * 0.5),
                               child: Text(
                                 "Настройки методов оплаты",
@@ -245,7 +245,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                   bottom: Constants.defaultPadding * 1.5),
                               child: Text(
                                 "В данном блоке вы можете настроить доступность всех методов оплат в приложении",
@@ -254,7 +254,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding,
                               ),
                               child: Row(
@@ -280,7 +280,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding,
                               ),
                               child: Row(
@@ -307,7 +307,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding,
                               ),
                               child: Row(
@@ -334,7 +334,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
+                              padding: EdgeInsets.only(
                                 bottom: Constants.defaultPadding,
                               ),
                               child: Row(
