@@ -50,11 +50,59 @@ class Constants {
     );
   }
 
-  // //Check for changing theme for small devices
+  static SnackBar loadingSnackBar(BuildContext context, {String? title}) {
+    return SnackBar(
+      dismissDirection: DismissDirection.none,
+      backgroundColor: Constants.primaryColor,
+      duration: const Duration(seconds: 777),
+      content: Padding(
+        padding: EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title ?? "Загрузка...",
+              style: Constants.textTheme.headlineSmall!
+                  .copyWith(color: Colors.white),
+            ),
+            const SizedBox(
+              width: 21,
+              height: 21,
+              child: CircularProgressIndicator(
+                  strokeWidth: 2, color: Constants.buttonTextColor),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  //Check for changing theme for small devices
   static void checkThemeForSmallDevices(double width) {
     if (width <= 450) {
       textTheme = CustomTheme.smallTextTheme;
       defaultPadding = 16;
     }
+  }
+
+  //Get number of columns in GridView depending on device width
+  static int getCrossAxisCount(double width) {
+    if (width > 1600) {
+      return 8;
+    }
+    if (width > 1400) {
+      return 7;
+    }
+    if (width > 1200) {
+      return 6;
+    }
+    if (width > 1000) {
+      return 5;
+    } else if (width > 640) {
+      return 4;
+    } else if (width > 300) {
+      return 3;
+    }
+    return 2;
   }
 }

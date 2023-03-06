@@ -12,13 +12,15 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //Bloc.observer = SimpleBlocObserver();
+  Bloc.observer = SimpleBlocObserver();
   await Firebase.initializeApp(
       options: const FirebaseOptions(
-          apiKey: "AIzaSyCHphB7II1SmtlqAin9FmO-JnDBK4cfEQo",
-          appId: "1:417211985488:web:2554d5f41b6f25d972eb55",
-          messagingSenderId: "417211985488",
-          projectId: "pikapika-a82c0"));
+    apiKey: "AIzaSyCHphB7II1SmtlqAin9FmO-JnDBK4cfEQo",
+    appId: "1:417211985488:web:2554d5f41b6f25d972eb55",
+    messagingSenderId: "417211985488",
+    projectId: "pikapika-a82c0",
+    storageBucket: "pikapika-a82c0.appspot.com",
+  ));
   await dotenv.load(fileName: ".env");
 
   final AuthRepository authRepository =

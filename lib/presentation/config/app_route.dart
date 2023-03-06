@@ -6,9 +6,11 @@ import 'package:pikapika_admin_panel/data/models/delivery_point.dart';
 import 'package:pikapika_admin_panel/data/providers/auth_firebase_provider.dart';
 import 'package:pikapika_admin_panel/data/providers/firestore_provider.dart';
 import 'package:pikapika_admin_panel/data/providers/iiko_provider.dart';
+import 'package:pikapika_admin_panel/data/providers/storage_provider.dart';
 import 'package:pikapika_admin_panel/data/repositories/auth_repository.dart';
 import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
 import 'package:pikapika_admin_panel/data/repositories/iiko_repository.dart';
+import 'package:pikapika_admin_panel/data/repositories/storage_repository.dart';
 import 'package:pikapika_admin_panel/logic/blocs/cashback/cashback_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/gift/gift_bloc.dart';
@@ -18,6 +20,7 @@ import 'package:pikapika_admin_panel/logic/blocs/order_history/order_history_blo
 import 'package:pikapika_admin_panel/logic/blocs/pickup_points/pickup_point_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promocode/promocode_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/promotion/promotion_bloc.dart';
+import 'package:pikapika_admin_panel/logic/blocs/storage/storage_bloc.dart';
 import 'package:pikapika_admin_panel/logic/blocs/user/user_bloc.dart';
 import 'package:pikapika_admin_panel/logic/cubits/individual_percent/individual_percent_cubit.dart';
 import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
@@ -26,6 +29,7 @@ import 'package:pikapika_admin_panel/presentation/screens/geopoint_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/login_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/main_screen.dart';
 import 'package:pikapika_admin_panel/presentation/screens/orders_history_screen.dart';
+import 'package:pikapika_admin_panel/presentation/screens/storage_screen.dart';
 
 class AppRouter {
   final AuthRepository authRepository =
@@ -33,6 +37,8 @@ class AppRouter {
   static final FirestoreRepository firestoreRepository =
       FirestoreRepository(FirestoreProvider(FirebaseFirestore.instance));
   final IikoRepository iikoRepository = IikoRepository(IikoProvider());
+  final StorageRepository storageRepository =
+      StorageRepository(StorageProvider());
 
   ContactBloc contactBloc = ContactBloc(firestoreRepository)
     ..add(LoadContactData());
@@ -93,13 +99,19 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => GeopointScreen(
                 deliveryPoint: settings.arguments as DeliveryPoint?));
-
       case "/orderHistory":
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => OrderHistoryBloc(firestoreRepository),
                   child: OrdersHistoryScreen(
                       phoneNumber: settings.arguments as String),
+                ));
+      case "/storage":
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) =>
+                      StorageBloc(storageRepository)..add(LoadStorageFiles()),
+                  child: const StorageScreen(),
                 ));
 
       default:

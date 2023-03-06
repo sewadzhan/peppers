@@ -14,7 +14,14 @@ class OrdersHistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<OrderHistoryBloc>().add(LoadOrderHistory(phoneNumber));
     return Scaffold(
-      appBar: AppBar(title: Text("История заказов $phoneNumber")),
+      appBar: AppBar(
+        backgroundColor: Constants.secondBackgroundColor,
+        foregroundColor: Constants.darkGrayColor,
+        title: Text(
+          "История заказов $phoneNumber",
+          style: Constants.textTheme.displaySmall,
+        ),
+      ),
       body: SingleChildScrollView(
         child: BlocConsumer<OrderHistoryBloc, OrderHistoryState>(
           listener: (context, state) {
