@@ -8,7 +8,6 @@ import 'package:pikapika_admin_panel/logic/bloc_observer.dart';
 import 'package:pikapika_admin_panel/logic/cubits/auth/logout_cubit.dart';
 import 'package:pikapika_admin_panel/presentation/config/app_route.dart';
 import 'package:pikapika_admin_panel/presentation/config/theme.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +20,6 @@ Future<void> main() async {
     projectId: "pikapika-a82c0",
     storageBucket: "pikapika-a82c0.appspot.com",
   ));
-  await dotenv.load(fileName: ".env");
 
   final AuthRepository authRepository =
       AuthRepository(AuthFirebaseProvider(FirebaseAuth.instance));

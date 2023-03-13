@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/form_submission_status.dart';
 import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
 import 'package:pikapika_admin_panel/presentation/components/custom_elevated_button.dart';

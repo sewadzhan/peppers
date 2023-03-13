@@ -1,12 +1,12 @@
 import 'dart:convert';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+//import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart';
 import 'package:pikapika_admin_panel/data/models/cart.dart';
 import 'package:pikapika_admin_panel/data/models/checkout.dart';
 import 'package:pikapika_admin_panel/data/models/pikapika_user.dart';
 
 class IikoProvider {
-  final String iikoWebLogin = dotenv.env['IIKO_WEB_LOGIN']!;
+  final String iikoWebLogin = '2e13cc74';
   final String proxyURL =
       'https://us-central1-pikapika-a82c0.cloudfunctions.net/iikoApi';
 

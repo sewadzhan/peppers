@@ -50,7 +50,6 @@ dependencies:
   intl: ^0.17.0
   cached_network_image: ^3.2.3
   http: ^0.13.5
-  flutter_dotenv: ^5.0.2
   file_picker: ^5.2.5
   url_launcher: ^6.1.10
   
