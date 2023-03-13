@@ -145,78 +145,73 @@ class DiscountScreen extends StatelessWidget {
 
         return SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          child: Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: Constants.defaultPadding * 0.5,
-                      right: Constants.defaultPadding * 1.5,
-                      bottom: Constants.defaultPadding * 0.5),
-                  child: CustomElevatedButton(
-                      text: "Добавить промокод",
-                      width: 170,
-                      height: 43,
-                      fontSize: Constants.textTheme.bodyLarge!.fontSize,
-                      function: () {
-                        showDiscountDialog(
-                            context1,
-                            context1.read<PromocodeBloc>(),
-                            null,
-                            iikoDiscounts);
-                      }),
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                    left: Constants.defaultPadding * 1.5,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                    top: Constants.defaultPadding * 0.5,
                     right: Constants.defaultPadding * 1.5,
-                    bottom: Constants.defaultPadding * 1.5,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Constants.defaultPadding,
-                      vertical: Constants.defaultPadding * 1.5),
-                  decoration: const BoxDecoration(
-                      color: Constants.secondBackgroundColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: Constants.defaultPadding * 0.5),
-                        child: Text(
-                          "Промокоды",
-                          style: Constants.textTheme.headlineMedium,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: Constants.defaultPadding * 1.5),
-                        child: Text(
-                          "Все активные и неактивные промокоды и скидки ресторана",
-                          style: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.middleGrayColor),
-                        ),
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            physics: const BouncingScrollPhysics(),
-                            child: DataTable(
-                                showCheckboxColumn: false,
-                                horizontalMargin: 10,
-                                dataRowHeight: 60,
-                                columnSpacing: 35,
-                                columns: getColumns(),
-                                rows: rows)),
-                      )
-                    ],
-                  ),
+                    bottom: Constants.defaultPadding * 0.5),
+                child: CustomElevatedButton(
+                    text: "Добавить промокод",
+                    width: 170,
+                    height: 43,
+                    fontSize: Constants.textTheme.bodyLarge!.fontSize,
+                    function: () {
+                      showDiscountDialog(context1,
+                          context1.read<PromocodeBloc>(), null, iikoDiscounts);
+                    }),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  left: Constants.defaultPadding * 1.5,
+                  right: Constants.defaultPadding * 1.5,
+                  bottom: Constants.defaultPadding * 1.5,
                 ),
-              ],
-            ),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Constants.defaultPadding,
+                    vertical: Constants.defaultPadding * 1.5),
+                decoration: const BoxDecoration(
+                    color: Constants.secondBackgroundColor,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: Constants.defaultPadding * 0.5),
+                      child: Text(
+                        "Промокоды",
+                        style: Constants.textTheme.headlineMedium,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: Constants.defaultPadding * 1.5),
+                      child: Text(
+                        "Все активные и неактивные промокоды и скидки ресторана",
+                        style: Constants.textTheme.bodyLarge!
+                            .copyWith(color: Constants.middleGrayColor),
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          physics: const BouncingScrollPhysics(),
+                          child: DataTable(
+                              showCheckboxColumn: false,
+                              horizontalMargin: 10,
+                              dataRowHeight: 60,
+                              columnSpacing: 35,
+                              columns: getColumns(),
+                              rows: rows)),
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
         );
       },

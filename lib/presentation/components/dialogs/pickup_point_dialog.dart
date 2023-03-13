@@ -53,6 +53,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
 
   @override
   Widget build(BuildContext context) {
+    print(initialIikoOrganization);
     return ScaffoldMessenger(
       child: Builder(builder: (dialogContext) {
         return Scaffold(

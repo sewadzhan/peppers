@@ -7,10 +7,12 @@ import 'package:pikapika_admin_panel/data/models/pikapika_user.dart';
 
 class IikoProvider {
   final String iikoWebLogin = dotenv.env['IIKO_WEB_LOGIN']!;
+  final String proxyURL =
+      'https://us-central1-pikapika-a82c0.cloudfunctions.net/iikoApi';
 
   Future<Response> getToken() async {
     return await post(
-      Uri.parse('https://api-ru.iiko.services/api/1/access_token'),
+      Uri.parse('$proxyURL/api/access_token'),
       headers: {
         "content-type": "application/json",
       },
@@ -19,8 +21,7 @@ class IikoProvider {
   }
 
   Future<Response> getOrganization(String token) async {
-    return await post(
-        Uri.parse('https://api-ru.iiko.services/api/1/organizations'),
+    return await post(Uri.parse('$proxyURL/api/organizations'),
         headers: {
           "content-type": "application/json",
           "Authorization": token,
@@ -29,7 +30,7 @@ class IikoProvider {
   }
 
   Future<Response> getDiscounts(String token, String organizationID) async {
-    return await post(Uri.parse('https://api-ru.iiko.services/api/1/discounts'),
+    return await post(Uri.parse('$proxyURL/api/discounts'),
         headers: {
           "content-type": "application/json",
           "Authorization": token,
@@ -42,8 +43,7 @@ class IikoProvider {
 
   Future<Response> getTerminalGroups(
       String token, String organizationID) async {
-    return await post(
-        Uri.parse('https://api-ru.iiko.services/api/1/terminal_groups'),
+    return await post(Uri.parse('$proxyURL/api/terminal_groups'),
         headers: {"content-type": "application/json", "Authorization": token},
         body: jsonEncode({
           "organizationIds": [organizationID],
@@ -52,8 +52,7 @@ class IikoProvider {
   }
 
   Future<Response> getOrderTypes(String token, String organizationID) async {
-    return await post(
-        Uri.parse('https://api-ru.iiko.services/api/1/deliveries/order_types'),
+    return await post(Uri.parse('$proxyURL/api/deliveries/order_types'),
         headers: {"content-type": "application/json", "Authorization": token},
         body: jsonEncode({
           "organizationIds": [organizationID],
@@ -61,7 +60,7 @@ class IikoProvider {
   }
 
   Future<Response> getCities(String token, String organizationID) async {
-    return await post(Uri.parse('https://api-ru.iiko.services/api/1/cities'),
+    return await post(Uri.parse('$proxyURL/api/cities'),
         headers: {"content-type": "application/json", "Authorization": token},
         body: jsonEncode({
           "organizationIds": [organizationID],
@@ -70,8 +69,7 @@ class IikoProvider {
 
   Future<Response> getStreets(
       String token, String organizationID, String cityID) async {
-    return await post(
-        Uri.parse('https://api-ru.iiko.services/api/1/streets/by_city'),
+    return await post(Uri.parse('$proxyURL/api/streets/by_city'),
         headers: {"content-type": "application/json", "Authorization": token},
         body: jsonEncode({
           "organizationId": organizationID,
@@ -81,8 +79,7 @@ class IikoProvider {
 
   Future<Response> getOrdersById(
       String token, String organizationID, String orderID) async {
-    return await post(
-        Uri.parse('https://api-ru.iiko.services/api/1/deliveries/by_id'),
+    return await post(Uri.parse('$proxyURL/api/deliveries/by_id'),
         headers: {"content-type": "application/json", "Authorization": token},
         body: jsonEncode({
           "organizationId": organizationID,
@@ -92,15 +89,13 @@ class IikoProvider {
 
   Future<Response> checkCorrelationID(
       String token, String correlationID) async {
-    return await post(
-        Uri.parse('https://api-ru.iiko.services/api/1/commands/status'),
+    return await post(Uri.parse('$proxyURL/api/commands/status'),
         headers: {"content-type": "application/json", "Authorization": token},
         body: jsonEncode({"correlationId": correlationID}));
   }
 
   Future<Response> getMenu(String token, String organizationID) async {
-    return await post(
-        Uri.parse('https://api-ru.iiko.services/api/1/nomenclature'),
+    return await post(Uri.parse('$proxyURL/api/nomenclature'),
         headers: {"content-type": "application/json", "Authorization": token},
         body:
             jsonEncode({"organizationId": organizationID, "startRevision": 0}));
@@ -238,7 +233,7 @@ class IikoProvider {
     }
 
     return await post(
-      Uri.parse('https://api-ru.iiko.services/api/1/deliveries/create'),
+      Uri.parse('$proxyURL/api/deliveries/create'),
       headers: {
         "content-type": "application/json",
         "Authorization": token,

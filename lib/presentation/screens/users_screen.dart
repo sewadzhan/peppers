@@ -59,58 +59,56 @@ class UsersScreen extends StatelessWidget {
           if (state is UserLoadedState) {
             return SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
-              child: Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.all(
-                        Constants.defaultPadding * 1.5,
-                      ),
-                      padding: EdgeInsets.symmetric(
-                          horizontal: Constants.defaultPadding,
-                          vertical: Constants.defaultPadding * 1.5),
-                      decoration: const BoxDecoration(
-                          color: Constants.secondBackgroundColor,
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                bottom: Constants.defaultPadding * 0.5),
-                            child: Text(
-                              "Пользователи",
-                              style: Constants.textTheme.headlineMedium,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                bottom: Constants.defaultPadding * 1.5),
-                            child: Text(
-                              "Все пользователи мобильного приложения ресторана",
-                              style: Constants.textTheme.bodyLarge!
-                                  .copyWith(color: Constants.middleGrayColor),
-                            ),
-                          ),
-                          SizedBox(
-                            width: double.infinity,
-                            child: PaginatedDataTable(
-                              rowsPerPage: 15,
-                              source: UserData(state.users, context,
-                                  context.read<IndividualPercentCubit>()),
-                              showCheckboxColumn: false,
-                              horizontalMargin: 10,
-                              dataRowHeight: 60,
-                              columnSpacing: 35,
-                              columns: getColumns(),
-                            ),
-                          )
-                        ],
-                      ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(
+                      Constants.defaultPadding * 1.5,
                     ),
-                  ],
-                ),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: Constants.defaultPadding,
+                        vertical: Constants.defaultPadding * 1.5),
+                    decoration: const BoxDecoration(
+                        color: Constants.secondBackgroundColor,
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                              bottom: Constants.defaultPadding * 0.5),
+                          child: Text(
+                            "Пользователи",
+                            style: Constants.textTheme.headlineMedium,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              bottom: Constants.defaultPadding * 1.5),
+                          child: Text(
+                            "Все пользователи мобильного приложения ресторана",
+                            style: Constants.textTheme.bodyLarge!
+                                .copyWith(color: Constants.middleGrayColor),
+                          ),
+                        ),
+                        SizedBox(
+                          width: double.infinity,
+                          child: PaginatedDataTable(
+                            rowsPerPage: 15,
+                            source: UserData(state.users, context,
+                                context.read<IndividualPercentCubit>()),
+                            showCheckboxColumn: false,
+                            horizontalMargin: 10,
+                            dataRowHeight: 60,
+                            columnSpacing: 35,
+                            columns: getColumns(),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
               ),
             );
           }

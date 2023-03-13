@@ -194,592 +194,590 @@ class GiftScreen extends StatelessWidget {
 
       return SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        child: Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Padding(
-                  padding: EdgeInsets.only(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Padding(
+                padding: EdgeInsets.only(
+                    top: Constants.defaultPadding * 0.5,
+                    right: Constants.defaultPadding * 1.5,
+                    bottom: Constants.defaultPadding * 0.5),
+                child: CustomElevatedButton(
+                    text: "Сохранить",
+                    width: 120,
+                    isLoading:
+                        context.read<GiftBloc>().state is GiftSavingState,
+                    height: 43,
+                    fontSize: Constants.textTheme.bodyLarge!.fontSize,
+                    function: () {
+                      context.read<GiftBloc>().add(UpdateGiftData(
+                            gift1CategoryID: gift1CategoryIDController.text,
+                            gift1Description: gift1DescriptionController.text,
+                            gift1Goal: gift1GoalController.text,
+                            gift1Icon: gift1IconController.text,
+                            gift2CategoryID: gift2CategoryIDController.text,
+                            gift2Description: gift2DescriptionController.text,
+                            gift2Goal: gift2GoalController.text,
+                            gift2Icon: gift2IconController.text,
+                            gift3CategoryID: gift3CategoryIDController.text,
+                            gift3Description: gift3DescriptionController.text,
+                            gift3Goal: gift3GoalController.text,
+                            gift3Icon: gift3IconController.text,
+                          ));
+                    })),
+            Container(
+              margin: EdgeInsets.only(
+                left: Constants.defaultPadding * 1.5,
+                right: Constants.defaultPadding * 1.5,
+                bottom: Constants.defaultPadding * 1.5,
+              ),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Constants.defaultPadding,
+                  vertical: Constants.defaultPadding * 1.5),
+              decoration: const BoxDecoration(
+                  color: Constants.secondBackgroundColor,
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsets.only(bottom: Constants.defaultPadding * 0.5),
+                    child: Text(
+                      "Подарок #1",
+                      style: Constants.textTheme.headlineMedium,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(bottom: Constants.defaultPadding * 1.5),
+                    child: Text(
+                      "В данном блоке вы можете настроить подарок #1 в приложении",
+                      style: Constants.textTheme.bodyLarge!
+                          .copyWith(color: Constants.middleGrayColor),
+                    ),
+                  ),
+                  Text(
+                    "IIKO категория подарка",
+                    style: Constants.textTheme.headlineSmall,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
                       top: Constants.defaultPadding * 0.5,
-                      right: Constants.defaultPadding * 1.5,
-                      bottom: Constants.defaultPadding * 0.5),
-                  child: CustomElevatedButton(
-                      text: "Сохранить",
-                      width: 120,
-                      isLoading:
-                          context.read<GiftBloc>().state is GiftSavingState,
-                      height: 43,
-                      fontSize: Constants.textTheme.bodyLarge!.fontSize,
-                      function: () {
-                        context.read<GiftBloc>().add(UpdateGiftData(
-                              gift1CategoryID: gift1CategoryIDController.text,
-                              gift1Description: gift1DescriptionController.text,
-                              gift1Goal: gift1GoalController.text,
-                              gift1Icon: gift1IconController.text,
-                              gift2CategoryID: gift2CategoryIDController.text,
-                              gift2Description: gift2DescriptionController.text,
-                              gift2Goal: gift2GoalController.text,
-                              gift2Icon: gift2IconController.text,
-                              gift3CategoryID: gift3CategoryIDController.text,
-                              gift3Description: gift3DescriptionController.text,
-                              gift3Goal: gift3GoalController.text,
-                              gift3Icon: gift3IconController.text,
-                            ));
-                      })),
-              Container(
-                margin: EdgeInsets.only(
-                  left: Constants.defaultPadding * 1.5,
-                  right: Constants.defaultPadding * 1.5,
-                  bottom: Constants.defaultPadding * 1.5,
-                ),
-                padding: EdgeInsets.symmetric(
-                    horizontal: Constants.defaultPadding,
-                    vertical: Constants.defaultPadding * 1.5),
-                decoration: const BoxDecoration(
-                    color: Constants.secondBackgroundColor,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding * 0.5),
-                      child: Text(
-                        "Подарок #1",
-                        style: Constants.textTheme.headlineMedium,
-                      ),
+                      bottom: Constants.defaultPadding,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding * 1.5),
-                      child: Text(
-                        "В данном блоке вы можете настроить подарок #1 в приложении",
-                        style: Constants.textTheme.bodyLarge!
-                            .copyWith(color: Constants.middleGrayColor),
-                      ),
+                    child: DropdownButtonFormField(
+                      value: initialIikoCategoryGift1,
+                      decoration: InputDecoration(
+                          hintText: "Выберите категорию IIKO",
+                          hintStyle: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor),
+                          focusedBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 3,
+                                color: Constants.secondPrimaryColor,
+                              )),
+                          enabledBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Constants.textFieldGrayColor,
+                              ))),
+                      items: iikoCategories
+                          .map((category) => DropdownMenuItem(
+                                value: category,
+                                child: Text(
+                                  category.name,
+                                  style: Constants.textTheme.bodyLarge,
+                                ),
+                              ))
+                          .toList(),
+                      onChanged: (category) {
+                        if (category != null) {
+                          gift1CategoryIDController =
+                              TextEditingController(text: category.id);
+                        }
+                      },
                     ),
-                    Text(
-                      "IIKO категория подарка",
-                      style: Constants.textTheme.headlineSmall,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: Constants.defaultPadding * 0.5,
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: DropdownButtonFormField(
-                        value: initialIikoCategoryGift1,
-                        decoration: InputDecoration(
-                            hintText: "Выберите категорию IIKO",
-                            hintStyle: Constants.textTheme.bodyLarge!
-                                .copyWith(color: Constants.textFieldGrayColor),
-                            focusedBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 3,
-                                  color: Constants.secondPrimaryColor,
-                                )),
-                            enabledBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: Constants.textFieldGrayColor,
-                                ))),
-                        items: iikoCategories
-                            .map((category) => DropdownMenuItem(
-                                  value: category,
-                                  child: Text(
-                                    category.name,
-                                    style: Constants.textTheme.bodyLarge,
-                                  ),
-                                ))
-                            .toList(),
-                        onChanged: (category) {
-                          if (category != null) {
-                            gift1CategoryIDController =
-                                TextEditingController(text: category.id);
-                          }
-                        },
-                      ),
+                    child: CustomTextInputField(
+                        titleText: "Короткое описание подарка #1",
+                        hintText: "Введите небольшое описание подарка",
+                        keyboardType: TextInputType.number,
+                        controller: gift1DescriptionController),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: CustomTextInputField(
-                          titleText: "Короткое описание подарка #1",
-                          hintText: "Введите небольшое описание подарка",
-                          keyboardType: TextInputType.number,
-                          controller: gift1DescriptionController),
+                    child: CustomTextInputField(
+                        titleText: "Начальная сумма активации подарка #1",
+                        hintText:
+                            "Введите сумму при которой активируется акция",
+                        keyboardType: TextInputType.number,
+                        controller: gift1GoalController),
+                  ),
+                  Text(
+                    "Иконка подарка",
+                    style: Constants.textTheme.headlineSmall,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: Constants.defaultPadding * 0.5,
+                      bottom: Constants.defaultPadding,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: CustomTextInputField(
-                          titleText: "Начальная сумма активации подарка #1",
-                          hintText:
-                              "Введите сумму при которой активируется акция",
-                          keyboardType: TextInputType.number,
-                          controller: gift1GoalController),
+                    child: DropdownButtonFormField(
+                      value: gift1IconController.text,
+                      decoration: InputDecoration(
+                          hintText: "Выберите иконку для подарка #1",
+                          hintStyle: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor),
+                          focusedBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 3,
+                                color: Constants.secondPrimaryColor,
+                              )),
+                          enabledBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Constants.textFieldGrayColor,
+                              ))),
+                      items: iconsList,
+                      onChanged: (icon) {
+                        if (icon != null) {
+                          gift1IconController =
+                              TextEditingController(text: icon);
+                        }
+                      },
                     ),
-                    Text(
-                      "Иконка подарка",
-                      style: Constants.textTheme.headlineSmall,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: Constants.defaultPadding * 0.5,
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: DropdownButtonFormField(
-                        value: gift1IconController.text,
-                        decoration: InputDecoration(
-                            hintText: "Выберите иконку для подарка #1",
-                            hintStyle: Constants.textTheme.bodyLarge!
-                                .copyWith(color: Constants.textFieldGrayColor),
-                            focusedBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 3,
-                                  color: Constants.secondPrimaryColor,
-                                )),
-                            enabledBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: Constants.textFieldGrayColor,
-                                ))),
-                        items: iconsList,
-                        onChanged: (icon) {
-                          if (icon != null) {
-                            gift1IconController =
-                                TextEditingController(text: icon);
-                          }
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          GiftCheckbox(
-                            initialValue: initialIsEnabledGift1,
-                            giftBloc: context.read<GiftBloc>(),
-                            checkboxType: "isEnabled",
-                            giftType: "gift1",
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        GiftCheckbox(
+                          initialValue: initialIsEnabledGift1,
+                          giftBloc: context.read<GiftBloc>(),
+                          checkboxType: "isEnabled",
+                          giftType: "gift1",
+                        ),
+                        Flexible(
+                          child: Text(
+                            "Запустить акцию подарка #1",
+                            style: Constants.textTheme.bodyLarge,
                           ),
-                          Flexible(
-                            child: Text(
-                              "Запустить акцию подарка #1",
-                              style: Constants.textTheme.bodyLarge,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          GiftCheckbox(
-                            initialValue: initialIsSingleGift1,
-                            giftBloc: context.read<GiftBloc>(),
-                            checkboxType: "isSingleGift",
-                            giftType: "gift1",
-                          ),
-                          Flexible(
-                            child: Text(
-                              "Акция не предоставляет выбора (Фиксированный подарок)",
-                              style: Constants.textTheme.bodyLarge,
-                            ),
-                          ),
-                        ],
-                      ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
                     ),
-                  ],
-                ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        GiftCheckbox(
+                          initialValue: initialIsSingleGift1,
+                          giftBloc: context.read<GiftBloc>(),
+                          checkboxType: "isSingleGift",
+                          giftType: "gift1",
+                        ),
+                        Flexible(
+                          child: Text(
+                            "Акция не предоставляет выбора (Фиксированный подарок)",
+                            style: Constants.textTheme.bodyLarge,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  left: Constants.defaultPadding * 1.5,
-                  right: Constants.defaultPadding * 1.5,
-                  bottom: Constants.defaultPadding * 1.5,
-                ),
-                padding: EdgeInsets.symmetric(
-                    horizontal: Constants.defaultPadding,
-                    vertical: Constants.defaultPadding * 1.5),
-                decoration: const BoxDecoration(
-                    color: Constants.secondBackgroundColor,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding * 0.5),
-                      child: Text(
-                        "Подарок #2",
-                        style: Constants.textTheme.headlineMedium,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding * 1.5),
-                      child: Text(
-                        "В данном блоке вы можете настроить подарок #2 в приложении",
-                        style: Constants.textTheme.bodyLarge!
-                            .copyWith(color: Constants.middleGrayColor),
-                      ),
-                    ),
-                    Text(
-                      "IIKO категория подарка",
-                      style: Constants.textTheme.headlineSmall,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: Constants.defaultPadding * 0.5,
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: DropdownButtonFormField(
-                        value: initialIikoCategoryGift2,
-                        decoration: InputDecoration(
-                            hintText: "Выберите категорию IIKO",
-                            hintStyle: Constants.textTheme.bodyLarge!
-                                .copyWith(color: Constants.textFieldGrayColor),
-                            focusedBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 3,
-                                  color: Constants.secondPrimaryColor,
-                                )),
-                            enabledBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: Constants.textFieldGrayColor,
-                                ))),
-                        items: iikoCategories
-                            .map((category) => DropdownMenuItem(
-                                  value: category,
-                                  child: Text(
-                                    category.name,
-                                    style: Constants.textTheme.bodyLarge,
-                                  ),
-                                ))
-                            .toList(),
-                        onChanged: (category) {
-                          if (category != null) {
-                            gift2CategoryIDController =
-                                TextEditingController(text: category.id);
-                          }
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: CustomTextInputField(
-                          titleText: "Короткое описание подарка #2",
-                          hintText: "Введите небольшое описание подарка",
-                          keyboardType: TextInputType.number,
-                          controller: gift2DescriptionController),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: CustomTextInputField(
-                          titleText: "Начальная сумма активации подарка #2",
-                          hintText:
-                              "Введите сумму при которой активируется акция",
-                          keyboardType: TextInputType.number,
-                          controller: gift2GoalController),
-                    ),
-                    Text(
-                      "Иконка подарка",
-                      style: Constants.textTheme.headlineSmall,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: Constants.defaultPadding * 0.5,
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: DropdownButtonFormField(
-                        value: gift2IconController.text,
-                        decoration: InputDecoration(
-                            hintText: "Выберите иконку для подарка #2",
-                            hintStyle: Constants.textTheme.bodyLarge!
-                                .copyWith(color: Constants.textFieldGrayColor),
-                            focusedBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 3,
-                                  color: Constants.secondPrimaryColor,
-                                )),
-                            enabledBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: Constants.textFieldGrayColor,
-                                ))),
-                        items: iconsList,
-                        onChanged: (icon) {
-                          if (icon != null) {
-                            gift2IconController =
-                                TextEditingController(text: icon);
-                          }
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          GiftCheckbox(
-                            initialValue: initialIsEnabledGift2,
-                            giftBloc: context.read<GiftBloc>(),
-                            checkboxType: "isEnabled",
-                            giftType: "gift2",
-                          ),
-                          Flexible(
-                            child: Text(
-                              "Запустить акцию подарка #2",
-                              style: Constants.textTheme.bodyLarge,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          GiftCheckbox(
-                            initialValue: initialIsSingleGift2,
-                            giftBloc: context.read<GiftBloc>(),
-                            checkboxType: "isSingleGift",
-                            giftType: "gift2",
-                          ),
-                          Flexible(
-                            child: Text(
-                              "Акция не предоставляет выбора (Фиксированный подарок)",
-                              style: Constants.textTheme.bodyLarge,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                left: Constants.defaultPadding * 1.5,
+                right: Constants.defaultPadding * 1.5,
+                bottom: Constants.defaultPadding * 1.5,
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  left: Constants.defaultPadding * 1.5,
-                  right: Constants.defaultPadding * 1.5,
-                  bottom: Constants.defaultPadding * 1.5,
-                ),
-                padding: EdgeInsets.symmetric(
-                    horizontal: Constants.defaultPadding,
-                    vertical: Constants.defaultPadding * 1.5),
-                decoration: const BoxDecoration(
-                    color: Constants.secondBackgroundColor,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding * 0.5),
-                      child: Text(
-                        "Подарок #3",
-                        style: Constants.textTheme.headlineMedium,
-                      ),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Constants.defaultPadding,
+                  vertical: Constants.defaultPadding * 1.5),
+              decoration: const BoxDecoration(
+                  color: Constants.secondBackgroundColor,
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsets.only(bottom: Constants.defaultPadding * 0.5),
+                    child: Text(
+                      "Подарок #2",
+                      style: Constants.textTheme.headlineMedium,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding * 1.5),
-                      child: Text(
-                        "В данном блоке вы можете настроить подарок #3 в приложении",
-                        style: Constants.textTheme.bodyLarge!
-                            .copyWith(color: Constants.middleGrayColor),
-                      ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(bottom: Constants.defaultPadding * 1.5),
+                    child: Text(
+                      "В данном блоке вы можете настроить подарок #2 в приложении",
+                      style: Constants.textTheme.bodyLarge!
+                          .copyWith(color: Constants.middleGrayColor),
                     ),
-                    Text(
-                      "IIKO категория подарка",
-                      style: Constants.textTheme.headlineSmall,
+                  ),
+                  Text(
+                    "IIKO категория подарка",
+                    style: Constants.textTheme.headlineSmall,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: Constants.defaultPadding * 0.5,
+                      bottom: Constants.defaultPadding,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: Constants.defaultPadding * 0.5,
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: DropdownButtonFormField(
-                        value: initialIikoCategoryGift3,
-                        decoration: InputDecoration(
-                            hintText: "Выберите категорию IIKO",
-                            hintStyle: Constants.textTheme.bodyLarge!
-                                .copyWith(color: Constants.textFieldGrayColor),
-                            focusedBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 3,
-                                  color: Constants.secondPrimaryColor,
-                                )),
-                            enabledBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: Constants.textFieldGrayColor,
-                                ))),
-                        items: iikoCategories
-                            .map((category) => DropdownMenuItem(
-                                  value: category,
-                                  child: Text(
-                                    category.name,
-                                    style: Constants.textTheme.bodyLarge,
-                                  ),
-                                ))
-                            .toList(),
-                        onChanged: (category) {
-                          if (category != null) {
-                            gift3CategoryIDController =
-                                TextEditingController(text: category.id);
-                          }
-                        },
-                      ),
+                    child: DropdownButtonFormField(
+                      value: initialIikoCategoryGift2,
+                      decoration: InputDecoration(
+                          hintText: "Выберите категорию IIKO",
+                          hintStyle: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor),
+                          focusedBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 3,
+                                color: Constants.secondPrimaryColor,
+                              )),
+                          enabledBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Constants.textFieldGrayColor,
+                              ))),
+                      items: iikoCategories
+                          .map((category) => DropdownMenuItem(
+                                value: category,
+                                child: Text(
+                                  category.name,
+                                  style: Constants.textTheme.bodyLarge,
+                                ),
+                              ))
+                          .toList(),
+                      onChanged: (category) {
+                        if (category != null) {
+                          gift2CategoryIDController =
+                              TextEditingController(text: category.id);
+                        }
+                      },
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: CustomTextInputField(
-                          titleText: "Короткое описание подарка #3",
-                          hintText: "Введите небольшое описание подарка",
-                          keyboardType: TextInputType.number,
-                          controller: gift3DescriptionController),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: CustomTextInputField(
-                          titleText: "Начальная сумма активации подарка #3",
-                          hintText:
-                              "Введите сумму при которой активируется акция",
-                          keyboardType: TextInputType.number,
-                          controller: gift3GoalController),
+                    child: CustomTextInputField(
+                        titleText: "Короткое описание подарка #2",
+                        hintText: "Введите небольшое описание подарка",
+                        keyboardType: TextInputType.number,
+                        controller: gift2DescriptionController),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
                     ),
-                    Text(
-                      "Иконка подарка",
-                      style: Constants.textTheme.headlineSmall,
+                    child: CustomTextInputField(
+                        titleText: "Начальная сумма активации подарка #2",
+                        hintText:
+                            "Введите сумму при которой активируется акция",
+                        keyboardType: TextInputType.number,
+                        controller: gift2GoalController),
+                  ),
+                  Text(
+                    "Иконка подарка",
+                    style: Constants.textTheme.headlineSmall,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: Constants.defaultPadding * 0.5,
+                      bottom: Constants.defaultPadding,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: Constants.defaultPadding * 0.5,
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: DropdownButtonFormField(
-                        value: gift3IconController.text,
-                        decoration: InputDecoration(
-                            hintText: "Выберите иконку для подарка #3",
-                            hintStyle: Constants.textTheme.bodyLarge!
-                                .copyWith(color: Constants.textFieldGrayColor),
-                            focusedBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 3,
-                                  color: Constants.secondPrimaryColor,
-                                )),
-                            enabledBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: Constants.textFieldGrayColor,
-                                ))),
-                        items: iconsList,
-                        onChanged: (icon) {
-                          if (icon != null) {
-                            gift3IconController =
-                                TextEditingController(text: icon);
-                          }
-                        },
-                      ),
+                    child: DropdownButtonFormField(
+                      value: gift2IconController.text,
+                      decoration: InputDecoration(
+                          hintText: "Выберите иконку для подарка #2",
+                          hintStyle: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor),
+                          focusedBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 3,
+                                color: Constants.secondPrimaryColor,
+                              )),
+                          enabledBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Constants.textFieldGrayColor,
+                              ))),
+                      items: iconsList,
+                      onChanged: (icon) {
+                        if (icon != null) {
+                          gift2IconController =
+                              TextEditingController(text: icon);
+                        }
+                      },
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          GiftCheckbox(
-                            initialValue: initialIsEnabledGift3,
-                            giftBloc: context.read<GiftBloc>(),
-                            checkboxType: "isEnabled",
-                            giftType: "gift3",
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        GiftCheckbox(
+                          initialValue: initialIsEnabledGift2,
+                          giftBloc: context.read<GiftBloc>(),
+                          checkboxType: "isEnabled",
+                          giftType: "gift2",
+                        ),
+                        Flexible(
+                          child: Text(
+                            "Запустить акцию подарка #2",
+                            style: Constants.textTheme.bodyLarge,
                           ),
-                          Flexible(
-                            child: Text(
-                              "Запустить акцию подарка #3",
-                              style: Constants.textTheme.bodyLarge,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        bottom: Constants.defaultPadding,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          GiftCheckbox(
-                            initialValue: initialIsSingleGift3,
-                            giftBloc: context.read<GiftBloc>(),
-                            checkboxType: "isSingleGift",
-                            giftType: "gift3",
-                          ),
-                          Flexible(
-                            child: Text(
-                              "Акция не предоставляет выбора (Фиксированный подарок)",
-                              style: Constants.textTheme.bodyLarge,
-                            ),
-                          ),
-                        ],
-                      ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
                     ),
-                  ],
-                ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        GiftCheckbox(
+                          initialValue: initialIsSingleGift2,
+                          giftBloc: context.read<GiftBloc>(),
+                          checkboxType: "isSingleGift",
+                          giftType: "gift2",
+                        ),
+                        Flexible(
+                          child: Text(
+                            "Акция не предоставляет выбора (Фиксированный подарок)",
+                            style: Constants.textTheme.bodyLarge,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                left: Constants.defaultPadding * 1.5,
+                right: Constants.defaultPadding * 1.5,
+                bottom: Constants.defaultPadding * 1.5,
+              ),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Constants.defaultPadding,
+                  vertical: Constants.defaultPadding * 1.5),
+              decoration: const BoxDecoration(
+                  color: Constants.secondBackgroundColor,
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsets.only(bottom: Constants.defaultPadding * 0.5),
+                    child: Text(
+                      "Подарок #3",
+                      style: Constants.textTheme.headlineMedium,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(bottom: Constants.defaultPadding * 1.5),
+                    child: Text(
+                      "В данном блоке вы можете настроить подарок #3 в приложении",
+                      style: Constants.textTheme.bodyLarge!
+                          .copyWith(color: Constants.middleGrayColor),
+                    ),
+                  ),
+                  Text(
+                    "IIKO категория подарка",
+                    style: Constants.textTheme.headlineSmall,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: Constants.defaultPadding * 0.5,
+                      bottom: Constants.defaultPadding,
+                    ),
+                    child: DropdownButtonFormField(
+                      value: initialIikoCategoryGift3,
+                      decoration: InputDecoration(
+                          hintText: "Выберите категорию IIKO",
+                          hintStyle: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor),
+                          focusedBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 3,
+                                color: Constants.secondPrimaryColor,
+                              )),
+                          enabledBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Constants.textFieldGrayColor,
+                              ))),
+                      items: iikoCategories
+                          .map((category) => DropdownMenuItem(
+                                value: category,
+                                child: Text(
+                                  category.name,
+                                  style: Constants.textTheme.bodyLarge,
+                                ),
+                              ))
+                          .toList(),
+                      onChanged: (category) {
+                        if (category != null) {
+                          gift3CategoryIDController =
+                              TextEditingController(text: category.id);
+                        }
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
+                    ),
+                    child: CustomTextInputField(
+                        titleText: "Короткое описание подарка #3",
+                        hintText: "Введите небольшое описание подарка",
+                        keyboardType: TextInputType.number,
+                        controller: gift3DescriptionController),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
+                    ),
+                    child: CustomTextInputField(
+                        titleText: "Начальная сумма активации подарка #3",
+                        hintText:
+                            "Введите сумму при которой активируется акция",
+                        keyboardType: TextInputType.number,
+                        controller: gift3GoalController),
+                  ),
+                  Text(
+                    "Иконка подарка",
+                    style: Constants.textTheme.headlineSmall,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: Constants.defaultPadding * 0.5,
+                      bottom: Constants.defaultPadding,
+                    ),
+                    child: DropdownButtonFormField(
+                      value: gift3IconController.text,
+                      decoration: InputDecoration(
+                          hintText: "Выберите иконку для подарка #3",
+                          hintStyle: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor),
+                          focusedBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 3,
+                                color: Constants.secondPrimaryColor,
+                              )),
+                          enabledBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Constants.textFieldGrayColor,
+                              ))),
+                      items: iconsList,
+                      onChanged: (icon) {
+                        if (icon != null) {
+                          gift3IconController =
+                              TextEditingController(text: icon);
+                        }
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        GiftCheckbox(
+                          initialValue: initialIsEnabledGift3,
+                          giftBloc: context.read<GiftBloc>(),
+                          checkboxType: "isEnabled",
+                          giftType: "gift3",
+                        ),
+                        Flexible(
+                          child: Text(
+                            "Запустить акцию подарка #3",
+                            style: Constants.textTheme.bodyLarge,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: Constants.defaultPadding,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        GiftCheckbox(
+                          initialValue: initialIsSingleGift3,
+                          giftBloc: context.read<GiftBloc>(),
+                          checkboxType: "isSingleGift",
+                          giftType: "gift3",
+                        ),
+                        Flexible(
+                          child: Text(
+                            "Акция не предоставляет выбора (Фиксированный подарок)",
+                            style: Constants.textTheme.bodyLarge,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       );
     });

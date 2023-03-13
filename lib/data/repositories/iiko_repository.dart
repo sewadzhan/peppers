@@ -1,12 +1,9 @@
 import 'dart:convert';
 
-import 'package:pikapika_admin_panel/data/models/cart.dart';
 import 'package:pikapika_admin_panel/data/models/category.dart';
-import 'package:pikapika_admin_panel/data/models/checkout.dart';
 import 'package:pikapika_admin_panel/data/models/iiko_category.dart';
 import 'package:pikapika_admin_panel/data/models/iiko_discount.dart';
 import 'package:pikapika_admin_panel/data/models/iiko_organization.dart';
-import 'package:pikapika_admin_panel/data/models/pikapika_user.dart';
 import 'package:pikapika_admin_panel/data/providers/iiko_provider.dart';
 import 'package:http/http.dart';
 import 'package:pikapika_admin_panel/presentation/config/pikapika_exception.dart';
@@ -69,34 +66,6 @@ class IikoRepository {
           .toList();
     }
     throw PikapikaException("Unable to retrieve organization ID");
-  }
-
-  Future<void> createDelivery(
-      {required String token,
-      required String organizationID,
-      required Checkout checkout,
-      required PikapikaUser user,
-      required Cart cart,
-      required String comment,
-      required int cashbackUsed,
-      required int numberOfPersons}) async {
-    Response response = await iikoProvider.createDelivery(
-        token: token,
-        organizationID: organizationID,
-        checkout: checkout,
-        user: user,
-        cart: cart,
-        comment: comment,
-        cashbackUsed: cashbackUsed,
-        numberOfPersons: numberOfPersons);
-
-    Map<String, dynamic> body = jsonDecode(response.body);
-
-    if (response.statusCode == 200 &&
-        body['orderInfo']['creationStatus'] != "Error") {
-      return;
-    }
-    throw PikapikaException("Произошла непредвидимая ошибка. Попробуйте позже");
   }
 
   Future<List<IikoDiscount>> getDiscounts(

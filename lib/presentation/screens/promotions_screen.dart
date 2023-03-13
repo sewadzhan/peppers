@@ -103,75 +103,73 @@ class PromotionScreen extends StatelessWidget {
 
         return SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          child: Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: Constants.defaultPadding * 0.5,
-                      right: Constants.defaultPadding * 1.5,
-                      bottom: Constants.defaultPadding * 0.5),
-                  child: CustomElevatedButton(
-                      text: "Добавить акцию",
-                      width: 150,
-                      height: 43,
-                      fontSize: Constants.textTheme.bodyLarge!.fontSize,
-                      function: () {
-                        showPromotionDialog(
-                            context1, context1.read<PromotionBloc>(), null);
-                      }),
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                    left: Constants.defaultPadding * 1.5,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                    top: Constants.defaultPadding * 0.5,
                     right: Constants.defaultPadding * 1.5,
-                    bottom: Constants.defaultPadding * 1.5,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Constants.defaultPadding,
-                      vertical: Constants.defaultPadding * 1.5),
-                  decoration: const BoxDecoration(
-                      color: Constants.secondBackgroundColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: Constants.defaultPadding * 0.5),
-                        child: Text(
-                          "Акции и предложения",
-                          style: Constants.textTheme.headlineMedium,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: Constants.defaultPadding * 1.5),
-                        child: Text(
-                          "Акционные предложения ресторана",
-                          style: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.middleGrayColor),
-                        ),
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            physics: const BouncingScrollPhysics(),
-                            child: DataTable(
-                                showCheckboxColumn: false,
-                                horizontalMargin: 10,
-                                dataRowHeight: 90,
-                                columnSpacing: 35,
-                                columns: getColumns(columns),
-                                rows: rows)),
-                      )
-                    ],
-                  ),
+                    bottom: Constants.defaultPadding * 0.5),
+                child: CustomElevatedButton(
+                    text: "Добавить акцию",
+                    width: 150,
+                    height: 43,
+                    fontSize: Constants.textTheme.bodyLarge!.fontSize,
+                    function: () {
+                      showPromotionDialog(
+                          context1, context1.read<PromotionBloc>(), null);
+                    }),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  left: Constants.defaultPadding * 1.5,
+                  right: Constants.defaultPadding * 1.5,
+                  bottom: Constants.defaultPadding * 1.5,
                 ),
-              ],
-            ),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Constants.defaultPadding,
+                    vertical: Constants.defaultPadding * 1.5),
+                decoration: const BoxDecoration(
+                    color: Constants.secondBackgroundColor,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: Constants.defaultPadding * 0.5),
+                      child: Text(
+                        "Акции и предложения",
+                        style: Constants.textTheme.headlineMedium,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: Constants.defaultPadding * 1.5),
+                      child: Text(
+                        "Акционные предложения ресторана",
+                        style: Constants.textTheme.bodyLarge!
+                            .copyWith(color: Constants.middleGrayColor),
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          physics: const BouncingScrollPhysics(),
+                          child: DataTable(
+                              showCheckboxColumn: false,
+                              horizontalMargin: 10,
+                              dataRowHeight: 90,
+                              columnSpacing: 35,
+                              columns: getColumns(columns),
+                              rows: rows)),
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
         );
       },

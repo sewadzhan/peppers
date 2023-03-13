@@ -62,181 +62,179 @@ class ContactsScreen extends StatelessWidget {
 
         return SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          child: Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: Constants.defaultPadding * 0.5,
-                      right: Constants.defaultPadding * 1.5,
-                      bottom: Constants.defaultPadding * 0.5),
-                  child: CustomElevatedButton(
-                      text: "Сохранить",
-                      width: 120,
-                      isLoading: state is ContactSaving,
-                      height: 43,
-                      fontSize: Constants.textTheme.bodyLarge!.fontSize,
-                      function: () {
-                        context.read<ContactBloc>().add(UpdateContactData(
-                            (state as ContactLoaded).contactsModel.copyWith(
-                                email: emailController.text,
-                                instagramUrl: instaController.text,
-                                phone: phoneController.text,
-                                whatsappUrl: whatsappController.text,
-                                openHour: workingHourOpenController.text,
-                                closeHour: workingHourCloseController.text,
-                                webSite: websiteController.text)));
-                      }),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                    top: Constants.defaultPadding * 0.5,
+                    right: Constants.defaultPadding * 1.5,
+                    bottom: Constants.defaultPadding * 0.5),
+                child: CustomElevatedButton(
+                    text: "Сохранить",
+                    width: 120,
+                    isLoading: state is ContactSaving,
+                    height: 43,
+                    fontSize: Constants.textTheme.bodyLarge!.fontSize,
+                    function: () {
+                      context.read<ContactBloc>().add(UpdateContactData(
+                          (state as ContactLoaded).contactsModel.copyWith(
+                              email: emailController.text,
+                              instagramUrl: instaController.text,
+                              phone: phoneController.text,
+                              whatsappUrl: whatsappController.text,
+                              openHour: workingHourOpenController.text,
+                              closeHour: workingHourCloseController.text,
+                              webSite: websiteController.text)));
+                    }),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  left: Constants.defaultPadding * 1.5,
+                  right: Constants.defaultPadding * 1.5,
+                  bottom: Constants.defaultPadding * 1.5,
                 ),
-                Container(
-                  margin: EdgeInsets.only(
+                padding: EdgeInsets.symmetric(
+                    horizontal: Constants.defaultPadding,
+                    vertical: Constants.defaultPadding * 1.5),
+                decoration: const BoxDecoration(
+                    color: Constants.secondBackgroundColor,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: Constants.defaultPadding * 0.5),
+                      child: Text(
+                        "Контактная информация",
+                        style: Constants.textTheme.headlineMedium,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: Constants.defaultPadding * 1.5),
+                      child: Text(
+                        "Базовые контактные данные ресторана для страницы \"Контакты\"",
+                        style: Constants.textTheme.bodyLarge!
+                            .copyWith(color: Constants.middleGrayColor),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: Constants.defaultPadding,
+                      ),
+                      child: CustomTextInputField(
+                          titleText: "Email",
+                          hintText: "Введите электронную почту",
+                          keyboardType: TextInputType.emailAddress,
+                          controller: emailController),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: Constants.defaultPadding,
+                      ),
+                      child: CustomTextInputField(
+                          titleText: "Мобильный телефон",
+                          hintText: "Введите мобильный телефон  ",
+                          keyboardType: TextInputType.phone,
+                          controller: phoneController),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: Constants.defaultPadding,
+                      ),
+                      child: CustomTextInputField(
+                          titleText: "URL сайта ресторана",
+                          hintText: "Введите URL сайта",
+                          keyboardType: TextInputType.url,
+                          controller: websiteController),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: Constants.defaultPadding,
+                      ),
+                      child: CustomTextInputField(
+                          titleText: "Instagram URL",
+                          hintText: "Введите URL Instagram",
+                          keyboardType: TextInputType.url,
+                          controller: instaController),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: Constants.defaultPadding,
+                      ),
+                      child: CustomTextInputField(
+                          titleText: "Whatsapp URL",
+                          hintText: "Введите URL Whatsapp",
+                          keyboardType: TextInputType.url,
+                          controller: whatsappController),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(
                     left: Constants.defaultPadding * 1.5,
                     right: Constants.defaultPadding * 1.5,
-                    bottom: Constants.defaultPadding * 1.5,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Constants.defaultPadding,
-                      vertical: Constants.defaultPadding * 1.5),
-                  decoration: const BoxDecoration(
-                      color: Constants.secondBackgroundColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: Constants.defaultPadding * 0.5),
-                        child: Text(
-                          "Контактная информация",
-                          style: Constants.textTheme.headlineMedium,
-                        ),
+                    bottom: Constants.defaultPadding * 1.5),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Constants.defaultPadding,
+                    vertical: Constants.defaultPadding * 1.5),
+                decoration: const BoxDecoration(
+                    color: Constants.secondBackgroundColor,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: Constants.defaultPadding * 0.5),
+                      child: Text(
+                        "График работы ресторана",
+                        style: Constants.textTheme.headlineMedium,
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: Constants.defaultPadding * 1.5),
-                        child: Text(
-                          "Базовые контактные данные ресторана для страницы \"Контакты\"",
-                          style: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.middleGrayColor),
-                        ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: Constants.defaultPadding * 1.5),
+                      child: Text(
+                        "Введите время открытия и закрытия заведения",
+                        style: Constants.textTheme.bodyLarge!
+                            .copyWith(color: Constants.middleGrayColor),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding,
-                        ),
-                        child: CustomTextInputField(
-                            titleText: "Email",
-                            hintText: "Введите электронную почту",
-                            keyboardType: TextInputType.emailAddress,
-                            controller: emailController),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: Constants.defaultPadding,
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding,
-                        ),
-                        child: CustomTextInputField(
-                            titleText: "Мобильный телефон",
-                            hintText: "Введите мобильный телефон  ",
-                            keyboardType: TextInputType.phone,
-                            controller: phoneController),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: CustomTextInputField(
+                                titleText: "Время открытия",
+                                pickerType: Picker.time,
+                                hintText: "Введите время открытия ресторана",
+                                controller: workingHourOpenController),
+                          ),
+                          SizedBox(
+                            width: Constants.defaultPadding,
+                          ),
+                          Expanded(
+                            child: CustomTextInputField(
+                                titleText: "Время закрытия",
+                                pickerType: Picker.time,
+                                hintText: "Введите время закрытия ресторана",
+                                controller: workingHourCloseController),
+                          )
+                        ],
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding,
-                        ),
-                        child: CustomTextInputField(
-                            titleText: "URL сайта ресторана",
-                            hintText: "Введите URL сайта",
-                            keyboardType: TextInputType.url,
-                            controller: websiteController),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding,
-                        ),
-                        child: CustomTextInputField(
-                            titleText: "Instagram URL",
-                            hintText: "Введите URL Instagram",
-                            keyboardType: TextInputType.url,
-                            controller: instaController),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding,
-                        ),
-                        child: CustomTextInputField(
-                            titleText: "Whatsapp URL",
-                            hintText: "Введите URL Whatsapp",
-                            keyboardType: TextInputType.url,
-                            controller: whatsappController),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
-                Container(
-                  margin: EdgeInsets.only(
-                      left: Constants.defaultPadding * 1.5,
-                      right: Constants.defaultPadding * 1.5,
-                      bottom: Constants.defaultPadding * 1.5),
-                  padding: EdgeInsets.symmetric(
-                      horizontal: Constants.defaultPadding,
-                      vertical: Constants.defaultPadding * 1.5),
-                  decoration: const BoxDecoration(
-                      color: Constants.secondBackgroundColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: Constants.defaultPadding * 0.5),
-                        child: Text(
-                          "График работы ресторана",
-                          style: Constants.textTheme.headlineMedium,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: Constants.defaultPadding * 1.5),
-                        child: Text(
-                          "Введите время открытия и закрытия заведения",
-                          style: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.middleGrayColor),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          bottom: Constants.defaultPadding,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: CustomTextInputField(
-                                  titleText: "Время открытия",
-                                  pickerType: Picker.time,
-                                  hintText: "Введите время открытия ресторана",
-                                  controller: workingHourOpenController),
-                            ),
-                            SizedBox(
-                              width: Constants.defaultPadding,
-                            ),
-                            Expanded(
-                              child: CustomTextInputField(
-                                  titleText: "Время закрытия",
-                                  pickerType: Picker.time,
-                                  hintText: "Введите время закрытия ресторана",
-                                  controller: workingHourCloseController),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },
