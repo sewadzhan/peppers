@@ -7,115 +7,150 @@ import 'package:pikapika_admin_panel/presentation/components/custom_elevated_but
 import 'package:pikapika_admin_panel/presentation/components/custom_text_input_field.dart';
 import 'package:pikapika_admin_panel/presentation/config/constants.dart';
 
-class GiftScreen extends StatelessWidget {
+class GiftScreen extends StatefulWidget {
   const GiftScreen({super.key});
 
   @override
+  State<GiftScreen> createState() => _GiftScreenState();
+}
+
+class _GiftScreenState extends State<GiftScreen> {
+  var iconsList = [
+    DropdownMenuItem(
+      value: "gift",
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+              width: 20,
+              height: 20,
+              child: SvgPicture.asset("assets/icons/gift_flat.svg")),
+          const SizedBox(width: 7),
+          Text(
+            "Подарок",
+            style: Constants.textTheme.bodyLarge,
+          ),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
+      value: "cola",
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+              width: 20,
+              height: 20,
+              child: SvgPicture.asset("assets/icons/cola_flat.svg")),
+          const SizedBox(width: 7),
+          Text(
+            "Газировка",
+            style: Constants.textTheme.bodyLarge,
+          ),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
+      value: "pizza",
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+              width: 20,
+              height: 20,
+              child: SvgPicture.asset("assets/icons/pizza_flat.svg")),
+          const SizedBox(width: 7),
+          Text(
+            "Пицца",
+            style: Constants.textTheme.bodyLarge,
+          ),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
+      value: "sushi",
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+              width: 20,
+              height: 20,
+              child: SvgPicture.asset("assets/icons/sushi_flat.svg")),
+          const SizedBox(width: 7),
+          Text(
+            "Суши",
+            style: Constants.textTheme.bodyLarge,
+          ),
+        ],
+      ),
+    )
+  ];
+
+  late IikoCategory? initialIikoCategoryGift1;
+  late bool initialIsEnabledGift1;
+  late bool initialIsSingleGift1;
+  late TextEditingController gift1CategoryIDController;
+  late TextEditingController gift1DescriptionController;
+  late TextEditingController gift1GoalController;
+  late TextEditingController gift1IconController;
+
+  late IikoCategory? initialIikoCategoryGift2;
+  late bool initialIsEnabledGift2;
+  late bool initialIsSingleGift2;
+  late TextEditingController gift2CategoryIDController;
+  late TextEditingController gift2DescriptionController;
+  late TextEditingController gift2GoalController;
+  late TextEditingController gift2IconController;
+
+  late IikoCategory? initialIikoCategoryGift3;
+  late bool initialIsEnabledGift3;
+  late bool initialIsSingleGift3;
+  late TextEditingController gift3CategoryIDController;
+  late TextEditingController gift3DescriptionController;
+  late TextEditingController gift3GoalController;
+  late TextEditingController gift3IconController;
+  late List<IikoCategory> iikoCategories;
+
+  @override
+  void initState() {
+    iikoCategories = [];
+
+    initialIikoCategoryGift1 = null;
+    initialIsEnabledGift1 = false;
+    initialIsSingleGift1 = false;
+    gift1CategoryIDController = TextEditingController();
+    gift1DescriptionController = TextEditingController();
+    gift1GoalController = TextEditingController();
+    gift1IconController = TextEditingController();
+
+    initialIikoCategoryGift2 = null;
+    initialIsEnabledGift2 = false;
+    initialIsSingleGift2 = false;
+    gift2CategoryIDController = TextEditingController();
+    gift2DescriptionController = TextEditingController();
+    gift2GoalController = TextEditingController();
+    gift2IconController = TextEditingController();
+
+    initialIikoCategoryGift3 = null;
+    initialIsEnabledGift3 = false;
+    initialIsSingleGift3 = false;
+    gift3CategoryIDController = TextEditingController();
+    gift3DescriptionController = TextEditingController();
+    gift3GoalController = TextEditingController();
+    gift3IconController = TextEditingController();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    List<IikoCategory> iikoCategories = [];
-    var iconsList = [
-      DropdownMenuItem(
-        value: "gift",
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-                width: 20,
-                height: 20,
-                child: SvgPicture.asset("assets/icons/gift_flat.svg")),
-            const SizedBox(width: 7),
-            Text(
-              "Подарок",
-              style: Constants.textTheme.bodyLarge,
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "cola",
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-                width: 20,
-                height: 20,
-                child: SvgPicture.asset("assets/icons/cola_flat.svg")),
-            const SizedBox(width: 7),
-            Text(
-              "Газировка",
-              style: Constants.textTheme.bodyLarge,
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "pizza",
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-                width: 20,
-                height: 20,
-                child: SvgPicture.asset("assets/icons/pizza_flat.svg")),
-            const SizedBox(width: 7),
-            Text(
-              "Пицца",
-              style: Constants.textTheme.bodyLarge,
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "sushi",
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-                width: 20,
-                height: 20,
-                child: SvgPicture.asset("assets/icons/sushi_flat.svg")),
-            const SizedBox(width: 7),
-            Text(
-              "Суши",
-              style: Constants.textTheme.bodyLarge,
-            ),
-          ],
-        ),
-      )
-    ];
-
-    IikoCategory? initialIikoCategoryGift1;
-    bool initialIsEnabledGift1 = false;
-    bool initialIsSingleGift1 = false;
-    TextEditingController gift1CategoryIDController = TextEditingController();
-    TextEditingController gift1DescriptionController = TextEditingController();
-    TextEditingController gift1GoalController = TextEditingController();
-    TextEditingController gift1IconController = TextEditingController();
-
-    IikoCategory? initialIikoCategoryGift2;
-    bool initialIsEnabledGift2 = false;
-    bool initialIsSingleGift2 = false;
-    TextEditingController gift2CategoryIDController = TextEditingController();
-    TextEditingController gift2DescriptionController = TextEditingController();
-    TextEditingController gift2GoalController = TextEditingController();
-    TextEditingController gift2IconController = TextEditingController();
-
-    IikoCategory? initialIikoCategoryGift3;
-    bool initialIsEnabledGift3 = false;
-    bool initialIsSingleGift3 = false;
-    TextEditingController gift3CategoryIDController = TextEditingController();
-    TextEditingController gift3DescriptionController = TextEditingController();
-    TextEditingController gift3GoalController = TextEditingController();
-    TextEditingController gift3IconController = TextEditingController();
-
     return BlocConsumer<GiftBloc, GiftState>(
         listener: (context, settingsState) {
       if (settingsState is GiftErrorState) {
@@ -140,7 +175,11 @@ class GiftScreen extends StatelessWidget {
           ),
         );
       }
-      if (state is GiftLoadedState && iikoCategories.isEmpty) {
+      if (state is GiftLoadedState &&
+          iikoCategories.isEmpty &&
+          initialIikoCategoryGift1 == null &&
+          initialIikoCategoryGift2 == null &&
+          initialIikoCategoryGift3 == null) {
         iikoCategories = state.iikoCategories;
         gift1CategoryIDController =
             TextEditingController(text: state.giftGoals.gift1.categoryID);
@@ -170,24 +209,24 @@ class GiftScreen extends StatelessWidget {
             TextEditingController(text: state.giftGoals.gift3.description);
         gift3GoalController =
             TextEditingController(text: state.giftGoals.gift3.goal.toString());
-        gift3IconController =
-            TextEditingController(text: state.giftGoals.gift3.icon);
+        if (gift3IconController.text.isEmpty) {
+          gift3IconController =
+              TextEditingController(text: state.giftGoals.gift3.icon);
+        }
         initialIsEnabledGift3 = state.giftGoals.gift3.isEnabled;
         initialIsSingleGift3 = state.giftGoals.gift3.isSingleGift;
 
         var tmp = state.iikoCategories
             .where((element) => element.id == state.giftGoals.gift1.categoryID);
-        if (tmp.isNotEmpty) {
-          initialIikoCategoryGift1 = tmp.first;
-        }
+        initialIikoCategoryGift1 = tmp.first;
         var tmp2 = state.iikoCategories
             .where((element) => element.id == state.giftGoals.gift2.categoryID);
-        if (tmp2.isNotEmpty) {
+        if (tmp2.isNotEmpty && initialIikoCategoryGift2 == null) {
           initialIikoCategoryGift2 = tmp2.first;
         }
         var tmp3 = state.iikoCategories
             .where((element) => element.id == state.giftGoals.gift3.categoryID);
-        if (tmp3.isNotEmpty) {
+        if (tmp3.isNotEmpty && initialIikoCategoryGift3 == null) {
           initialIikoCategoryGift3 = tmp3.first;
         }
       }
@@ -266,26 +305,12 @@ class GiftScreen extends StatelessWidget {
                       top: Constants.defaultPadding * 0.5,
                       bottom: Constants.defaultPadding,
                     ),
-                    child: DropdownButtonFormField(
+                    child: DropdownButton(
                       value: initialIikoCategoryGift1,
-                      decoration: InputDecoration(
-                          hintText: "Выберите категорию IIKO",
-                          hintStyle: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.textFieldGrayColor),
-                          focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 3,
-                                color: Constants.secondPrimaryColor,
-                              )),
-                          enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Constants.textFieldGrayColor,
-                              ))),
+                      focusColor: Constants.secondPrimaryColor,
+                      hint: Text("IIKO категория подарка",
+                          style: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor)),
                       items: iikoCategories
                           .map((category) => DropdownMenuItem(
                                 value: category,
@@ -297,8 +322,11 @@ class GiftScreen extends StatelessWidget {
                           .toList(),
                       onChanged: (category) {
                         if (category != null) {
-                          gift1CategoryIDController =
-                              TextEditingController(text: category.id);
+                          setState(() {
+                            initialIikoCategoryGift1 = category;
+                            gift1CategoryIDController =
+                                TextEditingController(text: category.id);
+                          });
                         }
                       },
                     ),
@@ -333,31 +361,19 @@ class GiftScreen extends StatelessWidget {
                       top: Constants.defaultPadding * 0.5,
                       bottom: Constants.defaultPadding,
                     ),
-                    child: DropdownButtonFormField(
+                    child: DropdownButton(
                       value: gift1IconController.text,
-                      decoration: InputDecoration(
-                          hintText: "Выберите иконку для подарка #1",
-                          hintStyle: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.textFieldGrayColor),
-                          focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 3,
-                                color: Constants.secondPrimaryColor,
-                              )),
-                          enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Constants.textFieldGrayColor,
-                              ))),
+                      focusColor: Constants.secondPrimaryColor,
+                      hint: Text("Выберите иконку для подарка #1",
+                          style: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor)),
                       items: iconsList,
                       onChanged: (icon) {
                         if (icon != null) {
-                          gift1IconController =
-                              TextEditingController(text: icon);
+                          setState(() {
+                            gift1IconController =
+                                TextEditingController(text: icon);
+                          });
                         }
                       },
                     ),
@@ -450,26 +466,12 @@ class GiftScreen extends StatelessWidget {
                       top: Constants.defaultPadding * 0.5,
                       bottom: Constants.defaultPadding,
                     ),
-                    child: DropdownButtonFormField(
+                    child: DropdownButton(
                       value: initialIikoCategoryGift2,
-                      decoration: InputDecoration(
-                          hintText: "Выберите категорию IIKO",
-                          hintStyle: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.textFieldGrayColor),
-                          focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 3,
-                                color: Constants.secondPrimaryColor,
-                              )),
-                          enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Constants.textFieldGrayColor,
-                              ))),
+                      focusColor: Constants.secondPrimaryColor,
+                      hint: Text("Выберите категорию IIKO",
+                          style: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor)),
                       items: iikoCategories
                           .map((category) => DropdownMenuItem(
                                 value: category,
@@ -481,8 +483,11 @@ class GiftScreen extends StatelessWidget {
                           .toList(),
                       onChanged: (category) {
                         if (category != null) {
-                          gift2CategoryIDController =
-                              TextEditingController(text: category.id);
+                          setState(() {
+                            initialIikoCategoryGift2 = category;
+                            gift2CategoryIDController =
+                                TextEditingController(text: category.id);
+                          });
                         }
                       },
                     ),
@@ -517,31 +522,19 @@ class GiftScreen extends StatelessWidget {
                       top: Constants.defaultPadding * 0.5,
                       bottom: Constants.defaultPadding,
                     ),
-                    child: DropdownButtonFormField(
+                    child: DropdownButton(
                       value: gift2IconController.text,
-                      decoration: InputDecoration(
-                          hintText: "Выберите иконку для подарка #2",
-                          hintStyle: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.textFieldGrayColor),
-                          focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 3,
-                                color: Constants.secondPrimaryColor,
-                              )),
-                          enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Constants.textFieldGrayColor,
-                              ))),
+                      focusColor: Constants.secondPrimaryColor,
+                      hint: Text("Выберите иконку для подарка #2",
+                          style: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor)),
                       items: iconsList,
                       onChanged: (icon) {
                         if (icon != null) {
-                          gift2IconController =
-                              TextEditingController(text: icon);
+                          setState(() {
+                            gift2IconController =
+                                TextEditingController(text: icon);
+                          });
                         }
                       },
                     ),
@@ -634,26 +627,12 @@ class GiftScreen extends StatelessWidget {
                       top: Constants.defaultPadding * 0.5,
                       bottom: Constants.defaultPadding,
                     ),
-                    child: DropdownButtonFormField(
+                    child: DropdownButton(
                       value: initialIikoCategoryGift3,
-                      decoration: InputDecoration(
-                          hintText: "Выберите категорию IIKO",
-                          hintStyle: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.textFieldGrayColor),
-                          focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 3,
-                                color: Constants.secondPrimaryColor,
-                              )),
-                          enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Constants.textFieldGrayColor,
-                              ))),
+                      focusColor: Constants.secondPrimaryColor,
+                      hint: Text("Выберите категорию IIKO",
+                          style: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor)),
                       items: iikoCategories
                           .map((category) => DropdownMenuItem(
                                 value: category,
@@ -665,8 +644,11 @@ class GiftScreen extends StatelessWidget {
                           .toList(),
                       onChanged: (category) {
                         if (category != null) {
-                          gift3CategoryIDController =
-                              TextEditingController(text: category.id);
+                          setState(() {
+                            initialIikoCategoryGift3 = category;
+                            gift3CategoryIDController =
+                                TextEditingController(text: category.id);
+                          });
                         }
                       },
                     ),
@@ -701,31 +683,19 @@ class GiftScreen extends StatelessWidget {
                       top: Constants.defaultPadding * 0.5,
                       bottom: Constants.defaultPadding,
                     ),
-                    child: DropdownButtonFormField(
+                    child: DropdownButton(
                       value: gift3IconController.text,
-                      decoration: InputDecoration(
-                          hintText: "Выберите иконку для подарка #3",
-                          hintStyle: Constants.textTheme.bodyLarge!
-                              .copyWith(color: Constants.textFieldGrayColor),
-                          focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 3,
-                                color: Constants.secondPrimaryColor,
-                              )),
-                          enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Constants.textFieldGrayColor,
-                              ))),
+                      focusColor: Constants.secondPrimaryColor,
+                      hint: Text("Выберите иконку для подарка #3",
+                          style: Constants.textTheme.bodyLarge!
+                              .copyWith(color: Constants.textFieldGrayColor)),
                       items: iconsList,
                       onChanged: (icon) {
                         if (icon != null) {
-                          gift3IconController =
-                              TextEditingController(text: icon);
+                          setState(() {
+                            gift3IconController =
+                                TextEditingController(text: icon);
+                          });
                         }
                       },
                     ),

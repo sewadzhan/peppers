@@ -159,27 +159,12 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                           top: Constants.defaultPadding * 0.5,
                           bottom: Constants.defaultPadding,
                         ),
-                        child: DropdownButtonFormField(
+                        child: DropdownButton(
                           value: initialIikoOrganization,
-                          decoration: InputDecoration(
-                              hintText: "Выберите организацию IIKO",
-                              hintStyle: Constants.textTheme.bodyLarge!
-                                  .copyWith(
-                                      color: Constants.textFieldGrayColor),
-                              focusedBorder: const OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(8)),
-                                  borderSide: BorderSide(
-                                    width: 3,
-                                    color: Constants.secondPrimaryColor,
-                                  )),
-                              enabledBorder: const OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(8)),
-                                  borderSide: BorderSide(
-                                    width: 1,
-                                    color: Constants.textFieldGrayColor,
-                                  ))),
+                          focusColor: Constants.secondPrimaryColor,
+                          hint: Text("IIKO организация точки",
+                              style: Constants.textTheme.bodyLarge!.copyWith(
+                                  color: Constants.textFieldGrayColor)),
                           items: widget.iikoOrganizations
                               .map((organization) => DropdownMenuItem(
                                     value: organization,
@@ -192,6 +177,7 @@ class _PickupPointDialogState extends State<PickupPointDialog> {
                           onChanged: (organization) {
                             if (organization != null) {
                               setState(() {
+                                initialIikoOrganization = organization;
                                 organizationIdController = organization.id;
                               });
                             }

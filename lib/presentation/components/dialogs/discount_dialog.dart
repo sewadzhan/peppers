@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -171,27 +169,12 @@ class _DiscountDialogState extends State<DiscountDialog> {
                           top: Constants.defaultPadding * 0.5,
                           bottom: Constants.defaultPadding,
                         ),
-                        child: DropdownButtonFormField(
+                        child: DropdownButton(
                           value: initialIikoDiscount,
-                          decoration: InputDecoration(
-                              hintText: "Выберите тип промокода",
-                              hintStyle: Constants.textTheme.bodyLarge!
-                                  .copyWith(
-                                      color: Constants.textFieldGrayColor),
-                              focusedBorder: const OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(8)),
-                                  borderSide: BorderSide(
-                                    width: 3,
-                                    color: Constants.secondPrimaryColor,
-                                  )),
-                              enabledBorder: const OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(8)),
-                                  borderSide: BorderSide(
-                                    width: 1,
-                                    color: Constants.textFieldGrayColor,
-                                  ))),
+                          focusColor: Constants.secondPrimaryColor,
+                          hint: Text("Выберите тип промокода",
+                              style: Constants.textTheme.bodyLarge!.copyWith(
+                                  color: Constants.textFieldGrayColor)),
                           items: widget.iikoDiscounts
                               .map((discount) => DropdownMenuItem(
                                     value: discount,
@@ -206,6 +189,7 @@ class _DiscountDialogState extends State<DiscountDialog> {
                               setState(() {
                                 typeController = discount.type;
                                 iikoDiscountID = discount.id;
+                                initialIikoDiscount = discount;
                               });
                               if (discount.type != PromocodeType.flexible) {
                                 valueController.text =
