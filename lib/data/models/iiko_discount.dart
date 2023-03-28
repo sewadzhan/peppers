@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:pikapika_admin_panel/data/models/promocode.dart';
+import 'package:peppers_admin_panel/data/models/promocode.dart';
 
 //Promocode model
 class IikoDiscount extends Equatable {

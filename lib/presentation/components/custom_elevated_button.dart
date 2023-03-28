@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton(

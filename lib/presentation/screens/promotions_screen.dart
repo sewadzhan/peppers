@@ -1,14 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pikapika_admin_panel/data/models/promotion.dart';
-import 'package:pikapika_admin_panel/data/models/storage_files.dart';
-import 'package:pikapika_admin_panel/logic/blocs/promotion/promotion_bloc.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_elevated_button.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_text_input_field.dart';
-import 'package:pikapika_admin_panel/presentation/components/dialogs/promotion_dialog.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/data/models/promotion.dart';
+import 'package:peppers_admin_panel/logic/blocs/promotion/promotion_bloc.dart';
+import 'package:peppers_admin_panel/presentation/components/custom_elevated_button.dart';
+import 'package:peppers_admin_panel/presentation/components/dialogs/promotion_dialog.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
 
 class PromotionScreen extends StatelessWidget {
   const PromotionScreen({super.key});
@@ -112,7 +109,7 @@ class PromotionScreen extends StatelessWidget {
                     right: Constants.defaultPadding * 1.5,
                     bottom: Constants.defaultPadding * 0.5),
                 child: CustomElevatedButton(
-                    text: "Добавить акцию",
+                    text: "Добавить новость",
                     width: 150,
                     height: 43,
                     fontSize: Constants.textTheme.bodyLarge!.fontSize,
@@ -140,7 +137,7 @@ class PromotionScreen extends StatelessWidget {
                       padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 0.5),
                       child: Text(
-                        "Акции и предложения",
+                        "Новости",
                         style: Constants.textTheme.headlineMedium,
                       ),
                     ),
@@ -148,7 +145,7 @@ class PromotionScreen extends StatelessWidget {
                       padding: EdgeInsets.only(
                           bottom: Constants.defaultPadding * 1.5),
                       child: Text(
-                        "Акционные предложения ресторана",
+                        "Новости ресторана",
                         style: Constants.textTheme.bodyLarge!
                             .copyWith(color: Constants.middleGrayColor),
                       ),

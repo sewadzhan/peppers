@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'package:pikapika_admin_panel/data/models/order.dart';
-import 'package:pikapika_admin_panel/presentation/config/config.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/data/models/order.dart';
+import 'package:peppers_admin_panel/presentation/config/config.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
 
 class OrderDialog extends StatelessWidget {
   final Order order;

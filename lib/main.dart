@@ -2,12 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pikapika_admin_panel/data/providers/auth_firebase_provider.dart';
-import 'package:pikapika_admin_panel/data/repositories/auth_repository.dart';
-import 'package:pikapika_admin_panel/logic/bloc_observer.dart';
-import 'package:pikapika_admin_panel/logic/cubits/auth/logout_cubit.dart';
-import 'package:pikapika_admin_panel/presentation/config/app_route.dart';
-import 'package:pikapika_admin_panel/presentation/config/theme.dart';
+import 'package:peppers_admin_panel/data/providers/auth_firebase_provider.dart';
+import 'package:peppers_admin_panel/data/repositories/auth_repository.dart';
+import 'package:peppers_admin_panel/logic/cubits/auth/logout_cubit.dart';
+import 'package:peppers_admin_panel/presentation/config/app_route.dart';
+import 'package:peppers_admin_panel/presentation/config/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +38,7 @@ class MyApp extends StatelessWidget {
     var isAuthenticated = context.read<AuthCubit>().state != null;
 
     return MaterialApp(
-      title: 'Pikapika Admin Panel',
+      title: 'Peppers Admin Panel',
       onGenerateRoute: AppRouter().onGenerateRoute,
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.theme,

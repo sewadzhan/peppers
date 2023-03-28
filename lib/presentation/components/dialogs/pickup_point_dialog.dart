@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:pikapika_admin_panel/data/models/delivery_point.dart';
-import 'package:pikapika_admin_panel/data/models/iiko_organization.dart';
-import 'package:pikapika_admin_panel/logic/blocs/pickup_points/pickup_point_bloc.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_elevated_button.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_text_input_field.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/data/models/delivery_point.dart';
+import 'package:peppers_admin_panel/data/models/iiko_organization.dart';
+import 'package:peppers_admin_panel/logic/blocs/pickup_points/pickup_point_bloc.dart';
+import 'package:peppers_admin_panel/presentation/components/custom_elevated_button.dart';
+import 'package:peppers_admin_panel/presentation/components/custom_text_input_field.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
 
 class PickupPointDialog extends StatefulWidget {
   const PickupPointDialog(

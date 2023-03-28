@@ -1,7 +1,7 @@
-import 'package:pikapika_admin_panel/data/models/base_product.dart';
-import 'package:pikapika_admin_panel/data/models/product_feature.dart';
-import 'package:pikapika_admin_panel/data/models/simple_modifier.dart';
-import 'package:pikapika_admin_panel/presentation/config/config.dart';
+import 'package:peppers_admin_panel/data/models/base_product.dart';
+import 'package:peppers_admin_panel/data/models/product_feature.dart';
+import 'package:peppers_admin_panel/data/models/simple_modifier.dart';
+import 'package:peppers_admin_panel/presentation/config/config.dart';
 
 enum ProductTags { hit, discount, latest, none }
 

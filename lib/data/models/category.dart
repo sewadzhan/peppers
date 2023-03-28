@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:pikapika_admin_panel/data/models/base_product.dart';
-import 'package:pikapika_admin_panel/data/models/gift_product.dart';
+import 'package:peppers_admin_panel/data/models/base_product.dart';
+import 'package:peppers_admin_panel/data/models/gift_product.dart';
 
-import 'package:pikapika_admin_panel/data/models/product.dart';
+import 'package:peppers_admin_panel/data/models/product.dart';
 
 enum CategoryType { usual, gift, none, extraSales, additional }
 

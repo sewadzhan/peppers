@@ -3,11 +3,11 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pikapika_admin_panel/data/models/storage_files.dart';
-import 'package:pikapika_admin_panel/logic/blocs/storage/storage_bloc.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_elevated_button.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
-import 'package:pikapika_admin_panel/presentation/config/responsive.dart';
+import 'package:peppers_admin_panel/data/models/storage_files.dart';
+import 'package:peppers_admin_panel/logic/blocs/storage/storage_bloc.dart';
+import 'package:peppers_admin_panel/presentation/components/custom_elevated_button.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/presentation/config/responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class StorageScreen extends StatefulWidget {

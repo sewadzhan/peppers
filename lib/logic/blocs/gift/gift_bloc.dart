@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:pikapika_admin_panel/data/models/gift_goal.dart';
-import 'package:pikapika_admin_panel/data/models/gift_progress_bar.dart';
-import 'package:pikapika_admin_panel/data/models/iiko_category.dart';
-import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
-import 'package:pikapika_admin_panel/data/repositories/iiko_repository.dart';
+import 'package:peppers_admin_panel/data/models/gift_goal.dart';
+import 'package:peppers_admin_panel/data/models/gift_progress_bar.dart';
+import 'package:peppers_admin_panel/data/models/iiko_category.dart';
+import 'package:peppers_admin_panel/data/repositories/firestore_repository.dart';
+import 'package:peppers_admin_panel/data/repositories/iiko_repository.dart';
 
 part 'gift_event.dart';
 part 'gift_state.dart';

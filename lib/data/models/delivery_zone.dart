@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
 
 //Model for restaurant's delivery zones
 class DeliveryZone {

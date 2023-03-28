@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 
-import 'package:pikapika_admin_panel/data/models/base_product.dart';
+import 'package:peppers_admin_panel/data/models/base_product.dart';
 
 //Model for cart item
 class CartItemModel extends Equatable {

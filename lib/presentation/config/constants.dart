@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pikapika_admin_panel/presentation/config/theme.dart';
+import 'package:peppers_admin_panel/presentation/config/theme.dart';
 
 class Constants {
   static const Color backgroundColor = Color(0xffF6F6F6);
   static const Color secondBackgroundColor = Colors.white;
-  static const Color primaryColor = Color(0xFFEB573F);
+  static const Color primaryColor = Color(0xFFc92c1e);
   static const Color secondPrimaryColor = Color(0xFFFC7F72);
   static const Color darkPrimaryColor = Color.fromARGB(255, 162, 35, 15);
 

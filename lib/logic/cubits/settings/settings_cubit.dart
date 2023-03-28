@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:pikapika_admin_panel/data/models/cashback_data.dart';
-import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
-import 'package:pikapika_admin_panel/logic/blocs/cashback/cashback_bloc.dart';
-import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
+import 'package:peppers_admin_panel/data/repositories/firestore_repository.dart';
+import 'package:peppers_admin_panel/logic/blocs/cashback/cashback_bloc.dart';
+import 'package:peppers_admin_panel/logic/blocs/contact/contact_bloc.dart';
 
 part 'settings_state.dart';
 

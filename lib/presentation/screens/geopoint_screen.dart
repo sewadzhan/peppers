@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:pikapika_admin_panel/data/models/delivery_point.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_elevated_button.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/data/models/delivery_point.dart';
+import 'package:peppers_admin_panel/presentation/components/custom_elevated_button.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
 
 class GeopointScreen extends StatefulWidget {
   const GeopointScreen({super.key, this.deliveryPoint});

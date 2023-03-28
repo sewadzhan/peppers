@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pikapika_admin_panel/data/models/iiko_discount.dart';
-import 'package:pikapika_admin_panel/data/models/promocode.dart';
-import 'package:pikapika_admin_panel/logic/blocs/promocode/promocode_bloc.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_elevated_button.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_text_input_field.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/data/models/iiko_discount.dart';
+import 'package:peppers_admin_panel/data/models/promocode.dart';
+import 'package:peppers_admin_panel/logic/blocs/promocode/promocode_bloc.dart';
+import 'package:peppers_admin_panel/presentation/components/custom_elevated_button.dart';
+import 'package:peppers_admin_panel/presentation/components/custom_text_input_field.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
 
 class DiscountDialog extends StatefulWidget {
   const DiscountDialog(

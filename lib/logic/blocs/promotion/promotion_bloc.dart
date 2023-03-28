@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:pikapika_admin_panel/data/models/promotion.dart';
-import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
+import 'package:peppers_admin_panel/data/models/promotion.dart';
+import 'package:peppers_admin_panel/data/repositories/firestore_repository.dart';
 
 part 'promotion_event.dart';
 part 'promotion_state.dart';

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:pikapika_admin_panel/data/models/gift_product.dart';
+import 'package:peppers_admin_panel/data/models/gift_product.dart';
 
 //Model for choosing gift in "Choose Gift" Screen
 class GiftChooseModel extends Equatable {

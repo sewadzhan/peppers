@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 
-import 'package:pikapika_admin_panel/data/models/gift_goal.dart';
+import 'package:peppers_admin_panel/data/models/gift_goal.dart';
 
 //Model for progress bar in Gift page
 class GiftProgressBarModel extends Equatable {

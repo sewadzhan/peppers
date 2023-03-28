@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pikapika_admin_panel/data/models/phone_auth.dart';
-import 'package:pikapika_admin_panel/data/providers/auth_firebase_provider.dart';
+import 'package:peppers_admin_panel/data/models/phone_auth.dart';
+import 'package:peppers_admin_panel/data/providers/auth_firebase_provider.dart';
 
 class AuthRepository {
   final AuthFirebaseProvider firebaseProvider;

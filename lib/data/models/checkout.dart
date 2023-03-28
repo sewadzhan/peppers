@@ -1,10 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_paybox/paybox.dart';
-import 'package:pikapika_admin_panel/data/models/address.dart';
-import 'package:pikapika_admin_panel/data/models/delivery_point.dart';
+import 'package:peppers_admin_panel/data/models/address.dart';
+import 'package:peppers_admin_panel/data/models/delivery_point.dart';
 
 enum OrderType { delivery, pickup }
+
 enum DeliveryTimeType { fast, certainTime, none }
+
 enum PaymentMethod {
   applePay,
   googlePay,

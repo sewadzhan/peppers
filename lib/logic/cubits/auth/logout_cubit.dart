@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pikapika_admin_panel/data/repositories/auth_repository.dart';
+import 'package:peppers_admin_panel/data/repositories/auth_repository.dart';
 
 class AuthCubit extends Cubit<User?> {
   final AuthRepository authRepository;

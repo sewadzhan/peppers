@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:pikapika_admin_panel/data/models/storage_files.dart';
-import 'package:pikapika_admin_panel/data/repositories/storage_repository.dart';
+import 'package:peppers_admin_panel/data/models/storage_files.dart';
+import 'package:peppers_admin_panel/data/repositories/storage_repository.dart';
 
 part 'storage_event.dart';
 part 'storage_state.dart';

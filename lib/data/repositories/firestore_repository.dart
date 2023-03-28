@@ -1,14 +1,14 @@
-import 'package:pikapika_admin_panel/data/models/address.dart';
-import 'package:pikapika_admin_panel/data/models/cashback_data.dart';
-import 'package:pikapika_admin_panel/data/models/contacts.dart';
-import 'package:pikapika_admin_panel/data/models/delivery_point.dart';
-import 'package:pikapika_admin_panel/data/models/delivery_zone.dart';
-import 'package:pikapika_admin_panel/data/models/gift_progress_bar.dart';
-import 'package:pikapika_admin_panel/data/models/order.dart';
-import 'package:pikapika_admin_panel/data/models/pikapika_user.dart';
-import 'package:pikapika_admin_panel/data/models/promocode.dart';
-import 'package:pikapika_admin_panel/data/models/promotion.dart';
-import 'package:pikapika_admin_panel/data/providers/firestore_provider.dart';
+import 'package:peppers_admin_panel/data/models/address.dart';
+import 'package:peppers_admin_panel/data/models/cashback_data.dart';
+import 'package:peppers_admin_panel/data/models/contacts.dart';
+import 'package:peppers_admin_panel/data/models/delivery_point.dart';
+import 'package:peppers_admin_panel/data/models/delivery_zone.dart';
+import 'package:peppers_admin_panel/data/models/gift_progress_bar.dart';
+import 'package:peppers_admin_panel/data/models/order.dart';
+import 'package:peppers_admin_panel/data/models/pikapika_user.dart';
+import 'package:peppers_admin_panel/data/models/promocode.dart';
+import 'package:peppers_admin_panel/data/models/promotion.dart';
+import 'package:peppers_admin_panel/data/providers/firestore_provider.dart';
 
 class FirestoreRepository {
   final FirestoreProvider firestoreProvider;

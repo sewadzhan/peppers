@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
-import 'package:pikapika_admin_panel/logic/blocs/user/user_bloc.dart';
+import 'package:peppers_admin_panel/data/repositories/firestore_repository.dart';
+import 'package:peppers_admin_panel/logic/blocs/user/user_bloc.dart';
 
 part 'individual_percent_state.dart';
 

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:pikapika_admin_panel/data/models/contacts.dart';
-import 'package:pikapika_admin_panel/data/models/delivery_point.dart';
-import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
+import 'package:peppers_admin_panel/data/models/contacts.dart';
+import 'package:peppers_admin_panel/data/models/delivery_point.dart';
+import 'package:peppers_admin_panel/data/repositories/firestore_repository.dart';
 
 part 'contact_event.dart';
 part 'contact_state.dart';

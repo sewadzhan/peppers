@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:pikapika_admin_panel/data/models/order.dart';
-import 'package:pikapika_admin_panel/logic/blocs/order/order_bloc.dart';
-import 'package:pikapika_admin_panel/presentation/components/dialogs/order_dialog.dart';
-import 'package:pikapika_admin_panel/presentation/config/config.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/data/models/order.dart';
+import 'package:peppers_admin_panel/logic/blocs/order/order_bloc.dart';
+import 'package:peppers_admin_panel/presentation/components/dialogs/order_dialog.dart';
+import 'package:peppers_admin_panel/presentation/config/config.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});

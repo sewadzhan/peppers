@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pikapika_admin_panel/logic/blocs/login/form_submission_status.dart';
-import 'package:pikapika_admin_panel/logic/blocs/login/login_bloc.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_elevated_button.dart';
-import 'package:pikapika_admin_panel/presentation/components/custom_text_input_field.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
-import 'package:pikapika_admin_panel/presentation/config/responsive.dart';
+import 'package:peppers_admin_panel/logic/blocs/login/form_submission_status.dart';
+import 'package:peppers_admin_panel/logic/blocs/login/login_bloc.dart';
+import 'package:peppers_admin_panel/presentation/components/custom_elevated_button.dart';
+import 'package:peppers_admin_panel/presentation/components/custom_text_input_field.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/presentation/config/responsive.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -50,9 +50,9 @@ class LoginScreen extends StatelessWidget {
                       color: Constants.primaryColor,
                       child: Center(
                         child: SvgPicture.asset(
-                          "assets/logo/textLogo.svg",
+                          "assets/logo/logo.svg",
                           color: Constants.whiteColor,
-                          width: 200,
+                          width: 300,
                         ),
                       ),
                     ))

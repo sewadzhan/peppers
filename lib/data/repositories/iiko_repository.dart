@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:pikapika_admin_panel/data/models/category.dart';
-import 'package:pikapika_admin_panel/data/models/iiko_category.dart';
-import 'package:pikapika_admin_panel/data/models/iiko_discount.dart';
-import 'package:pikapika_admin_panel/data/models/iiko_organization.dart';
-import 'package:pikapika_admin_panel/data/providers/iiko_provider.dart';
+import 'package:peppers_admin_panel/data/models/category.dart';
+import 'package:peppers_admin_panel/data/models/iiko_category.dart';
+import 'package:peppers_admin_panel/data/models/iiko_discount.dart';
+import 'package:peppers_admin_panel/data/models/iiko_organization.dart';
+import 'package:peppers_admin_panel/data/providers/iiko_provider.dart';
 import 'package:http/http.dart';
-import 'package:pikapika_admin_panel/presentation/config/pikapika_exception.dart';
+import 'package:peppers_admin_panel/presentation/config/pikapika_exception.dart';
 
 class IikoRepository {
   final IikoProvider iikoProvider;

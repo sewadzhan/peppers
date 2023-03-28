@@ -1,9 +1,9 @@
 import 'package:flutter_paybox/paybox.dart' as paybox;
-import 'package:pikapika_admin_panel/data/models/checkout.dart';
-import 'package:pikapika_admin_panel/data/models/order.dart';
-import 'package:pikapika_admin_panel/data/models/product.dart';
-import 'package:pikapika_admin_panel/data/models/promocode.dart';
-import 'package:pikapika_admin_panel/presentation/config/pikapika_exception.dart';
+import 'package:peppers_admin_panel/data/models/checkout.dart';
+import 'package:peppers_admin_panel/data/models/order.dart';
+import 'package:peppers_admin_panel/data/models/product.dart';
+import 'package:peppers_admin_panel/data/models/promocode.dart';
+import 'package:peppers_admin_panel/presentation/config/pikapika_exception.dart';
 
 class Config {
   static String paymentMethodToString(

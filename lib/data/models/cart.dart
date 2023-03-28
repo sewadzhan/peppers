@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:pikapika_admin_panel/data/models/cart_item.dart';
-import 'package:pikapika_admin_panel/data/models/promocode.dart';
+import 'package:peppers_admin_panel/data/models/cart_item.dart';
+import 'package:peppers_admin_panel/data/models/promocode.dart';
 
 //Cart model
 class Cart extends Equatable {

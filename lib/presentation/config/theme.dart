@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
 
 class CustomTheme {
   static TextTheme usualTextTheme = const TextTheme(

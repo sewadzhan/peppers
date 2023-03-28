@@ -1,7 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
-import 'package:pikapika_admin_panel/data/models/storage_files.dart';
-import 'package:pikapika_admin_panel/data/providers/storage_provider.dart';
+import 'package:peppers_admin_panel/data/models/storage_files.dart';
+import 'package:peppers_admin_panel/data/providers/storage_provider.dart';
 
 class StorageRepository {
   final StorageProvider storageProvider;

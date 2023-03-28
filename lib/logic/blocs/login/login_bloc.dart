@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pikapika_admin_panel/data/repositories/auth_repository.dart';
+import 'package:peppers_admin_panel/data/repositories/auth_repository.dart';
 
 import 'form_submission_status.dart';
 

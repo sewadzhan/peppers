@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pikapika_admin_panel/logic/blocs/order/order_bloc.dart';
-import 'package:pikapika_admin_panel/logic/blocs/user/user_bloc.dart';
-import 'package:pikapika_admin_panel/logic/cubits/auth/logout_cubit.dart';
-import 'package:pikapika_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
-import 'package:pikapika_admin_panel/presentation/components/drawer_list_tile.dart';
-import 'package:pikapika_admin_panel/presentation/config/constants.dart';
-import 'package:pikapika_admin_panel/presentation/config/responsive.dart';
-import 'package:pikapika_admin_panel/presentation/screens/contacts_screen.dart';
-import 'package:pikapika_admin_panel/presentation/screens/discount_screen.dart';
-import 'package:pikapika_admin_panel/presentation/screens/gift_screen.dart';
-import 'package:pikapika_admin_panel/presentation/screens/orders_screen.dart';
-import 'package:pikapika_admin_panel/presentation/screens/pickup_points_screen.dart';
-import 'package:pikapika_admin_panel/presentation/screens/promotions_screen.dart';
-import 'package:pikapika_admin_panel/presentation/screens/settings_screen.dart';
-import 'package:pikapika_admin_panel/presentation/screens/users_screen.dart';
+import 'package:peppers_admin_panel/logic/blocs/order/order_bloc.dart';
+import 'package:peppers_admin_panel/logic/blocs/user/user_bloc.dart';
+import 'package:peppers_admin_panel/logic/cubits/auth/logout_cubit.dart';
+import 'package:peppers_admin_panel/logic/cubits/navigation/navigation_cubit.dart';
+import 'package:peppers_admin_panel/presentation/components/drawer_list_tile.dart';
+import 'package:peppers_admin_panel/presentation/config/constants.dart';
+import 'package:peppers_admin_panel/presentation/config/responsive.dart';
+import 'package:peppers_admin_panel/presentation/screens/contacts_screen.dart';
+import 'package:peppers_admin_panel/presentation/screens/discount_screen.dart';
+import 'package:peppers_admin_panel/presentation/screens/gift_screen.dart';
+import 'package:peppers_admin_panel/presentation/screens/orders_screen.dart';
+import 'package:peppers_admin_panel/presentation/screens/pickup_points_screen.dart';
+import 'package:peppers_admin_panel/presentation/screens/promotions_screen.dart';
+import 'package:peppers_admin_panel/presentation/screens/settings_screen.dart';
+import 'package:peppers_admin_panel/presentation/screens/users_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -75,7 +75,7 @@ class MainScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: Constants.defaultPadding),
               child: SvgPicture.asset(
-                'assets/logo/horizontal_logo.svg',
+                'assets/logo/logo.svg',
                 width: 130,
               ),
             ),

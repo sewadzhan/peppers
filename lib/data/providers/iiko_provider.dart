@@ -1,9 +1,9 @@
 import 'dart:convert';
 //import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart';
-import 'package:pikapika_admin_panel/data/models/cart.dart';
-import 'package:pikapika_admin_panel/data/models/checkout.dart';
-import 'package:pikapika_admin_panel/data/models/pikapika_user.dart';
+import 'package:peppers_admin_panel/data/models/cart.dart';
+import 'package:peppers_admin_panel/data/models/checkout.dart';
+import 'package:peppers_admin_panel/data/models/pikapika_user.dart';
 
 class IikoProvider {
   final String iikoWebLogin = '2e13cc74';

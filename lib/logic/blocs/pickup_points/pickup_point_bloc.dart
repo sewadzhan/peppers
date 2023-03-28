@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:pikapika_admin_panel/data/models/delivery_point.dart';
-import 'package:pikapika_admin_panel/data/models/iiko_organization.dart';
-import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
-import 'package:pikapika_admin_panel/data/repositories/iiko_repository.dart';
-import 'package:pikapika_admin_panel/logic/blocs/contact/contact_bloc.dart';
+import 'package:peppers_admin_panel/data/models/delivery_point.dart';
+import 'package:peppers_admin_panel/data/models/iiko_organization.dart';
+import 'package:peppers_admin_panel/data/repositories/firestore_repository.dart';
+import 'package:peppers_admin_panel/data/repositories/iiko_repository.dart';
+import 'package:peppers_admin_panel/logic/blocs/contact/contact_bloc.dart';
 
 part 'pickup_point_event.dart';
 part 'pickup_point_state.dart';

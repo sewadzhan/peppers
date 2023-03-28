@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:pikapika_admin_panel/data/models/iiko_discount.dart';
-import 'package:pikapika_admin_panel/data/models/promocode.dart';
-import 'package:pikapika_admin_panel/data/repositories/firestore_repository.dart';
-import 'package:pikapika_admin_panel/data/repositories/iiko_repository.dart';
+import 'package:peppers_admin_panel/data/models/iiko_discount.dart';
+import 'package:peppers_admin_panel/data/models/promocode.dart';
+import 'package:peppers_admin_panel/data/repositories/firestore_repository.dart';
+import 'package:peppers_admin_panel/data/repositories/iiko_repository.dart';
 
 part 'promocode_event.dart';
 part 'promocode_state.dart';

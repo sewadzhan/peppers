@@ -1,5 +1,5 @@
-import 'package:pikapika_admin_panel/data/models/base_product.dart';
-import 'package:pikapika_admin_panel/data/models/product_feature.dart';
+import 'package:peppers_admin_panel/data/models/base_product.dart';
+import 'package:peppers_admin_panel/data/models/product_feature.dart';
 
 //Product for free gift
 class GiftProduct extends BaseProduct {
